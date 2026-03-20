@@ -14,6 +14,11 @@
 		overflow-x: hidden;
 	}
 	
+	a{
+	text-decoration: none;
+	color: white;
+	}
+	
 	.header {
         box-shadow: 0 15px 10px rgba(0,0,0,0.2); 
 		table-layout: fixed;
@@ -144,7 +149,7 @@
 }
 
 .account-btn {
-    background: #941C04;
+    background: var(--primary-red);
     color: white;
     border: 1px solid #ffffff;
     padding: 10px 20px;
@@ -171,7 +176,7 @@
 }
 
 .auth-tooltip h3 {
-    color: #5E0B00;
+    color: var(--dark-red);
     font-size: 16px;
     margin-bottom: 15px;
 }
@@ -194,7 +199,7 @@
 
 .tooltip-option:hover {
 	background: #f9f9f9; 
-	border-color: #941C04; 
+	border-color: var(--primary-red); 
 }
 
 .separator {
@@ -311,7 +316,7 @@
 }
 
 .abadge{
-	background-color: #941C04;
+	background-color: var(--primary-red);
 	color: white;
     padding: 6px 15px;
     border-radius: 50px;
@@ -324,7 +329,7 @@
 }
 
 .abadge:hover {
-	background-color: #5E0B00;
+	background-color: var(--dark-red);
     transform: translateY(-2px);
     }
 
@@ -366,6 +371,12 @@
     display: flex;
     flex-direction: column; 
     gap: 12px;
+}
+
+.cards-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .summary-bubble {

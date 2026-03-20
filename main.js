@@ -6,7 +6,6 @@ const firebaseConfig = {
     storageBucket: "by-the-book-3120c.firebasestorage.app",
     messagingSenderId: "795787841752",
     appId: "1:795787841752:web:52b7657d0ffe31739847ad",
-    measurementId: "G-7EC8YT427C"
 };
 
 if (!firebase.apps.length) {
@@ -37,27 +36,24 @@ async function initApp() {
 window.addEventListener('DOMContentLoaded', initApp);
 
 // --- Routing System ---
-async function navigateTo(pageName) {
+async function navigateTo(path) {
     try {
-        const cleanPageName = pageName.split('?')[0]; 
-        const response = await fetch(`${cleanPageName}.html`);
-        if (!response.ok) throw new Error(`Page ${cleanPageName} missing`);
+        const fileName = path.split('?')[0]; 
+        
+        const response = await fetch(`${fileName}.html`);
+        if (!response.ok) throw new Error(`Page ${fileName} missing`);
         
         const content = await response.text();
-        const container = document.getElementById('load-page');
-        container.innerHTML = content;
+        document.getElementById('load-page').innerHTML = content;
         
-        window.history.pushState({}, '', `#${pageName}`);
+        window.location.hash = `#${path}`;
 
-        setTimeout(() => {
-            if (typeof loadSiteData === 'function') {
-                loadSiteData(cleanPageName);
-            }
-        }, 50); 
+        if (typeof loadSiteData === 'function') {
+            loadSiteData(fileName);
+        }
 
     } catch (err) {
         console.error("Meow! Routing error:", err);
-        if (pageName !== 'home') navigateTo('home');
     }
 }
 
@@ -112,9 +108,8 @@ function showRandomBook(books) {
     const btn = document.getElementById('rec-link-btn');
     if (btn) {
         btn.onclick = () => {
-            window.location.hash = `book?id=${book.id}`;
-            navigateTo('book');
-        };
+			navigateTo(`book?id=${book.id}`);
+		};
     }
 }
 
@@ -127,25 +122,27 @@ function displayBooksByCategory(books) {
     newContainer.innerHTML = '<div style="width: 100%;"><span class="badge">You Might Also Like</span></div>';
 
     books.forEach((book) => {
-        const bookHTML = `
-            <div class="book-item">
-                <a href="#book?id=${book.id}" onclick="setTimeout(() => navigateTo('book'), 10)">
-                    <img src="${book.image}" class="book-img">
-                </a>
-                <h3>${book.title}</h3>
-                <a href="#book?id=${book.id}" onclick="setTimeout(() => navigateTo('book'), 10)" class="abadge">VIEW BOOK</a>
-            </div>`;
-        
-        if (book.status === "popular") popularContainer.innerHTML += bookHTML;
-        else if (book.status === "new") newContainer.innerHTML += bookHTML;
-    });
+    const bookHTML = `
+        <div class="book-item">
+            <a href="#book?id=${book.id}" onclick="event.preventDefault(); navigateTo('book?id=${book.id}')">
+                <img src="${book.image}" class="book-img">
+            </a>
+            <h3>${book.title}</h3>
+            <a href="#book?id=${book.id}" onclick="event.preventDefault(); navigateTo('book?id=${book.id}')" class="abadge">VIEW BOOK</a>
+        </div>`;
+    
+    if (book.status === "popular") popularContainer.innerHTML += bookHTML;
+    else if (book.status === "new") newContainer.innerHTML += bookHTML;
+});
 }
 
 // --- BookDetails Functions ---
 function getBookIdFromURL() {
     const hash = window.location.hash;
-    const params = new URLSearchParams(hash.split('?')[1]);
-    return params.get('id');
+    if (hash.includes('id=')) {
+        return hash.split('id=')[1].split('&')[0];
+    }
+    return null;
 }
 
 async function loadBookDetails() {
@@ -212,7 +209,7 @@ function renderSmallCards(container, snapshot, currentId, title) {
 function renderSmallBookCard(id, book) {
     return `
         <div class="small-card">
-            <a href="#book?id=${id}" onclick="setTimeout(() => navigateTo('book'), 10)">
+            <a href="#book?id=${id}" onclick="event.preventDefault(); navigateTo('book?id=${id}')">
                 <img src="${book.image}" class="book-img">
                 <p>${book.title}</p>
             </a>
