@@ -1,0 +1,16 @@
+.news-page {
+    padding: 20px;
+}
+
+.news-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.article {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}

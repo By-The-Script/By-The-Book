@@ -7,55 +7,181 @@ const firebaseConfig = {
     messagingSenderId: "795787841752",
     appId: "1:795787841752:web:52b7657d0ffe31739847ad",
 };
-
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
-const db = firebase.firestore();
+export const db = firebase.firestore();
+export const auth = firebase.auth();
 let cachedBooks = null;
+	window.navigateTo = navigateTo;
 
-// --- App Startup ---
-async function initApp() {
-    console.log("Dr. Meow is starting the engine...");
+//----------------------------------------------------------
 
-    firebase.auth().onAuthStateChanged(user => {
-        if (user && typeof updateSidebarForUser === 'function') {
-            updateSidebarForUser(user);
+// --- Function imports ---
+//Startup
+import { initApp, signUp, handleRegister} from './core.js';
+
+//HomePage
+import { showRandomBook, displayBooksByCategory } from './home.js';
+
+//BookDetails
+import { loadBookDetails } from './book.js';
+
+//Profile
+import { loadProfile } from './profile.js';
+
+//BookShelf
+import { loadBookshelf } from './bookshelf.js';
+
+//News
+
+
+//-------------------------------------------------------------
+
+// ---App Startup---
+window.addEventListener('DOMContentLoaded', () => {
+    initApp();
+
+    const container = document.getElementById('load-page');
+    container.addEventListener('click', e => {
+        const target = e.target;
+
+        if (target.matches('.abadge') || target.matches('.view-book-link')) {
+            const bookId = target.dataset.bookId;
+            if (bookId) navigateTo(`book?id=${bookId}`);
         }
+		
     });
 
-    window.addEventListener('click', (event) => {
-        const tooltip = document.getElementById('authTooltip');
-        if (tooltip) tooltip.style.display = 'none';
+    const hash = window.location.hash.replace('#', '');
+
+    if (hash) {
+        navigateTo(hash);
+    } else {
+        navigateTo('home');
+    }
+	document.querySelectorAll('.side-item').forEach(el => {
+    el.addEventListener('click', () => {
+        const page = el.dataset.page;
+        if (page) navigateTo(page);
+    });
+});
+
+ const checkbox = document.getElementById("termsCheckbox");
+    const buttons = document.querySelectorAll(".requires-terms");
+
+    buttons.forEach(btn => {
+
+        btn.addEventListener("mouseenter", () => {
+            if (!checkbox.checked) {
+                btn.style.cursor = "not-allowed";
+            }
+        });
+
+        btn.addEventListener("mouseleave", () => {
+            btn.style.cursor = "pointer";
+        });
+
+        btn.addEventListener("click", (e) => {
+            if (!checkbox.checked) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+
+                shakeTerms();
+
+                return false;
+            }
+        }, true); 
     });
 
-    const hash = window.location.hash.replace('#', '').split('?')[0] || 'home';
+});
+
+
+function shakeTerms() {
+    const termsBox = document.querySelector(".terms-box");
+
+    if (!termsBox) return;
+
+    termsBox.classList.add("shake");
+
+    setTimeout(() => {
+        termsBox.classList.remove("shake");
+    }, 400);
+};
+
+
+auth.onAuthStateChanged(user => {
+    const tooltip = document.getElementById('authTooltip');
+
+    if (user && tooltip) {
+        tooltip.style.display = 'none';
+    }
+});
+
+let currentPage = '';
+
+window.addEventListener('hashchange', () => {
+    const hash = window.location.hash.replace('#', '');
+
+    if (hash !== currentPage) {
     navigateTo(hash);
 }
+});
 
-window.addEventListener('DOMContentLoaded', initApp);
+const pageToTab = {
+    home: 'home',
+    book: 'home',
+    search: 'home',
+
+    profile: 'profile',
+    bookshelf: 'bookshelf',
+    news: 'news'
+};
+
+function setActiveSidebar(page) {
+    const tab = pageToTab[page];
+
+    document.querySelectorAll('.side-item').forEach(el => {
+        el.classList.remove('side-item-active');
+    });
+
+    const active = document.querySelector(`.side-item[data-page="${tab}"]`);
+    if (active) {
+        active.classList.add('side-item-active');
+    }
+
+};
+
+//----------------------------------------------------------
 
 // --- Routing System ---
-async function navigateTo(path) {
+export async function navigateTo(path) {
     try {
         const fileName = path.split('?')[0]; 
-        
+        currentPage = path;
+		 setActiveSidebar(fileName); 
+		
         const response = await fetch(`${fileName}.html`);
         if (!response.ok) throw new Error(`Page ${fileName} missing`);
         
         const content = await response.text();
         document.getElementById('load-page').innerHTML = content;
         
-        window.location.hash = `#${path}`;
+        if (window.location.hash !== `#${path}`) {
+		window.location.hash = `#${path}`;
+		}
 
         if (typeof loadSiteData === 'function') {
             loadSiteData(fileName);
         }
+		
 
     } catch (err) {
         console.error("Meow! Routing error:", err);
     }
 }
+
+//----------------------------------------------------------------------------
 
 // --- Data Management & Logic ---
 async function loadSiteData(pageName) {
@@ -82,142 +208,21 @@ async function loadSiteData(pageName) {
         case 'book':
             loadBookDetails();
             break;
-    }
+			
+		case 'profile':
+			loadProfile();
+		break;
+
+		case 'bookshelf':
+			loadBookshelf();
+		break;
+
+		case 'news':
+			loadNews();
+		break;
+		}
 
     if (typeof refreshUserStats === 'function') refreshUserStats();
 }
 
-// --- HomePage Functions ---
-function showRandomBook(books) {
-    const randomIndex = Math.floor(Math.random() * books.length);
-    const book = books[randomIndex];
-    const titleEl = document.getElementById('rec-full');
-    if (!titleEl) return; 
-
-    titleEl.innerText = (book.series ? book.series + ": " : "") + book.title;
-    document.getElementById('rec-author').innerText = "By: " + book.author;
-    document.getElementById('rec-description').innerText = book.description;
-    document.getElementById('rec-rating').innerText = "Rating: " + (book.paws || "N/A");
-
-    const img = document.getElementById('rec-img');
-    if (img) {
-        img.src = book.image;
-        img.style.display = "block";
-    }
-
-    const btn = document.getElementById('rec-link-btn');
-    if (btn) {
-        btn.onclick = () => {
-			navigateTo(`book?id=${book.id}`);
-		};
-    }
-}
-
-function displayBooksByCategory(books) {
-    const popularContainer = document.getElementById('popular-container');
-    const newContainer = document.getElementById('new-container');
-    if (!popularContainer || !newContainer) return;
-
-    popularContainer.innerHTML = '<div style="width: 100%;"><span class="badge">Most Popular</span></div>';
-    newContainer.innerHTML = '<div style="width: 100%;"><span class="badge">You Might Also Like</span></div>';
-
-    books.forEach((book) => {
-    const bookHTML = `
-        <div class="book-item">
-            <a href="#book?id=${book.id}" onclick="event.preventDefault(); navigateTo('book?id=${book.id}')">
-                <img src="${book.image}" class="book-img">
-            </a>
-            <h3>${book.title}</h3>
-            <a href="#book?id=${book.id}" onclick="event.preventDefault(); navigateTo('book?id=${book.id}')" class="abadge">VIEW BOOK</a>
-        </div>`;
-    
-    if (book.status === "popular") popularContainer.innerHTML += bookHTML;
-    else if (book.status === "new") newContainer.innerHTML += bookHTML;
-});
-}
-
-// --- BookDetails Functions ---
-function getBookIdFromURL() {
-    const hash = window.location.hash;
-    if (hash.includes('id=')) {
-        return hash.split('id=')[1].split('&')[0];
-    }
-    return null;
-}
-
-async function loadBookDetails() {
-    const id = getBookIdFromURL();
-    if (!id) return;
-
-    try {
-        const doc = await db.collection("books").doc(id).get();
-        if (!doc.exists) return;
-
-        const book = doc.data();
-        document.getElementById('rec-book-name').innerText = book.title;
-        document.getElementById('rec-author').innerHTML = "By: " + book.author;
-        document.getElementById('rec-summary').innerText = book.summary || book.description;
-        document.getElementById('book-image').src = book.image;
-
-        if (book.series) {
-            const seriesEl = document.getElementById('rec-series');
-            seriesEl.innerText = book.series + " series";
-            seriesEl.style.display = "inline-block";
-            loadRelatedBySeries(book.series, id);
-        }
-        
-        if (book.tags) {
-            const tagsContainer = document.getElementById('rec-tags');
-            tagsContainer.innerHTML = '';
-            book.tags.forEach(tag => {
-                const span = document.createElement('span');
-                span.className = 'tag';
-                span.innerText = tag;
-                tagsContainer.appendChild(span);
-            });
-            loadRelatedByTags(book.tags, id);
-        }
-    } catch (e) { console.error(e); }
-}
-
-async function loadRelatedBySeries(seriesName, currentId) {
-    const container = document.getElementById('otherInSeries');
-    if (!container) return;
-    const snap = await db.collection("books").where("series", "==", seriesName).limit(5).get();
-    renderSmallCards(container, snap, currentId, "More in the Series");
-}
-
-async function loadRelatedByTags(tags, currentId) {
-    const container = document.getElementById('relatedBooks');
-    if (!container || !tags) return;
-    const snap = await db.collection("books").where("tags", "array-contains-any", tags.slice(0, 10)).limit(6).get();
-    renderSmallCards(container, snap, currentId, "You Might Also Like");
-}
-
-function renderSmallCards(container, snapshot, currentId, title) {
-    let html = `<div class="related-section"><span class="abadge">${title}</span><div class="cards-grid">`;
-    snapshot.forEach(doc => {
-        if (doc.id !== currentId) {
-            const b = doc.data();
-            html += renderSmallBookCard(doc.id, b);
-        }
-    });
-    html += '</div></div>';
-    container.innerHTML = html;
-}
-
-function renderSmallBookCard(id, book) {
-    return `
-        <div class="small-card">
-            <a href="#book?id=${id}" onclick="event.preventDefault(); navigateTo('book?id=${id}')">
-                <img src="${book.image}" class="book-img">
-                <p>${book.title}</p>
-            </a>
-        </div>`;
-}
-
-function toggleAuthTooltip(event) {
-    if (event) event.stopPropagation();
-    const tooltip = document.getElementById('authTooltip');
-    if (tooltip) tooltip.style.display = (tooltip.style.display === 'block') ? 'none' : 'block';
-}
+//----------------------------------------------------------------------------------------

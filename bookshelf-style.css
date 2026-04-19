@@ -1,0 +1,16 @@
+.bookshelf-page {
+    padding: 20px;
+}
+
+.shelf-row {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    margin-bottom: 25px;
+}
+
+.shelf-row img {
+    width: 120px;
+    border-radius: 8px;
+    cursor: pointer;
+}

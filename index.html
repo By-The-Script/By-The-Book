@@ -2,9 +2,15 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="pictures/favicon.jpeg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<link rel="stylesheet" href="index-style.css">
-    <link rel="icon" type="image/png" href="pictures/favicong.png">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<link rel="stylesheet" href="home-style.css">
+	<link rel="stylesheet" href="book-style.css">
+	<link rel="stylesheet" href="book-list.css">
+	<link rel="stylesheet" href="news-style.css">
+	<link rel="stylesheet" href="profile-style.css">
+	<link rel="stylesheet" href="bookshelf-style.css">
     <title>By The Book</title>
 	<meta name="description" content="Discover your next favorite story with Dr. Meow! Join By The Book for daily recommendations, a gamified reading experience, and the chance to earn 'Mice' for free books.">
 	<meta name="keywords" content="books, book recommendations, Dr. Meow, Percy Jackson, reading community, earn books, book tracker">
@@ -18,87 +24,128 @@
   <body style="margin: 0; padding: 0;">
 	<div class="header">
         <table border="0" width="100%" cellspacing="0">
-          <tr bgcolor="#941C04" height="150">
-            <td colspan="6" width="70%"><img src="pictures/logo.png" height="150px"></td>
-            <td colspan="1" width="30%" style="text-align: center; vertical-align: middle; padding: 10px; padding-left: 120px;"><div class="header-actions">
-            <div class="auth-wrapper">
-				<button type="button" class="account-btn">
-					<i class="fa-solid fa-circle-user"> GUEST MODE </i>
-				</button>
-				<button type="button" class="sign-in" onclick="toggleAuthTooltip(event)">
-					SIGN IN
-				</button>
+			<tr bgcolor="#941C04" height="150">
+				<td colspan="6" width="70%"><img src="pictures/logo.png" height="150px"></td>
+				<td colspan="1" width="30%" style="text-align: center; vertical-align: middle; padding: 10px; padding-left: 120px;"><div class="header-actions">
+					<div class="auth-wrapper">
+						<button type="button" class="account-btn">
+							<i class="fa-solid fa-circle-user"> GUEST MODE </i>
+						</button>
+						<button type="button" class="sign-in" id="open-tooltip" onClick="toggleTooltip('authTooltip')">
+							SIGN IN
+						</button>
 
-				<div id="authTooltip" class="auth-tooltip">
-					<span class="close-tooltip" onclick="toggleAuthTooltip(event)"> &times; </span>
-					<div class="tooltip-arrow"></div>
-					<h3>Join the Club 🐾</h3>
-        
-					<button class="tooltip-option google" onclick="loginWithGoogle()">
-						<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="16">
-						Google Sign-in
-					</button>
+							<div id="authTooltip" class="auth-tooltip">
+							<button class="close-tooltip" id="close-tooltip" onclick="closeTooltip('authTooltip')"> <i class="fa-solid fa-xmark"></i> </button>
+							<div class="tooltip-inner">
+								<h3>Join the Club 🐾</h3>
+									<div class="providers">
+										<div class="email-password">
+											<div class="input-group">
+												<input type="email" id="email" required>
+												<label>Email</label>
+											</div>
 
-					<div class="separator"><span>or</span></div>
+											<div class="input-group">
+												<input type="password" id="password" required>
+												<label>Password</label>
+											</div>
 
-					<button class="tooltip-option email" onclick="location.href='login.html'">
-						<i class="fa-solid fa-envelope"></i> Email / Password
-					</button>
-				</div>
-			</div></td>
-          </tr>
-          <tr bgcolor="#5E0B00" height="50" style="text-align: center; font-weight: bold; color: white;">
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Fantasy</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Science-Fiction</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Kids</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Adults</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Teenagers</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Thriller</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Search 🔍</a></td>
-          </tr>
+											<button class="Login requires-terms" onclick="signIn()">Login</button>
+
+											<p class="switch-auth">
+												Don't have an account? 
+												<button onClick="closeTooltip('authTooltip')"><a onClick="navigateTo('register')" target="_blank">Register</a></button>
+												for free!
+											</p>
+										</div>
+										<div class="vertical-line"></div>
+										<div class="other-providers">
+											<button class="tooltip-option requires-terms" id="google-login" onClick="signInWithGoogle()">
+												<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="25">
+												Google
+											</button>
+											<button class="tooltip-option requires-terms" id="git-hub-login" onClick="SignInWithGithub()">
+												<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/GitHub_font_awesome.svg/330px-GitHub_font_awesome.svg.png" width="25"> GitHub
+											</button>
+											<button class="tooltip-option requires-terms" id="microsoft-login">
+												<img src="https://avatars.githubusercontent.com/u/6154722?s=200&v=4" width="25"> Microsoft
+											</button>
+										</div>
+									</div>
+									<div class="terms-box">
+										<label class="checkbox-container">
+											<input type="checkbox" id="termsCheckbox">
+											<span class="checkmark"></span>
+
+											I agree to the 
+											<button onClick="navigateTo('terms')">Terms of Service</button> 
+											and 
+											<button onClick="navigateTo('privacy')">Privacy Policy</button>
+										</label>
+									</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr bgcolor="#5E0B00" height="50" style="text-align: center; font-weight: bold; color: white;">
+				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;" href="index.html">Home Page</a></td>
+				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Reviews</a></td>
+				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Blogs</a></td>
+				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Forums</a></td>
+				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Quizzes</a></td>
+				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">First Chapter</a></td>
+				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Search 🔍</a></td>
+			</tr>
         </table>
 	</div>
 
     <div class="main-container">
 		<aside class="barrier"> 
-			<div class="side-item-active">
+			<div class="side-item"  data-page="home">
 				<i class="fa-solid fa-book"></i>
-				<span>Main Library</span>
+				<a href="index.html"><span>Main Library</span></a>
 			</div>
     
-			<div class="side-item">
+			<div class="side-item"   data-page="profile">
 				<i class="fa-solid fa-user"></i>
-				<span>My Profile</span>
+				<a  onclick="navigateTo('profile')"><span>My Profile</span></a>
 			</div>
     
-			<div class="side-item">
+			<div class="side-item"  data-page="bookshelf">
 				<i class="fa-solid fa-bookmark"></i>
-				<span>My Bookshelf</span>
+				<a  onclick="navigateTo('bookshelf')"><span>My Bookshelf</span></a>
 			</div>
     
-			<div class="side-item">
+			<div class="side-item"  data-page="community">
 				<i class="fa-regular fa-comments"></i>
-				<span>Chats & Community</span>
+				<a ><span>Chats & Community</span></a>
 			</div>
 			
-			<div class="side-item">
+			<div class="side-item"  data-page="news">
 				<i class="fa-solid fa-newspaper"></i>
-				<span>News & Updates</span>
+				<a  onclick="navigateTo('news')"><span>News & Updates</span></a>
+			</div>
+			
+			<div class="side-item"  data-page="shop">
+				<i class="fa-solid fa-cart-shopping"></i>				
+				<a ><span>Shop & Quests</span></a>
 			</div>
 		
-			<div class="side-item">
+			<div class="side-item"  data-page="upload">
 				<i class="fa-solid fa-upload"></i>
-				<span>Upload A Book</span>
+				<a ><span>Upload & Read A Book</span></a>
 			</div>
     
-			<div class="side-item">
+			<div class="side-item"  data-page="book-list">
 				<i class="fa-solid fa-list"></i>
-				<span>Full Book List</span>
+				<a><span>Full Book List</span></a>
 			</div>
 			
-			<div class="side-item">
+			<div class="side-item"  data-page="settings">
 				<i class="fa-solid fa-gear"></i>
-				<span>Settings</span>
+				<a ><span>Settings</span></a>
 			</div>
 		</aside>
 		
@@ -132,10 +179,64 @@
 	</div>
 	
 	<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-
 <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics-compat.js"></script>
-<script defer src="main.js"></script>
-</body>
+
+<script defer type="module" src="main.js"></script>
+<script>
+ function signInWithGoogle() {
+	console.log("signing in...");
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider)
+        .then(result => {
+            console.log("Logged in:", result.user.displayName);
+        })
+        .catch(err => console.error(err));
+}
+function SignInWithMicrosoft() {
+    const provider = new firebase.auth.OAuthProvider('microsoft.com');
+    firebase.auth().signInWithPopup(provider);
+};
+function SignInWithGithub() {
+    const provider = new firebase.auth.GithubAuthProvider();
+    firebase.auth().signInWithPopup(provider);
+};
+
+function signIn() {
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(user => console.log("Logged in:", user.user.email))
+        .catch(err => alert(err.message));
+}
+function toggleTooltip(elementId) {
+    const tooltip = document.getElementById(elementId);
+    
+    if (tooltip) {
+        if (tooltip.style.display === 'none' || tooltip.style.display === '') {
+            tooltip.style.display = 'block';
+        } else {
+            tooltip.style.display = 'none';
+        }
+    } else {
+        console.warn("Tooltip element not found: " + elementId);
+    }
+}
+function closeTooltip(elementId) {
+    const tooltip = document.getElementById(elementId);
+    
+    if (tooltip) {
+        if (tooltip.style.display === 'block') {
+            tooltip.style.display = 'none';
+        } else {
+            tooltip.style.display = 'none';
+        }
+    } else {
+        console.warn("Tooltip element not found: " + elementId);
+    }
+}
+</script>
+	</body>
 </html>
