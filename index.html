@@ -3,270 +3,176 @@
   <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="pictures/favicon.jpeg">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<link rel="stylesheet" href="index-style.css">
-	<link rel="stylesheet" href="home-style.css">
-	<link rel="stylesheet" href="book-style.css">
-	<link rel="stylesheet" href="book-list.css">
-	<link rel="stylesheet" href="news-style.css">
-	<link rel="stylesheet" href="profile-style.css">
-	<link rel="stylesheet" href="bookshelf-style.css">
-	<link rel="stylesheet" href="register-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="index-style.css">
+    <link rel="stylesheet" href="home-style.css">
+    <link rel="stylesheet" href="book-style.css">
+    <link rel="stylesheet" href="book-list.css">
+    <link rel="stylesheet" href="news-style.css">
+    <link rel="stylesheet" href="profile-style.css">
+    <link rel="stylesheet" href="bookshelf-style.css">
+    <link rel="stylesheet" href="register-style.css">
     <title>By The Book</title>
-	<meta name="description" content="Discover your next favorite story with Dr. Meow! Join By The Book for daily recommendations, a gamified reading experience, and the chance to earn 'Mice' for free books.">
-	<meta name="keywords" content="books, book recommendations, Dr. Meow, Percy Jackson, reading community, earn books, book tracker">
-	<meta name="author" content="Dotan Hillel">
-	<meta property="og:title" content="By The Book | Daily Book Recommendations">
-	<meta property="og:description" content="Let Dr. Meow guide your reading journey. Earn rewards while discovering great books!">
-	<meta property="og:image" content="https://Dotan-666.github.io/By-The-Book/assets/dr-meow-share.jpg"> 
-	<meta property="og:url" content="https://Dotan-666.github.io/By-The-Book/index.html">
-	<meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="Discover your next favorite story with Dr. Meow! Join By The Book for daily recommendations, a gamified reading experience, and the chance to earn 'Mice' for free books.">
+    <meta name="keywords" content="books, book recommendations, Dr. Meow, Percy Jackson, reading community, earn books, book tracker">
+    <meta name="author" content="Dotan Hillel">
+    <meta property="og:title" content="By The Book | Daily Book Recommendations">
+    <meta property="og:description" content="Let Dr. Meow guide your reading journey. Earn rewards while discovering great books!">
+    <meta property="og:image" content="https://Dotan-666.github.io/By-The-Book/assets/dr-meow-share.jpg">
+    <meta property="og:url" content="https://Dotan-666.github.io/By-The-Book/index.html">
+    <meta name="twitter:card" content="summary_large_image">
   </head>
   <body style="margin: 0; padding: 0;">
-	<div class="header">
-        <table border="0" width="100%" cellspacing="0">
-			<tr bgcolor="#941C04" height="150">
-				<td colspan="6" width="70%"><img src="pictures/logo.png" height="150px"></td>
-				<td colspan="1" width="30%" style="text-align: center; vertical-align: middle; padding: 10px; padding-left: 120px;"><div class="header-actions">
-					<div class="auth-wrapper">
-						<button type="button" class="account-btn">
-							 <img id="profile-pic" src="pictures/default-user.png"> GUEST MODE 
-						</button>
-						<button type="button" class="sign-in" id="open-tooltip" onClick="toggleTooltip('authTooltip')">
-							SIGN IN
-						</button>
 
-							<div id="authTooltip" class="auth-tooltip">
-							<button class="close-tooltip" id="close-tooltip" onclick="closeTooltip('authTooltip')"> <i class="fa-solid fa-xmark"></i> </button>
-							<div class="tooltip-inner">
-								<h3>Join the Club 🐾</h3>
-									<div class="providers">
-										<div class="email-password">
-											<div class="input-group">
-												<input type="email" id="email" required>
-												<label>Email</label>
-											</div>
+    <div class="header">
+      <table border="0" width="100%" cellspacing="0">
+        <tr bgcolor="#941C04" height="150">
+          <td colspan="6" width="70%"><img src="pictures/logo.png" height="150px"></td>
+          <td colspan="1" width="30%" style="text-align: center; vertical-align: middle; padding: 10px; padding-left: 120px;">
+            <div class="header-actions">
+              <div class="auth-wrapper">
+                <button type="button" class="account-btn">
+                  <img id="profile-pic" src="pictures/default-user.png"> GUEST MODE
+                </button>
+                <button type="button" class="sign-in" id="open-tooltip">
+                  SIGN IN
+                </button>
 
-											<div class="input-group">
-												<input type="password" id="password" required>
-												<label>Password</label>
-											</div>
+                <div id="authTooltip" class="auth-tooltip">
+                  <button class="close-tooltip" id="close-tooltip"><i class="fa-solid fa-xmark"></i></button>
+                  <div class="tooltip-inner">
+                    <h3>Join the Club 🐾</h3>
+                    <div class="providers">
+                      <div class="email-password">
+                        <div class="input-group">
+                          <input type="email" id="email" required>
+                          <label>Email</label>
+                        </div>
+                        <div class="input-group">
+                          <input type="password" id="password" required>
+                          <label>Password</label>
+                        </div>
+                        <button class="Login requires-terms" id="login-btn">Login</button>
+                        <p class="switch-auth">
+                          Don't have an account?
+                          <button id="go-register-btn">Register</button>
+                          for free!
+                        </p>
+                      </div>
+                      <div class="vertical-line"></div>
+                      <div class="other-providers">
+                        <button class="tooltip-option requires-terms" id="google-login">
+                          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="25">
+                          Google
+                        </button>
+                        <button class="tooltip-option requires-terms" id="git-hub-login">
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/GitHub_font_awesome.svg/330px-GitHub_font_awesome.svg.png" width="25"> GitHub
+                        </button>
+                        <button class="tooltip-option requires-terms" id="microsoft-login">
+                          <img src="https://avatars.githubusercontent.com/u/6154722?s=200&v=4" width="25"> Microsoft
+                        </button>
+                      </div>
+                    </div>
+                    <div class="terms-box">
+                      <label class="checkbox-container">
+                        <input type="checkbox" id="termsCheckbox">
+                        <span class="checkmark"></span>
+                        I agree to the
+                        <button id="terms-btn">Terms of Service</button>
+                        and
+                        <button id="privacy-btn">Privacy Policy</button>
+                      </label>
+                    </div>
+                  </div>
+                </div>
 
-											<button class="Login requires-terms" onclick="signIn()">Login</button>
-
-											<p class="switch-auth">
-												Don't have an account? 
-												<button onClick="closeTooltip('authTooltip')"><a onClick="navigateTo('register')" target="_blank">Register</a></button>
-												for free!
-											</p>
-										</div>
-										<div class="vertical-line"></div>
-										<div class="other-providers">
-											<button class="tooltip-option requires-terms" id="google-login" onClick="signInWithGoogle()">
-												<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="25">
-												Google
-											</button>
-											<button class="tooltip-option requires-terms" id="git-hub-login" onClick="SignInWithGithub()">
-												<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/GitHub_font_awesome.svg/330px-GitHub_font_awesome.svg.png" width="25"> GitHub
-											</button>
-											<button class="tooltip-option requires-terms" id="microsoft-login">
-												<img src="https://avatars.githubusercontent.com/u/6154722?s=200&v=4" width="25"> Microsoft
-											</button>
-										</div>
-									</div>
-									<div class="terms-box">
-										<label class="checkbox-container">
-											<input type="checkbox" id="termsCheckbox">
-											<span class="checkmark"></span>
-
-											I agree to the 
-											<button onClick="navigateTo('terms')">Terms of Service</button> 
-											and 
-											<button onClick="navigateTo('privacy')">Privacy Policy</button>
-										</label>
-									</div>
-							</div>
-						</div>
-					</div>
-				</td>
-			</tr>
-			<tr bgcolor="#5E0B00" height="50" style="text-align: center; font-weight: bold; color: white;">
-				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;" href="index.html">Home Page</a></td>
-				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Reviews</a></td>
-				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Blogs</a></td>
-				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Forums</a></td>
-				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Quizzes</a></td>
-				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">First Chapter</a></td>
-				<td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Search 🔍</a></td>
-			</tr>
-        </table>
-	</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr bgcolor="#5E0B00" height="50" style="text-align: center; font-weight: bold; color: white;">
+          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;" href="index.html">Home Page</a></td>
+          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Reviews</a></td>
+          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Blogs</a></td>
+          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Forums</a></td>
+          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Quizzes</a></td>
+          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">First Chapter</a></td>
+          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Search 🔍</a></td>
+        </tr>
+      </table>
+    </div>
 
     <div class="main-container">
-		<aside class="barrier"> 
-			<div class="side-item"  data-page="home">
-				<i class="fa-solid fa-book"></i>
-				<a href="index.html"><span>Main Library</span></a>
-			</div>
-    
-			<div class="side-item"   data-page="profile">
-				<i class="fa-solid fa-user"></i>
-				<a  onclick="navigateTo('profile')"><span>My Profile</span></a>
-			</div>
-    
-			<div class="side-item"  data-page="bookshelf">
-				<i class="fa-solid fa-bookmark"></i>
-				<a  onclick="navigateTo('bookshelf')"><span>My Bookshelf</span></a>
-			</div>
-    
-			<div class="side-item"  data-page="community">
-				<i class="fa-regular fa-comments"></i>
-				<a ><span>Chats & Community</span></a>
-			</div>
-			
-			<div class="side-item"  data-page="news">
-				<i class="fa-solid fa-newspaper"></i>
-				<a  onclick="navigateTo('news')"><span>News & Updates</span></a>
-			</div>
-			
-			<div class="side-item"  data-page="shop">
-				<i class="fa-solid fa-cart-shopping"></i>				
-				<a ><span>Shop & Quests</span></a>
-			</div>
-		
-			<div class="side-item"  data-page="upload">
-				<i class="fa-solid fa-upload"></i>
-				<a ><span>Upload & Read A Book</span></a>
-			</div>
-    
-			<div class="side-item"  data-page="book-list">
-				<i class="fa-solid fa-list"></i>
-				<a><span>Full Book List</span></a>
-			</div>
-			
-			<div class="side-item"  data-page="settings">
-				<i class="fa-solid fa-gear"></i>
-				<a ><span>Settings</span></a>
-			</div>
-		</aside>
-		
-		<div id="load-page">
-		</div>
+      <aside class="barrier">
+        <div class="side-item" data-page="home">
+          <i class="fa-solid fa-book"></i>
+          <a href="index.html"><span>Main Library</span></a>
+        </div>
+        <div class="side-item" data-page="profile">
+          <i class="fa-solid fa-user"></i>
+          <a><span>My Profile</span></a>
+        </div>
+        <div class="side-item" data-page="bookshelf">
+          <i class="fa-solid fa-bookmark"></i>
+          <a><span>My Bookshelf</span></a>
+        </div>
+        <div class="side-item" data-page="community">
+          <i class="fa-regular fa-comments"></i>
+          <a><span>Chats & Community</span></a>
+        </div>
+        <div class="side-item" data-page="news">
+          <i class="fa-solid fa-newspaper"></i>
+          <a><span>News & Updates</span></a>
+        </div>
+        <div class="side-item" data-page="shop">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <a><span>Shop & Quests</span></a>
+        </div>
+        <div class="side-item" data-page="upload">
+          <i class="fa-solid fa-upload"></i>
+          <a><span>Upload & Read A Book</span></a>
+        </div>
+        <div class="side-item" data-page="book-list">
+          <i class="fa-solid fa-list"></i>
+          <a><span>Full Book List</span></a>
+        </div>
+        <div class="side-item" data-page="settings">
+          <i class="fa-solid fa-gear"></i>
+          <a><span>Settings</span></a>
+        </div>
+      </aside>
+
+      <div id="load-page"></div>
     </div>
 
     <div class="footer">
-	    <div class="col-f" style="flex: 1 1 250px;">
-            <strong>Quick Links</strong><br><br>
-		    <a href="contact.html">Contact Us</a><br>
-			<a href="about.html">About Us</a><br>
-			<a href="#">Support the Site</a>
-		</div>
-		<div class="col-f" style="flex: 1 1 250px;">
-		    <strong>Follow Dr. Meow</strong><br><br>
-			<a href="#">Whatsapp</a> | <a href="#">Youtube</a><br>
-			<a href="#">Facebook</a> | <a href="#">Instagram</a>
-		</div>
-		<div class="col-f" style="flex: 1 1 250px;">
-		    <strong>Our Network</strong><br><br>
-		    <a href="moovie.html">By The Moovie</a><br>
-			<a href="game.html">By The Game</a>
-		</div>
-		
-		<div style="text-align: center; width: 100%; margin-top: 10px; border-top: 1px solid #333; padding-top: 20px;">
-			<hr color="#2c2c2c" width="90%">
-		    <p style="font-size: 14px; color: #888;">&copy; 2025 Dotan Hillel. All rights reserved.</p>
-            <p style="font-size: 11px; color: #555;"></p>
-		</div>
-	</div>
-	
-	<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+      <div class="col-f" style="flex: 1 1 250px;">
+        <strong>Quick Links</strong><br><br>
+        <a href="contact.html">Contact Us</a><br>
+        <a href="about.html">About Us</a><br>
+        <a href="#">Support the Site</a>
+      </div>
+      <div class="col-f" style="flex: 1 1 250px;">
+        <strong>Follow Dr. Meow</strong><br><br>
+        <a href="#">Whatsapp</a> | <a href="#">Youtube</a><br>
+        <a href="#">Facebook</a> | <a href="#">Instagram</a>
+      </div>
+      <div class="col-f" style="flex: 1 1 250px;">
+        <strong>Our Network</strong><br><br>
+        <a href="moovie.html">By The Moovie</a><br>
+        <a href="game.html">By The Game</a>
+      </div>
+      <div style="text-align: center; width: 100%; margin-top: 10px; border-top: 1px solid #333; padding-top: 20px;">
+        <hr color="#2c2c2c" width="90%">
+        <p style="font-size: 14px; color: #888;">&copy; 2025 Dotan Hillel. All rights reserved.</p>
+        <p style="font-size: 11px; color: #555;"></p>
+      </div>
+    </div>
 
-<script defer type="module" src="main.js"></script>
-<script>
- function signInWithGoogle() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-
-    firebase.auth().signInWithPopup(provider)
-        .then(async result => {
-            const user = result.user;
-            const userRef = firebase.firestore().collection("users").doc(user.uid);
-            const doc = await userRef.get();
-
-            if (!doc.exists) {
-                // First time Google login — create their profile
-                await userRef.set({
-                    username: user.displayName || "Reader",
-                    email: user.email,
-                    cheese: 50,
-                    role: "reader",
-                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
-                });
-            }
-        })
-        .catch(err => console.error(err));
-}
-function SignInWithMicrosoft() {
-    const provider = new firebase.auth.OAuthProvider('microsoft.com');
-    firebase.auth().signInWithPopup(provider);
-};
-function SignInWithGithub() {
-    const provider = new firebase.auth.GithubAuthProvider();
-
-    firebase.auth().signInWithPopup(provider)
-        .then(async result => {
-            const user = result.user;
-            const userRef = firebase.firestore().collection("users").doc(user.uid);
-            const doc = await userRef.get();
-
-            if (!doc.exists) {
-                await userRef.set({
-                    username: user.displayName || user.email.split('@')[0],
-                    email: user.email,
-                    cheese: 50,
-                    role: "reader",
-                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
-                });
-            }
-        })
-        .catch(err => console.error(err));
-}
-
-function signIn() {
-    const email = emailInput.value;
-    const password = passwordInput.value;
-
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(user => console.log("Logged in:", user.user.email))
-        .catch(err => alert(err.message));
-}
-function toggleTooltip(elementId) {
-    const tooltip = document.getElementById(elementId);
-    
-    if (tooltip) {
-        if (tooltip.style.display === 'none' || tooltip.style.display === '') {
-            tooltip.style.display = 'block';
-        } else {
-            tooltip.style.display = 'none';
-        }
-    } else {
-        console.warn("Tooltip element not found: " + elementId);
-    }
-}
-function closeTooltip(elementId) {
-    const tooltip = document.getElementById(elementId);
-    
-    if (tooltip) {
-        if (tooltip.style.display === 'block') {
-            tooltip.style.display = 'none';
-        } else {
-            tooltip.style.display = 'none';
-        }
-    } else {
-        console.warn("Tooltip element not found: " + elementId);
-    }
-}
-</script>
-	</body>
+    <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script defer src="index.js"></script>
+    <script defer type="module" src="main.js"></script>
+  </body>
 </html>

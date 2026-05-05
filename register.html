@@ -36,7 +36,7 @@
             <i class="fa-solid fa-lock"></i>
         </div>
 
-        <button class="reg-submit-btn" onclick="handleRegister()">
+        <button class="reg-submit-btn" id="register-submit-btn">
             Create Account
         </button>
 
@@ -44,61 +44,9 @@
 
         <div class="reg-signin-link">
             Already have an account?
-            <button onclick="navigateTo('home') , toggleTooltip(auth-tooltip)">Sign in here</button>
+            <button id="go-signin-btn">Sign in here</button>
         </div>
     </div>
-	<script>
-	async function handleRegister() {
-    const username = document.getElementById('reg-username').value.trim();
-    const email = document.getElementById('reg-email').value.trim();
-    const password = document.getElementById('reg-password').value;
-    const confirmPassword = document.getElementById('reg-confirm-password').value;
-    const errorBox = document.getElementById('error-message');
-
-    const showError = (msg) => {
-        errorBox.innerText = msg;
-        errorBox.style.display = 'block';
-    };
-
-    if (password !== confirmPassword) {
-        return showError("Passwords do not match!");
-    }
-    if (password.length < 6) {
-        return showError("Password must be at least 6 characters.");
-    }
-
-    try {
-    
-        const userRef = firebase.firestore().collection("users");
-        const snapshot = await userRef.where("username", "==", username).get();
-        
-        if (!snapshot.empty) {
-            return showError("Username is already taken. Try another one!");
-        }
-
-        const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
-        const user = userCredential.user;
-
-        await userRef.doc(user.uid).set({
-            username: username,
-            email: email,
-            cheese: 50, 
-            role: "reader",
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        });
-
-        console.log("Registration successful!");
-        navigateTo('home'); 
-
-    } catch (error) {
-        if (error.code === 'auth/email-already-in-use') {
-            showError("This email is already registered.");
-        } else {
-            showError(error.message);
-        }
-    }
-}
-</script>
 
 </div>
 </div>
