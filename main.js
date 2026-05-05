@@ -19,7 +19,7 @@ let cachedBooks = null;
 
 // --- Function imports ---
 //Startup
-import { initApp, signUp, handleRegister} from './core.js';
+import { initApp, signUp} from './core.js';
 
 //HomePage
 import { showRandomBook, displayBooksByCategory } from './home.js';
@@ -134,6 +134,7 @@ const pageToTab = {
     search: 'home',
 
     profile: 'profile',
+	register: 'profile',
     bookshelf: 'bookshelf',
     news: 'news'
 };
@@ -220,6 +221,9 @@ async function loadSiteData(pageName) {
 		case 'news':
 			loadNews();
 		break;
+		
+		case 'register':
+			
 		}
 
     if (typeof refreshUserStats === 'function') refreshUserStats();

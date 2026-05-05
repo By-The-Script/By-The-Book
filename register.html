@@ -1,14 +1,104 @@
 <div class="site-info">
-<div class="register-box">
-    <h2>Join By The Book 🐾</h2>
+<div class="register-page">
+
+    <div class="register-card">
+        <span class="paw-decoration">🐾</span>
+
+        <div class="register-header">
+            <img src="pictures/Dr.meow/Dr.Meow.base.png" alt="Dr. Meow">
+            <h2>Join the Club 🐾</h2>
+            <p>Create your free account and let Dr. Meow guide you</p>
+        </div>
+
+        <div id="error-message"></div>
+
+        <div class="reg-input-group">
+            <label for="reg-username">Username</label>
+            <input type="text" id="reg-username" placeholder="Choose a username">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div class="reg-input-group">
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" placeholder="your@email.com">
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+
+        <div class="reg-input-group">
+            <label for="reg-password">Password</label>
+            <input type="password" id="reg-password" placeholder="At least 6 characters">
+            <i class="fa-solid fa-lock"></i>
+        </div>
+
+        <div class="reg-input-group">
+            <label for="reg-confirm-password">Confirm Password</label>
+            <input type="password" id="reg-confirm-password" placeholder="Repeat your password">
+            <i class="fa-solid fa-lock"></i>
+        </div>
+
+        <button class="reg-submit-btn" onclick="handleRegister()">
+            Create Account
+        </button>
+
+        <div class="reg-divider">or</div>
+
+        <div class="reg-signin-link">
+            Already have an account?
+            <button onclick="navigateTo('home') , toggleTooltip(auth-tooltip)">Sign in here</button>
+        </div>
+    </div>
+	<script>
+	async function handleRegister() {
+    const username = document.getElementById('reg-username').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const password = document.getElementById('reg-password').value;
+    const confirmPassword = document.getElementById('reg-confirm-password').value;
+    const errorBox = document.getElementById('error-message');
+
+    const showError = (msg) => {
+        errorBox.innerText = msg;
+        errorBox.style.display = 'block';
+    };
+
+    if (password !== confirmPassword) {
+        return showError("Passwords do not match!");
+    }
+    if (password.length < 6) {
+        return showError("Password must be at least 6 characters.");
+    }
+
+    try {
     
-    <input type="text" id="reg-username" placeholder="Choose Username" required>
-    <input type="email" id="reg-email" placeholder="Email Address" required>
-    <input type="password" id="reg-password" placeholder="Password (min 6 chars)" required>
-    <input type="password" id="reg-confirm-password" placeholder="Confirm Password" required>
-    
-    <p id="error-message" style="color: #ff4444; font-size: 13px; display: none;"></p>
-    
-    <button onclick="handleRegister()">Create Account</button>
+        const userRef = firebase.firestore().collection("users");
+        const snapshot = await userRef.where("username", "==", username).get();
+        
+        if (!snapshot.empty) {
+            return showError("Username is already taken. Try another one!");
+        }
+
+        const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+
+        await userRef.doc(user.uid).set({
+            username: username,
+            email: email,
+            cheese: 50, 
+            role: "reader",
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        console.log("Registration successful!");
+        navigateTo('home'); 
+
+    } catch (error) {
+        if (error.code === 'auth/email-already-in-use') {
+            showError("This email is already registered.");
+        } else {
+            showError(error.message);
+        }
+    }
+}
+</script>
+
 </div>
 </div>

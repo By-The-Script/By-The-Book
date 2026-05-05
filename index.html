@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="news-style.css">
 	<link rel="stylesheet" href="profile-style.css">
 	<link rel="stylesheet" href="bookshelf-style.css">
+	<link rel="stylesheet" href="register-style.css">
     <title>By The Book</title>
 	<meta name="description" content="Discover your next favorite story with Dr. Meow! Join By The Book for daily recommendations, a gamified reading experience, and the chance to earn 'Mice' for free books.">
 	<meta name="keywords" content="books, book recommendations, Dr. Meow, Percy Jackson, reading community, earn books, book tracker">
@@ -29,7 +30,7 @@
 				<td colspan="1" width="30%" style="text-align: center; vertical-align: middle; padding: 10px; padding-left: 120px;"><div class="header-actions">
 					<div class="auth-wrapper">
 						<button type="button" class="account-btn">
-							<i class="fa-solid fa-circle-user"> GUEST MODE </i>
+							 <img id="profile-pic" src="pictures/default-user.png"> GUEST MODE 
 						</button>
 						<button type="button" class="sign-in" id="open-tooltip" onClick="toggleTooltip('authTooltip')">
 							SIGN IN
@@ -185,12 +186,24 @@
 <script defer type="module" src="main.js"></script>
 <script>
  function signInWithGoogle() {
-	console.log("signing in...");
     const provider = new firebase.auth.GoogleAuthProvider();
 
     firebase.auth().signInWithPopup(provider)
-        .then(result => {
-            console.log("Logged in:", result.user.displayName);
+        .then(async result => {
+            const user = result.user;
+            const userRef = firebase.firestore().collection("users").doc(user.uid);
+            const doc = await userRef.get();
+
+            if (!doc.exists) {
+                // First time Google login — create their profile
+                await userRef.set({
+                    username: user.displayName || "Reader",
+                    email: user.email,
+                    cheese: 50,
+                    role: "reader",
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+            }
         })
         .catch(err => console.error(err));
 }
@@ -200,8 +213,25 @@ function SignInWithMicrosoft() {
 };
 function SignInWithGithub() {
     const provider = new firebase.auth.GithubAuthProvider();
-    firebase.auth().signInWithPopup(provider);
-};
+
+    firebase.auth().signInWithPopup(provider)
+        .then(async result => {
+            const user = result.user;
+            const userRef = firebase.firestore().collection("users").doc(user.uid);
+            const doc = await userRef.get();
+
+            if (!doc.exists) {
+                await userRef.set({
+                    username: user.displayName || user.email.split('@')[0],
+                    email: user.email,
+                    cheese: 50,
+                    role: "reader",
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+            }
+        })
+        .catch(err => console.error(err));
+}
 
 function signIn() {
     const email = emailInput.value;
