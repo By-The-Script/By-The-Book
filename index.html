@@ -30,6 +30,20 @@
           <td colspan="6" width="70%"><img src="pictures/logo.png" height="150px"></td>
           <td colspan="1" width="30%" style="text-align: center; vertical-align: middle; padding: 10px; padding-left: 120px;">
             <div class="header-actions">
+              <div class="civ-stats-bar" id="civ-stats-bar">
+                <div class="civ-stat mice">
+                  <div class="civ-stat-inner">
+                    <span class="civ-stat-icon">🧀</span>
+                    <span class="civ-stat-value" id="stat-mice">0</span>
+                  </div>
+                </div>
+                <div class="civ-stat xp">
+                  <div class="civ-stat-inner">
+                    <span class="civ-stat-icon">⚡</span>
+                    <span class="civ-stat-value" id="stat-xp">0 XP</span>
+                  </div>
+                </div>
+              </div>
               <div class="auth-wrapper">
                 <button type="button" class="account-btn">
                   <img id="profile-pic" src="pictures/default-user.png"> GUEST MODE
@@ -91,13 +105,9 @@
           </td>
         </tr>
         <tr bgcolor="#5E0B00" height="50" style="text-align: center; font-weight: bold; color: white;">
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;" href="index.html">Home Page</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Reviews</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Blogs</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Forums</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Quizzes</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">First Chapter</a></td>
-          <td width="14%"><a style="color: white; text-decoration: none; cursor: pointer;">Search 🔍</a></td>
+			<td colspan="7">
+				<div id="top-nav" class="top-nav"></div>
+			</td>
         </tr>
       </table>
     </div>

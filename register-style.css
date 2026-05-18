@@ -5,9 +5,7 @@
             align-items: center;
             min-height: 70vh;
             padding: 40px 20px;
-            background: linear-gradient(135deg, #f5f0f0 0%, #ede8e8 100%);
-			border-radius: 30px;
-			left: 50%;
+            background: #f4f4f4;
         }
 
         .register-card {
@@ -57,9 +55,26 @@
             margin-bottom: 22px;
         }
 
+        .reg-input-group .reg-label-row {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 7px;
+        }
+
+        .reg-input-group .reg-label-row i {
+            color: #aaa;
+            font-size: 13px;
+            transition: color 0.25s;
+        }
+
+        .reg-input-group:focus-within .reg-label-row i {
+            color: #941C04;
+        }
+
         .reg-input-group input {
             width: 100%;
-            padding: 14px 16px 14px 44px;
+            padding: 14px 16px;
             border: 2px solid #e8e8e8;
             border-radius: 12px;
             font-size: 15px;
@@ -76,19 +91,9 @@
             box-shadow: 0 0 0 4px rgba(148, 28, 4, 0.08);
         }
 
-        .reg-input-group i {
-            position: absolute;
-            left: 14px;
-            margin: 10px;
-            transform: translateY(-50%);
-            color: #aaa;
-            font-size: 15px;
-            transition: color 0.25s;
-        }
-
-        .reg-input-group input:focus ~ i,
-        .reg-input-group:focus-within i {
-            color: #941C04;
+        /* hide the old inline icon (we now put it in the label row via HTML) */
+        .reg-input-group > i {
+            display: none;
         }
 
         .reg-input-group label {
@@ -96,9 +101,9 @@
             font-size: 12px;
             font-weight: 600;
             color: #666;
-            margin-bottom: 7px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin: 0;
         }
 
         #error-message {

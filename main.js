@@ -22,7 +22,7 @@ window.navigateTo = navigateTo;
 // Imports
 // -------------------------------------------------------
 
-import { initApp, signUp, initRegisterPage } from './core.js';
+import { initApp, signUp, initRegisterPage, handleRegister, updateTopNav } from './core.js';
 import { showRandomBook, displayBooksByCategory } from './home.js';
 import { loadBookDetails } from './book.js';
 import { loadProfile } from './profile.js';
@@ -110,14 +110,57 @@ window.addEventListener('hashchange', () => {
     if (hash !== currentPage) navigateTo(hash);
 });
 
-const pageToTab = {
+export const pageToTab = {
     home: 'home',
     book: 'home',
     search: 'home',
     profile: 'profile',
     register: 'profile',
     bookshelf: 'bookshelf',
-    news: 'news'
+    news: 'news',
+	shop: 'shop'
+};
+
+export const navbars = {
+
+    home: `
+        <div class="top-nav">
+            <a href="#">Reviews</a>
+            <a href="#">Blogs</a>
+            <a href="#">Forums</a>
+            <a href="#">Quizzes</a>
+            <a href="#">First Chapter</a>
+            <a href="#">Search 🔍</a>
+        </div>
+    `,
+
+    profile: `
+        <div class="top-nav">
+			<a href=""> My prifile</a>
+            <a href="#">My Posts</a>
+            <a href="#">Friends</a>
+            <a href="#">Achievements</a>
+            <a href="#">Statistics</a>
+        </div>
+    `,
+
+    shop: `
+        <div class="top-nav">
+            <a href="#">Daily Deals</a>
+            <a href="#">Skins</a>
+            <a href="#">Quests</a>
+            <a href="#">Premium</a>
+        </div>
+    `,
+
+    news: `
+        <div class="top-nav">
+            <a href="#">Events</a>
+            <a href="#">Updates</a>
+            <a href="#">Community</a>
+            <a href="#">Dr. Meow</a>
+        </div>
+    `
 };
 
 function setActiveSidebar(page) {
@@ -146,6 +189,8 @@ export async function navigateTo(path) {
         if (window.location.hash !== `#${path}`) {
             window.location.hash = `#${path}`;
         }
+		
+		updateTopNav(fileName);
 
         loadSiteData(fileName);
 

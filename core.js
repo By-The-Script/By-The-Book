@@ -2,7 +2,7 @@
 // core.js — App startup, auth listener, register logic
 // -------------------------------------------------------
 
-import { navigateTo, auth } from './main.js';
+import { navigateTo, auth, pageToTab, navbars } from './main.js';
 
 // -------------------------------------------------------
 // App Init
@@ -27,14 +27,48 @@ export async function initApp() {
 // -------------------------------------------------------
 
 export function initAuthListener() {
-    auth.onAuthStateChanged(user => {
+    auth.onAuthStateChanged(async user => {
         const nameEl = document.querySelector('.account-btn');
+        const statsBar = document.getElementById('civ-stats-bar');
+
         if (user) {
-            if (nameEl) nameEl.innerHTML = `<i class="fa-solid fa-circle-user"></i> ${user.displayName}`;
+            if (nameEl) nameEl.innerHTML = `<i class="fa-solid fa-circle-user"></i> ${user.displayName || user.email.split('@')[0]}`;
+
+            if (statsBar) {
+                // Fetch mice + xp from Firestore
+                let mice = 0, xp = 0;
+                try {
+                    const userDoc = await firebase.firestore().collection("users").doc(user.uid).get();
+                    if (userDoc.exists) {
+                        const data = userDoc.data();
+                        mice = data.cheese ?? data.mice ?? 0;
+                        xp   = data.xp ?? 0;
+                    }
+                } catch (e) { console.warn("Could not load user stats", e); }
+
+                const miceEl = document.getElementById('stat-mice');
+                const xpEl   = document.getElementById('stat-xp');
+                if (miceEl) miceEl.textContent = mice;
+                if (xpEl)   xpEl.textContent   = xp + ' XP';
+
+                statsBar.style.display = 'flex';
+            }
         } else {
             if (nameEl) nameEl.innerHTML = `<i class="fa-solid fa-circle-user"></i> GUEST MODE`;
+            if (statsBar) statsBar.style.display = 'none';
         }
     });
+}
+
+export function updateTopNav(pageName) {
+
+    const nav = document.getElementById("top-nav");
+
+    if (!nav) return;
+
+    const tab = pageToTab[pageName] || 'home';
+
+    nav.innerHTML = navbars[tab] || navbars.home;
 }
 
 // -------------------------------------------------------
@@ -75,6 +109,7 @@ export function initRegisterPage() {
     if (signInBtn) {
         signInBtn.addEventListener('click', () => {
             navigateTo('home');
+			toggleAuthTooltip(auth-tooltip);
         });
     }
 }
@@ -122,7 +157,7 @@ export async function handleRegister() {
         });
 
         console.log("Registration successful!");
-        navigateTo('home');
+        navigateTo('profile');
 
     } catch (error) {
         if (error.code === 'auth/email-already-in-use') {
