@@ -1,0 +1,669 @@
+<div class="site-info">
+<div class="settings-page">
+
+    <div class="settings-header">
+        <div>
+            <span class="settings-eyebrow">BY THE BOOK</span>
+            <h1 class="settings-title">⚙️ Settings</h1>
+            <p class="settings-sub">Customize your experience. Dr. Meow approves all choices except bad ones.</p>
+        </div>
+        <img src="pictures/Dr.meow/Dr.Meow.base.png" class="settings-meow-img" alt="Dr. Meow">
+    </div>
+
+    <div class="settings-layout">
+
+        <!-- SIDEBAR NAV -->
+        <nav class="settings-sidenav">
+            <button class="snav-btn active" data-target="section-appearance">🎨 Appearance</button>
+            <button class="snav-btn" data-target="section-notifications">🔔 Notifications</button>
+            <button class="snav-btn" data-target="section-privacy">🔒 Privacy</button>
+            <button class="snav-btn" data-target="section-reading">📖 Reading</button>
+            <button class="snav-btn danger-nav" data-target="section-danger">⚠️ Account</button>
+        </nav>
+
+        <!-- PANELS -->
+        <div class="settings-panels">
+
+            <!-- ===== APPEARANCE ===== -->
+            <div class="settings-panel active" id="section-appearance">
+                <div class="panel-title-row">
+                    <h2>🎨 Appearance</h2>
+                    <span class="panel-subtitle">Change how the site looks and feels</span>
+                </div>
+
+                <div class="settings-card">
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Dark Mode</strong>
+                            <p>Switch to a darker color scheme. Easier on the eyes at night.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-dark-mode">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Font Size</strong>
+                            <p>Adjust the reading font size across the platform.</p>
+                        </div>
+                        <div class="setting-control">
+                            <button class="size-btn" id="font-decrease">A−</button>
+                            <span class="size-display" id="font-display">Medium</span>
+                            <button class="size-btn" id="font-increase">A+</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Language</strong>
+                            <p>Choose the interface language.</p>
+                        </div>
+                        <select class="setting-select" id="lang-select">
+                            <option value="en" selected>🇬🇧 English</option>
+                            <option value="he">🇮🇱 עברית</option>
+                            <option value="es">🇪🇸 Español</option>
+                            <option value="fr">🇫🇷 Français</option>
+                            <option value="de">🇩🇪 Deutsch</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Reduce Animations</strong>
+                            <p>Turn off hover effects and transitions. Better for accessibility.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-animations">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Compact View</strong>
+                            <p>Show more content per screen with a denser layout.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-compact">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-meow-tip">
+                    <span class="tip-meow">😼</span>
+                    <p><strong>Dr. Meow recommends:</strong> Dark mode + Medium font. Peak reading aesthetic.</p>
+                </div>
+            </div>
+
+            <!-- ===== NOTIFICATIONS ===== -->
+            <div class="settings-panel" id="section-notifications">
+                <div class="panel-title-row">
+                    <h2>🔔 Notifications</h2>
+                    <span class="panel-subtitle">Control when and how Dr. Meow contacts you</span>
+                </div>
+
+                <div class="settings-card">
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Email Notifications</strong>
+                            <p>Receive emails about account activity, new features, and announcements.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-email-notif" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Streak Reminders</strong>
+                            <p>Get a nudge when you're about to lose your reading streak.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-streak-notif" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Event Notifications</strong>
+                            <p>Be notified about upcoming live events, quizzes, and community activities.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-event-notif" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Friend Activity</strong>
+                            <p>Get notified when friends post reviews or reach milestones.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-friend-notif">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Dr. Meow's Weekly Digest</strong>
+                            <p>A weekly summary email with top books, community highlights, and your progress — written by Dr. Meow personally (sort of).</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-digest" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Mice Economy Updates</strong>
+                            <p>Get notified when the weekly Mice exchange rate changes significantly.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-mice-notif">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-meow-tip">
+                    <span class="tip-meow">😼</span>
+                    <p><strong>Dr. Meow's advice:</strong> Keep streak reminders on. You will forget. It has happened before. It will happen again.</p>
+                </div>
+            </div>
+
+            <!-- ===== PRIVACY ===== -->
+            <div class="settings-panel" id="section-privacy">
+                <div class="panel-title-row">
+                    <h2>🔒 Privacy</h2>
+                    <span class="panel-subtitle">Control who can see what about you</span>
+                </div>
+
+                <div class="settings-card">
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Public Profile</strong>
+                            <p>Allow other users to view your profile page, username, and title badge.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-public-profile" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Show Reading Stats</strong>
+                            <p>Display your streak, level, and XP to other users on your profile.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-show-stats" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Show Mice Balance</strong>
+                            <p>Let others see your current Mice balance on your profile.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-show-mice">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Show Bookshelf</strong>
+                            <p>Make your favorites and currently-reading list visible to others.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-show-shelf" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Allow Friend Requests</strong>
+                            <p>Let other users send you friend requests.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-friend-requests" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Allow Direct Messages</strong>
+                            <p>Let users who are not your friends send you messages.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-dms">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Appear on Leaderboards</strong>
+                            <p>Include your username and stats in public rankings.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-leaderboard" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-meow-tip">
+                    <span class="tip-meow">😼</span>
+                    <p><strong>Dr. Meow says:</strong> A private cat is a wise cat. But a public profile earns more community XP.</p>
+                </div>
+            </div>
+
+            <!-- ===== READING ===== -->
+            <div class="settings-panel" id="section-reading">
+                <div class="panel-title-row">
+                    <h2>📖 Reading Preferences</h2>
+                    <span class="panel-subtitle">Tell Dr. Meow what you like to read</span>
+                </div>
+
+                <div class="settings-card">
+                    <div class="setting-row reading-goal-row">
+                        <div class="setting-info">
+                            <strong>Daily Reading Goal</strong>
+                            <p>How many minutes per day do you aim to read?</p>
+                        </div>
+                        <div class="goal-input-wrap">
+                            <input type="number" class="goal-input" id="daily-goal" value="30" min="5" max="480">
+                            <span class="goal-unit">min / day</span>
+                        </div>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Yearly Book Goal</strong>
+                            <p>How many books do you want to finish this year?</p>
+                        </div>
+                        <div class="goal-input-wrap">
+                            <input type="number" class="goal-input" id="yearly-goal" value="12" min="1" max="365">
+                            <span class="goal-unit">books / year</span>
+                        </div>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-block">
+                        <div class="setting-info" style="margin-bottom:14px;">
+                            <strong>Favorite Genres</strong>
+                            <p>Dr. Meow uses these to personalize your recommendations.</p>
+                        </div>
+                        <div class="genre-grid" id="genre-grid">
+                            <button class="genre-tag active" data-genre="Fantasy">🧙 Fantasy</button>
+                            <button class="genre-tag active" data-genre="Mythology">🏛️ Mythology</button>
+                            <button class="genre-tag" data-genre="Horror">👻 Horror</button>
+                            <button class="genre-tag active" data-genre="Adventure">⚔️ Adventure</button>
+                            <button class="genre-tag" data-genre="Romance">💕 Romance</button>
+                            <button class="genre-tag" data-genre="Sci-Fi">🚀 Sci-Fi</button>
+                            <button class="genre-tag" data-genre="Thriller">🔪 Thriller</button>
+                            <button class="genre-tag" data-genre="Biography">📰 Biography</button>
+                            <button class="genre-tag" data-genre="History">📜 History</button>
+                            <button class="genre-tag" data-genre="Poetry">🎭 Poetry</button>
+                            <button class="genre-tag" data-genre="Humor">😂 Humor</button>
+                            <button class="genre-tag active" data-genre="Kids">🧸 Kids</button>
+                            <button class="genre-tag" data-genre="Graphic-Novel">💥 Graphic Novel</button>
+                            <button class="genre-tag" data-genre="Magic">✨ Magic</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Show Spoiler Warnings</strong>
+                            <p>Display warnings before reviews that contain plot spoilers.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-spoilers" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <strong>Auto-add to Reading List</strong>
+                            <p>Automatically add books you rate to your bookshelf.</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle-auto-add">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="save-settings-btn" id="save-reading-btn">💾 Save Reading Preferences</button>
+
+                <div class="settings-meow-tip">
+                    <span class="tip-meow">😼</span>
+                    <p><strong>Dr. Meow's pick:</strong> Set your daily goal to something achievable. 20 minutes a day beats 0 minutes every time.</p>
+                </div>
+            </div>
+
+            <!-- ===== DANGER ZONE ===== -->
+            <div class="settings-panel" id="section-danger">
+                <div class="panel-title-row">
+                    <h2>⚠️ Account</h2>
+                    <span class="panel-subtitle">Serious actions. Think twice. Then think again.</span>
+                </div>
+
+                <div class="settings-card danger-card">
+
+                    <div class="danger-item">
+                        <div class="setting-info">
+                            <strong>Export My Data</strong>
+                            <p>Download a copy of all your personal data, reviews, and activity in JSON format. You have the right to this under GDPR.</p>
+                        </div>
+                        <button class="action-outlined-btn" id="export-btn">📦 Export Data</button>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="danger-item">
+                        <div class="setting-info">
+                            <strong>Reset Preferences</strong>
+                            <p>Reset all settings on this page back to their defaults. Your account data and Mice are not affected.</p>
+                        </div>
+                        <button class="action-outlined-btn" id="reset-prefs-btn">🔄 Reset Settings</button>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="danger-item">
+                        <div class="setting-info">
+                            <strong>Sign Out Everywhere</strong>
+                            <p>Sign out of all devices and active sessions. You'll need to log in again on each one.</p>
+                        </div>
+                        <button class="action-outlined-btn" id="signout-all-btn">🚪 Sign Out All Devices</button>
+                    </div>
+                </div>
+
+                <div class="settings-card danger-card danger-card-red" style="margin-top:20px;">
+                    <div class="danger-zone-header">
+                        <span>🔴</span>
+                        <div>
+                            <strong>Danger Zone</strong>
+                            <p>These actions are permanent and cannot be undone.</p>
+                        </div>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="danger-item">
+                        <div class="setting-info">
+                            <strong>Delete All My Content</strong>
+                            <p>Permanently delete all your reviews, blog posts, comments, and articles. Your account remains active.</p>
+                        </div>
+                        <button class="danger-action-btn" id="delete-content-btn">🗑️ Delete Content</button>
+                    </div>
+
+                    <div class="setting-divider"></div>
+
+                    <div class="danger-item">
+                        <div class="setting-info">
+                            <strong>Delete Account</strong>
+                            <p>Permanently delete your account, all personal data, your Mice balance, XP, and achievements. This cannot be reversed.</p>
+                        </div>
+                        <button class="danger-action-btn nuke-btn" id="delete-account-btn">💀 Delete My Account</button>
+                    </div>
+                </div>
+
+                <!-- Confirm delete modal trigger area -->
+                <div class="settings-meow-tip danger-tip">
+                    <span class="tip-meow">😿</span>
+                    <p><strong>Dr. Meow is begging you:</strong> Please don't delete your account. Dr. Meow will miss you. The books will miss you. <em>Think of the books.</em></p>
+                </div>
+            </div>
+
+        </div>
+        <!-- end panels -->
+
+    </div>
+    <!-- end layout -->
+
+    <!-- SAVE BAR -->
+    <div class="save-bar" id="save-bar" style="display:none;">
+        <span>⚠️ You have unsaved changes</span>
+        <div style="display:flex; gap:10px;">
+            <button class="save-bar-discard" id="discard-btn">Discard</button>
+            <button class="save-bar-save" id="global-save-btn">💾 Save All Changes</button>
+        </div>
+    </div>
+
+    <!-- DELETE CONFIRM MODAL -->
+    <div class="settings-modal" id="delete-modal" style="display:none;">
+        <div class="settings-modal-box">
+            <div style="font-size:52px; text-align:center; margin-bottom:12px;">😿</div>
+            <h3 id="modal-heading">Delete Account?</h3>
+            <p id="modal-body">This will permanently delete your account, all your data, your Mice balance, your XP, and all your achievements. There is no going back.</p>
+            <p style="font-size:13px; color:#aaa;">Type <strong>DELETE</strong> to confirm:</p>
+            <input type="text" class="edit-input" id="delete-confirm-input" placeholder="Type DELETE here" style="width:100%; box-sizing:border-box; margin-bottom:15px;">
+            <div style="display:flex; gap:10px; justify-content:center;">
+                <button class="danger-action-btn" id="modal-confirm-delete">Yes, Delete Everything</button>
+                <button class="action-outlined-btn" onclick="closeDeleteModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+(function() {
+    const STORAGE_KEY = 'btb_settings';
+    let dirty = false;
+
+    // ── Load saved settings ──
+    function loadSettings() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            Object.entries(saved).forEach(([id, val]) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                if (el.type === 'checkbox') el.checked = val;
+                else if (el.tagName === 'SELECT') el.value = val;
+                else if (el.type === 'number') el.value = val;
+            });
+            if (saved.genres) {
+                document.querySelectorAll('.genre-tag').forEach(btn => {
+                    btn.classList.toggle('active', saved.genres.includes(btn.dataset.genre));
+                });
+            }
+        } catch(e) {}
+    }
+
+    // ── Save settings ──
+    function saveSettings() {
+        const data = {};
+        document.querySelectorAll('[id^="toggle-"], #daily-goal, #yearly-goal, #lang-select').forEach(el => {
+            if (el.type === 'checkbox') data[el.id] = el.checked;
+            else data[el.id] = el.value;
+        });
+        data.genres = [...document.querySelectorAll('.genre-tag.active')].map(b => b.dataset.genre);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        dirty = false;
+        hideSaveBar();
+        showToast('✅ Settings saved!');
+    }
+
+    // ── Dirty tracking ──
+    function markDirty() {
+        dirty = true;
+        document.getElementById('save-bar').style.display = 'flex';
+    }
+
+    function hideSaveBar() { document.getElementById('save-bar').style.display = 'none'; }
+
+    // ── Sidebar nav ──
+    document.querySelectorAll('.snav-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.snav-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.settings-panel').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.target).classList.add('active');
+        });
+    });
+
+    // ── Genre toggles ──
+    document.querySelectorAll('.genre-tag').forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+            markDirty();
+        });
+    });
+
+    // ── All toggles / inputs ──
+    document.querySelectorAll('[id^="toggle-"], #daily-goal, #yearly-goal, #lang-select').forEach(el => {
+        el.addEventListener('change', markDirty);
+    });
+
+    // ── Dark mode live preview ──
+    document.getElementById('toggle-dark-mode').addEventListener('change', function() {
+        document.body.classList.toggle('dark-mode', this.checked);
+        markDirty();
+    });
+
+    // ── Font size ──
+    const sizes = ['Small', 'Medium', 'Large', 'X-Large'];
+    let sizeIdx = 1;
+    const display = document.getElementById('font-display');
+
+    document.getElementById('font-increase').addEventListener('click', () => {
+        if (sizeIdx < sizes.length - 1) { sizeIdx++; display.innerText = sizes[sizeIdx]; markDirty(); }
+    });
+    document.getElementById('font-decrease').addEventListener('click', () => {
+        if (sizeIdx > 0) { sizeIdx--; display.innerText = sizes[sizeIdx]; markDirty(); }
+    });
+
+    // ── Global save ──
+    document.getElementById('global-save-btn').addEventListener('click', saveSettings);
+    document.getElementById('save-reading-btn').addEventListener('click', saveSettings);
+
+    // ── Discard ──
+    document.getElementById('discard-btn').addEventListener('click', () => {
+        loadSettings();
+        dirty = false;
+        hideSaveBar();
+        showToast('↩️ Changes discarded.');
+    });
+
+    // ── Reset preferences ──
+    document.getElementById('reset-prefs-btn').addEventListener('click', () => {
+        if (!confirm('Reset all settings to default?')) return;
+        localStorage.removeItem(STORAGE_KEY);
+        location.reload();
+    });
+
+    // ── Export data (stub) ──
+    document.getElementById('export-btn').addEventListener('click', () => {
+        const data = { note: 'Full data export coming soon. This is a placeholder.', timestamp: new Date().toISOString() };
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href = url; a.download = 'bythebook-data.json'; a.click();
+        URL.revokeObjectURL(url);
+    });
+
+    // ── Sign out all (stub) ──
+    document.getElementById('signout-all-btn').addEventListener('click', () => {
+        if (confirm('Sign out of all devices?')) {
+            if (typeof firebase !== 'undefined') firebase.auth().signOut();
+        }
+    });
+
+    // ── Delete content (stub) ──
+    document.getElementById('delete-content-btn').addEventListener('click', () => {
+        document.getElementById('modal-heading').innerText = 'Delete All Content?';
+        document.getElementById('modal-body').innerText = 'This will permanently delete all your reviews, blog posts, and comments. Your account, Mice, and XP are not affected.';
+        document.getElementById('delete-modal').style.display = 'flex';
+    });
+
+    // ── Delete account ──
+    document.getElementById('delete-account-btn').addEventListener('click', () => {
+        document.getElementById('modal-heading').innerText = 'Delete Account?';
+        document.getElementById('modal-body').innerText = 'This will permanently delete your account, all your data, your Mice balance, your XP, and all your achievements. There is no going back.';
+        document.getElementById('delete-modal').style.display = 'flex';
+    });
+
+    document.getElementById('modal-confirm-delete').addEventListener('click', () => {
+        const val = document.getElementById('delete-confirm-input').value.trim();
+        if (val !== 'DELETE') { showToast('⚠️ Type DELETE in all caps to confirm.'); return; }
+        showToast('Account deletion requested. Goodbye 😿');
+        closeDeleteModal();
+        // TODO: firebase.auth().currentUser.delete()
+    });
+
+    document.getElementById('delete-modal').addEventListener('click', function(e) {
+        if (e.target === this) closeDeleteModal();
+    });
+
+    window.closeDeleteModal = function() {
+        document.getElementById('delete-modal').style.display = 'none';
+        document.getElementById('delete-confirm-input').value = '';
+    };
+
+    // ── Toast ──
+    function showToast(msg) {
+        const t = document.createElement('div');
+        t.style.cssText = 'position:fixed;bottom:100px;right:30px;background:#222;color:white;padding:13px 22px;border-radius:50px;font-weight:bold;font-size:14px;z-index:999999;box-shadow:0 5px 20px rgba(0,0,0,0.3);';
+        t.innerText = msg;
+        document.body.appendChild(t);
+        setTimeout(() => t.remove(), 3000);
+    }
+
+    // ── Init ──
+    loadSettings();
+})();
+</script>

@@ -1,0 +1,118 @@
+<div class="site-info">
+<div class="profile-page">
+
+    <div class="friends-page">
+
+        <div class="friends-header-row">
+            <div>
+                <h2 class="page-section-title">🤝 My Friends</h2>
+                <p class="page-section-sub">You have <strong id="friend-count">4</strong> friends</p>
+            </div>
+            <div class="friend-search-wrap">
+                <input type="text" class="friend-search-input" id="friend-search" placeholder="🔍 Search a friend by username...">
+                <button class="friend-search-btn">Search</button>
+            </div>
+        </div>
+
+        <div class="friends-list" id="friends-list">
+
+            <div class="friend-card">
+                <div class="friend-avatar">🐱</div>
+                <div class="friend-info">
+                    <strong class="friend-name">BookNerd99</strong>
+                    <div class="friend-meta">
+                        <span class="friend-stat-pill"><img src="pictures/Streak.png" width="50px"> 24 streak</span>
+                        <span class="friend-stat-pill">LVL 12</span>
+                        <span class="friend-stat-pill">🐭 340 Mice</span>
+                    </div>
+                    <p class="friend-bio">"Reading is dreaming with open eyes."</p>
+                </div>
+                <div class="friend-actions">
+                    <button class="friend-msg-btn">💬 Message</button>
+                    <button class="friend-remove-btn" onclick="removeFriend(this, 'BookNerd99')">Remove</button>
+                </div>
+            </div>
+
+            <div class="friend-card">
+                <div class="friend-avatar">🦉</div>
+                <div class="friend-info">
+                    <strong class="friend-name">WisdomSeeker</strong>
+                    <div class="friend-meta">
+                        <span class="friend-stat-pill"><img src="pictures/Streak.png" width="50px"> 7 streak</span>
+                        <span class="friend-stat-pill">LVL 5</span>
+                        <span class="friend-stat-pill">🐭 90 Mice</span>
+                    </div>
+                    <p class="friend-bio">"Percy Jackson changed my life."</p>
+                </div>
+                <div class="friend-actions">
+                    <button class="friend-msg-btn">💬 Message</button>
+                    <button class="friend-remove-btn" onclick="removeFriend(this, 'WisdomSeeker')">Remove</button>
+                </div>
+            </div>
+
+            <div class="friend-card">
+                <div class="friend-avatar">🐉</div>
+                <div class="friend-info">
+                    <strong class="friend-name">DragonReader</strong>
+                    <div class="friend-meta">
+                        <span class="friend-stat-pill"><img src="pictures/Streak.png" width="50px"> 52 streak</span>
+                        <span class="friend-stat-pill">LVL 18</span>
+                        <span class="friend-stat-pill">🐭 820 Mice</span>
+                    </div>
+                    <p class="friend-bio">"Fantasy is the only genre that matters."</p>
+                </div>
+                <div class="friend-actions">
+                    <button class="friend-msg-btn">💬 Message</button>
+                    <button class="friend-remove-btn" onclick="removeFriend(this, 'DragonReader')">Remove</button>
+                </div>
+            </div>
+
+            <div class="friend-card">
+                <div class="friend-avatar">🌙</div>
+                <div class="friend-info">
+                    <strong class="friend-name">MidnightPages</strong>
+                    <div class="friend-meta">
+                        <span class="friend-stat-pill"><img src="pictures/Streak.png" width="50px"> 3 streak</span>
+                        <span class="friend-stat-pill">LVL 3</span>
+                        <span class="friend-stat-pill">🐭 45 Mice</span>
+                    </div>
+                    <p class="friend-bio">"Just getting started."</p>
+                </div>
+                <div class="friend-actions">
+                    <button class="friend-msg-btn">💬 Message</button>
+                    <button class="friend-remove-btn" onclick="removeFriend(this, 'MidnightPages')">Remove</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="no-friends-msg" style="display:none;" class="empty-state">
+            <span style="font-size:48px;">😿</span>
+            <p>No friends found. Go read and make some!</p>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<script>
+function removeFriend(btn, name) {
+    if (!confirm(`Remove ${name} from your friends?`)) return;
+    const card = btn.closest('.friend-card');
+    card.style.animation = 'fadeOut 0.3s ease forwards';
+    setTimeout(() => {
+        card.remove();
+        const remaining = document.querySelectorAll('.friend-card').length;
+        document.getElementById('friend-count').innerText = remaining;
+        if (remaining === 0) document.getElementById('no-friends-msg').style.display = 'flex';
+    }, 300);
+}
+
+document.getElementById('friend-search').addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('.friend-card').forEach(card => {
+        const name = card.querySelector('.friend-name').innerText.toLowerCase();
+        card.style.display = name.includes(q) ? '' : 'none';
+    });
+});
+</script>

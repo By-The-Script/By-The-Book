@@ -48,7 +48,7 @@ export function initAuthListener() {
 
                 const miceEl = document.getElementById('stat-mice');
                 const xpEl   = document.getElementById('stat-xp');
-                if (miceEl) miceEl.textContent = mice;
+                if (miceEl) miceEl.textContent = mice + ' Mice';
                 if (xpEl)   xpEl.textContent   = xp + ' XP';
 
                 statsBar.style.display = 'flex';

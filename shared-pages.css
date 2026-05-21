@@ -1,0 +1,58 @@
+
+.page-shell{
+    background:#f1f1f1;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+.section-title{
+    color:#941C04;
+    font-size:28px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.feature-card{
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.fake-btn{
+    background:#941C04;
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:10px 16px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.progress-bar{
+    height:14px;
+    background:#ddd;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:60%;
+    background:#941C04;
+}
+
+.drmeow-box{
+    background:#fff5f5;
+    border-left:6px solid #941C04;
+    padding:20px;
+    border-radius:16px;
+    margin-bottom:25px;
+}

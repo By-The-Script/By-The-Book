@@ -1,0 +1,290 @@
+<div class="site-info">
+<div class="profile-page">
+
+
+    <div class="achievements-page">
+
+        <div class="achievements-header-row">
+            <div>
+                <h2 class="page-section-title">🏆 Dr. Meow's Achievements</h2>
+                <div class="achievements-progress-wrap">
+                    <div class="achievements-count-badge">12 / 28 Unlocked</div>
+                    <div class="achievements-overall-bar-wrap">
+                        <div class="achievements-overall-bar" style="width: 42.8%;"></div>
+                    </div>
+                    <span class="achievements-pct">42%</span>
+                </div>
+            </div>
+            <div class="achievements-toggle-wrap">
+                <button class="toggle-ach-btn active" id="btn-all" onclick="filterAchievements('all')">All</button>
+                <button class="toggle-ach-btn" id="btn-unlocked" onclick="filterAchievements('unlocked')">✅ Unlocked</button>
+                <button class="toggle-ach-btn" id="btn-locked" onclick="filterAchievements('locked')">🔒 Locked</button>
+            </div>
+        </div>
+
+        <div class="achievements-grid" id="achievements-grid">
+
+            <!-- UNLOCKED -->
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon">📖</div>
+                <div class="ach-info">
+                    <strong>First Page</strong>
+                    <p>Read your very first book on the platform.</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon">✍️</div>
+                <div class="ach-info">
+                    <strong>Critic in Training</strong>
+                    <p>Write your first review.</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon"><img src="pictures/Streak.png" width="50px"></div>
+                <div class="ach-info">
+                    <strong>On Fire</strong>
+                    <p>Reach a 7-day reading streak.</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon">🐭</div>
+                <div class="ach-info">
+                    <strong>Cheese Collector</strong>
+                    <p>Earn your first 100 Mice.</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon">🤝</div>
+                <div class="ach-info">
+                    <strong>Not Alone</strong>
+                    <p>Add your first friend.</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon">🏛️</div>
+                <div class="ach-info">
+                    <strong>Mythology Maniac</strong>
+                    <p>Read 3 books tagged "Mythology".</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon">⭐</div>
+                <div class="ach-info">
+                    <strong>Five Stars Only</strong>
+                    <p>Give a 5-paw rating to 5 books.</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon">🌅</div>
+                <div class="ach-info">
+                    <strong>Early Bird</strong>
+                    <p>Log in before 7am on 3 different days.</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon">📰</div>
+                <div class="ach-info">
+                    <strong>Breaking News</strong>
+                    <p>Publish your first article in Dr. Meow's News.</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon">🎭</div>
+                <div class="ach-info">
+                    <strong>Series Devotee</strong>
+                    <p>Complete an entire book series.</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon">💬</div>
+                <div class="ach-info">
+                    <strong>Chatterbox</strong>
+                    <p>Leave 25 comments on other reviews.</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <div class="ach-card unlocked" data-status="unlocked">
+                <div class="ach-icon-wrap unlocked-icon">🛒</div>
+                <div class="ach-info">
+                    <strong>First Purchase</strong>
+                    <p>Buy something from Dr. Meow's Emporium.</p>
+                </div>
+                <div class="ach-status-badge unlocked-badge">✅ Unlocked</div>
+            </div>
+
+            <!-- LOCKED -->
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🏆</div>
+                <div class="ach-info">
+                    <strong>30-Day Warrior</strong>
+                    <p>Maintain a 30-day reading streak.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">📚</div>
+                <div class="ach-info">
+                    <strong>Bookworm Supreme</strong>
+                    <p>Read 50 books on the platform.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🌍</div>
+                <div class="ach-info">
+                    <strong>World Traveler</strong>
+                    <p>Read books set in 5 different countries.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">👑</div>
+                <div class="ach-info">
+                    <strong>Dr. Meow's Chosen</strong>
+                    <p>Reach Level 25. Only the dedicated make it this far.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🧠</div>
+                <div class="ach-info">
+                    <strong>Quiz Champion</strong>
+                    <p>Win 10 trivia quizzes.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🤖</div>
+                <div class="ach-info">
+                    <strong>AI Whisperer</strong>
+                    <p>Have 100 conversations with Dr. Meow.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🦁</div>
+                <div class="ach-info">
+                    <strong>Fearless Explorer</strong>
+                    <p>Complete the Genre Explorer Quest Pack.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">💎</div>
+                <div class="ach-info">
+                    <strong>High Roller</strong>
+                    <p>Accumulate 1,000 Mice at once.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🌙</div>
+                <div class="ach-info">
+                    <strong>Midnight Scholar</strong>
+                    <p>Log reading activity after midnight on 10 occasions.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🎯</div>
+                <div class="ach-info">
+                    <strong>Spotlight Star</strong>
+                    <p>Get a post featured on the homepage via Spotlight.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🔍</div>
+                <div class="ach-info">
+                    <strong>Hidden Gem Hunter</strong>
+                    <p>Review a book with fewer than 10 total reviews.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🚀</div>
+                <div class="ach-info">
+                    <strong>To Infinity</strong>
+                    <p>Read 5 sci-fi books.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🧙</div>
+                <div class="ach-info">
+                    <strong>Magic Runs Deep</strong>
+                    <p>Read 10 fantasy books.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🎪</div>
+                <div class="ach-info">
+                    <strong>Event Animal</strong>
+                    <p>Participate in 5 live events.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+            <div class="ach-card locked" data-status="locked">
+                <div class="ach-icon-wrap locked-icon">🐾</div>
+                <div class="ach-info">
+                    <strong>Paw of Approval</strong>
+                    <p>Get 50 likes on a single review.</p>
+                </div>
+                <div class="ach-status-badge locked-badge">🔒 Locked</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+<script>
+function filterAchievements(filter) {
+    document.querySelectorAll('.toggle-ach-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn-' + filter).classList.add('active');
+    document.querySelectorAll('.ach-card').forEach(card => {
+        if (filter === 'all') {
+            card.style.display = '';
+        } else {
+            card.style.display = card.dataset.status === filter ? '' : 'none';
+        }
+    });
+}
+</script>

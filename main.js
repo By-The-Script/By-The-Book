@@ -15,6 +15,7 @@ if (!firebase.apps.length) {
 }
 export const db = firebase.firestore();
 export const auth = firebase.auth();
+window.firebaseAuth = firebase.auth();
 let cachedBooks = null;
 window.navigateTo = navigateTo;
 
@@ -25,7 +26,7 @@ window.navigateTo = navigateTo;
 import { initApp, signUp, initRegisterPage, handleRegister, updateTopNav } from './core.js';
 import { showRandomBook, displayBooksByCategory } from './home.js';
 import { loadBookDetails } from './book.js';
-import { loadProfile } from './profile.js';
+import { switchProfileTab, updateUsername, updatePasswordCustom,  } from './profile.js';
 import { loadBookshelf } from './bookshelf.js';
 
 // -------------------------------------------------------
@@ -99,6 +100,39 @@ auth.onAuthStateChanged(user => {
     if (user && tooltip) tooltip.style.display = 'none';
 });
 
+firebase.auth().onAuthStateChanged(user => {
+
+    const signInBtn = document.getElementById("open-tooltip");
+    const accountName = document.getElementById("account-name");
+    const profilePic = document.getElementById("profile-pic");
+
+    if (user) {
+
+        // hide sign in button
+        signInBtn.style.display = "none";
+
+        // update account button
+        accountName.textContent =
+            user.displayName || user.email;
+
+        // profile picture
+        if (user.photoURL) {
+            profilePic.src = user.photoURL;
+        }
+
+    } else {
+
+        // show sign in button
+        signInBtn.style.display = "block";
+
+        // guest mode
+        accountName.textContent = "GUEST MODE";
+
+        // default image
+        profilePic.src = "pictures/default-user.png";
+    }
+});
+
 // -------------------------------------------------------
 // Hash-based Routing
 // -------------------------------------------------------
@@ -114,11 +148,21 @@ export const pageToTab = {
     home: 'home',
     book: 'home',
     search: 'home',
+	terms: 'home',
+	privacy: 'home',
     profile: 'profile',
     register: 'profile',
+	friends: 'profile',
+	achievements: 'profile',
+	'my-stats': 'profile',
+	'my-posts': 'profile',
     bookshelf: 'bookshelf',
     news: 'news',
-	shop: 'shop'
+	shop: 'shop',
+	settings: 'settings',
+	'book-list': 'book-list',
+	community: 'community',
+	read: 'upload'
 };
 
 export const navbars = {
@@ -136,11 +180,11 @@ export const navbars = {
 
     profile: `
         <div class="top-nav">
-			<a href=""> My prifile</a>
-            <a href="#">My Posts</a>
-            <a href="#">Friends</a>
-            <a href="#">Achievements</a>
-            <a href="#">Statistics</a>
+			<a href="" onclick="navigateTo('profile')"> My profile</a>
+            <a href="#" onclick="navigateTo('my-posts')">My Posts</a>
+            <a href="#" onclick="navigateTo('friends')">Friends</a>
+            <a href="#" onclick="navigateTo('achievements')">Achievements</a>
+            <a href="#"onclick="navigateTo('my-stats')">Statistics</a>
         </div>
     `,
 
@@ -225,7 +269,6 @@ async function loadSiteData(pageName) {
             loadBookDetails();
             break;
         case 'profile':
-            loadProfile();
             break;
         case 'bookshelf':
             loadBookshelf();
@@ -240,3 +283,28 @@ async function loadSiteData(pageName) {
 
     if (typeof refreshUserStats === 'function') refreshUserStats();
 }
+
+
+// Basic starter backend helpers
+async function createStarterProfile(user){
+    const ref = firebase.firestore().collection('users').doc(user.uid);
+
+    const doc = await ref.get();
+
+    if(!doc.exists){
+        await ref.set({
+            username: user.displayName || "Reader",
+            email: user.email || "",
+            mice: 100,
+            xp: 0,
+            streak: 1,
+            createdAt: new Date().toISOString()
+        });
+    }
+}
+
+firebase.auth().onAuthStateChanged(async(user)=>{
+    if(user){
+        await createStarterProfile(user);
+    }
+});

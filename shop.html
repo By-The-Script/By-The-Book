@@ -1,0 +1,961 @@
+<div class="site-info">
+<div class="shop-page">
+
+    <div class="shop-header">
+        <div class="shop-header-left">
+            <span class="shop-title-label">DR. MEOW'S EMPORIUM</span>
+            <h1 class="shop-title">The Mice Market</h1>
+            <p class="shop-subtitle">Spend your hard-earned Mice on skins, boosts, and secrets 😼</p>
+        </div>
+        <div class="mice-wallet">
+            <img src="pictures/Dr.meow/Dr.Meow.base.png" class="wallet-meow" alt="Dr. Meow">
+            <div class="wallet-info">
+                <span class="wallet-label">YOUR BALANCE</span>
+                <span class="wallet-amount" id="mice-balance">🐭 50 Mice</span>
+                <span class="wallet-sub">earn more by reading & reviewing</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="shop-tabs">
+        <button class="shop-tab active" data-tab="skins">🎨 Dr. Meow Skins</button>
+        <button class="shop-tab" data-tab="boosts">⚡ Boosts</button>
+        <button class="shop-tab" data-tab="cosmetics">✨ Cosmetics</button>
+        <button class="shop-tab" data-tab="quests">📜 Quest Packs</button>
+        <button class="shop-tab" data-tab="spotlight">🔦 Spotlight</button>
+    </div>
+
+    <!-- DR. MEOW SKINS -->
+    <div class="tab-content active" id="tab-skins">
+        <div class="section-label">Choose your Dr. Meow</div>
+        <div class="shop-grid">
+
+            <div class="shop-card owned">
+                <div class="card-badge owned-badge">OWNED</div>
+                <div class="skin-preview default-skin">😼</div>
+                <div class="card-info">
+                    <h3>Classic Dr. Meow</h3>
+                    <p>The original chaos agent. Whiskers included.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price free">FREE</span>
+                    <button class="equip-btn active-btn">EQUIPPED</button>
+                </div>
+            </div>
+
+            <div class="shop-card">
+                <div class="card-badge new-badge">NEW</div>
+                <div class="skin-preview wizard-skin">🧙‍♂️</div>
+                <div class="card-info">
+                    <h3>Wizard Meow</h3>
+                    <p>Summons book recommendations from another dimension.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 120 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Wizard Meow', 120)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card">
+                <div class="skin-preview pirate-skin">🏴‍☠️</div>
+                <div class="card-info">
+                    <h3>Pirate Meow</h3>
+                    <p>Pillages your reading list. Leaves reviews for loot.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 150 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Pirate Meow', 150)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card locked">
+                <div class="card-badge locked-badge">🔒 LVL 10</div>
+                <div class="skin-preview vampire-skin">🧛</div>
+                <div class="card-info">
+                    <h3>Vampire Meow</h3>
+                    <p>Only reads books published before 1900. Dramatic.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 200 Mice</span>
+                    <button class="buy-btn locked-btn" disabled>LOCKED</button>
+                </div>
+            </div>
+
+            <div class="shop-card">
+                <div class="skin-preview astro-skin">🚀</div>
+                <div class="card-info">
+                    <h3>Astro Meow</h3>
+                    <p>Recommends sci-fi from galaxies you haven't visited.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 180 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Astro Meow', 180)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card locked">
+                <div class="card-badge locked-badge">🔒 LVL 25</div>
+                <div class="skin-preview golden-skin">👑</div>
+                <div class="card-info">
+                    <h3>Golden Meow</h3>
+                    <p>Reserved for legends. The rarest skin in the Emporium.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 500 Mice</span>
+                    <button class="buy-btn locked-btn" disabled>LOCKED</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BOOSTS -->
+    <div class="tab-content" id="tab-boosts">
+        <div class="section-label">Power up your reading grind</div>
+        <div class="shop-grid boosts-grid">
+
+            <div class="shop-card boost-card">
+                <div class="boost-icon">⚡</div>
+                <div class="card-info">
+                    <h3>XP Boost x2</h3>
+                    <p>Double XP on all activities for 24 hours. Stack with streaks for maximum chaos.</p>
+                    <span class="duration-pill">⏱ 24 hours</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 40 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('XP Boost x2', 40)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card boost-card">
+                <div class="boost-icon">🐭</div>
+                <div class="card-info">
+                    <h3>Mice Magnet</h3>
+                    <p>+50% Mice on all earned activities for 48 hours.</p>
+                    <span class="duration-pill">⏱ 48 hours</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 60 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Mice Magnet', 60)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card boost-card">
+                <div class="boost-icon">🔥</div>
+                <div class="card-info">
+                    <h3>Streak Shield</h3>
+                    <p>Protects your streak for 1 missed day. Use it before you forget to log in.</p>
+                    <span class="duration-pill">🛡 1 use</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 75 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Streak Shield', 75)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card boost-card">
+                <div class="boost-icon">📖</div>
+                <div class="card-info">
+                    <h3>Review Amplifier</h3>
+                    <p>Your next 3 reviews earn 3x the normal Mice. Quality counts more.</p>
+                    <span class="duration-pill">📝 3 reviews</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 50 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Review Amplifier', 50)">BUY</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- COSMETICS -->
+    <div class="tab-content" id="tab-cosmetics">
+        <div class="section-label">Dress up your profile</div>
+        <div class="shop-grid">
+
+            <div class="shop-card cosmetic-card">
+                <div class="cosmetic-preview" style="background: linear-gradient(135deg, #941C04, #5E0B00);">
+                    <span style="color:white; font-size:28px;">📚</span>
+                </div>
+                <div class="card-info">
+                    <h3>Crimson Library</h3>
+                    <p>Profile background. Moody. Academic. Suspiciously dark.</p>
+                    <span class="cosmetic-type-pill">Profile BG</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 80 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Crimson Library', 80)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card cosmetic-card">
+                <div class="cosmetic-preview" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);">
+                    <span style="font-size:28px;">⭐</span>
+                </div>
+                <div class="card-info">
+                    <h3>Midnight Reader</h3>
+                    <p>For the ones who read under blankets at 2am. You know who you are.</p>
+                    <span class="cosmetic-type-pill">Profile BG</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 80 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Midnight Reader', 80)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card cosmetic-card">
+                <div class="cosmetic-preview" style="background: #f5f0e8; border: 2px solid #d4a97a;">
+                    <span style="font-size:28px; color:#8B5E3C;">🏆</span>
+                </div>
+                <div class="card-info">
+                    <h3>Gold Paw Frame</h3>
+                    <p>Profile picture frame. Tells people you're kind of a big deal.</p>
+                    <span class="cosmetic-type-pill">PFP Frame</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 100 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Gold Paw Frame', 100)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card cosmetic-card">
+                <div class="cosmetic-preview" style="background: #e8f5e9;">
+                    <span style="font-size:28px;">🌿</span>
+                </div>
+                <div class="card-info">
+                    <h3>"Bookworm" Title</h3>
+                    <p>Displayed badge under your username. Simple. Earned. Respected.</p>
+                    <span class="cosmetic-type-pill">Title Badge</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 30 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Bookworm Title', 30)">BUY</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- QUEST PACKS -->
+    <div class="tab-content" id="tab-quests">
+        <div class="section-label">Extra challenges. Extra rewards.</div>
+        <div class="shop-grid boosts-grid">
+
+            <div class="shop-card quest-card">
+                <div class="boost-icon">🏔️</div>
+                <div class="card-info">
+                    <h3>Genre Explorer Pack</h3>
+                    <p>5 quests that push you outside your comfort zone. Read a horror, a biography, a poetry collection, and more.</p>
+                    <div class="quest-rewards">
+                        <span class="reward-pill">+300 XP</span>
+                        <span class="reward-pill">+150 Mice</span>
+                        <span class="reward-pill">Explorer Badge</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 90 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Genre Explorer Pack', 90)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card quest-card">
+                <div class="boost-icon">⚡</div>
+                <div class="card-info">
+                    <h3>Speed Reader Pack</h3>
+                    <p>3 timed quests. Finish books within a set window. Dr. Meow will be watching.</p>
+                    <div class="quest-rewards">
+                        <span class="reward-pill">+200 XP</span>
+                        <span class="reward-pill">+100 Mice</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 60 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Speed Reader Pack', 60)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card quest-card">
+                <div class="boost-icon">🌍</div>
+                <div class="card-info">
+                    <h3>World Traveler Pack</h3>
+                    <p>Read books set in 5 different countries. Geography teacher would be proud.</p>
+                    <div class="quest-rewards">
+                        <span class="reward-pill">+400 XP</span>
+                        <span class="reward-pill">+200 Mice</span>
+                        <span class="reward-pill">Globe Badge</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 110 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('World Traveler Pack', 110)">BUY</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SPOTLIGHT -->
+    <div class="tab-content" id="tab-spotlight">
+        <div class="section-label">Put yourself on the map</div>
+        <div class="spotlight-info-box">
+            <span style="font-size: 32px;">🔦</span>
+            <div>
+                <strong>What is Spotlight?</strong>
+                <p>Pay Mice to feature your review, blog post, or recommendation on the home page for all readers to see. Your voice, amplified.</p>
+            </div>
+        </div>
+        <div class="shop-grid boosts-grid">
+
+            <div class="shop-card spotlight-card">
+                <div class="boost-icon">📌</div>
+                <div class="card-info">
+                    <h3>Review Spotlight</h3>
+                    <p>Feature one of your reviews on the home page for 24 hours.</p>
+                    <span class="duration-pill">📅 24 hours</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 80 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Review Spotlight', 80)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card spotlight-card">
+                <div class="boost-icon">🗞️</div>
+                <div class="card-info">
+                    <h3>Blog Feature</h3>
+                    <p>Your blog post gets pinned to the News page for 48 hours.</p>
+                    <span class="duration-pill">📅 48 hours</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 120 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Blog Feature', 120)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card spotlight-card">
+                <div class="boost-icon">👑</div>
+                <div class="card-info">
+                    <h3>Weekly Spotlight</h3>
+                    <p>Full week homepage feature. The most visible slot in the Emporium.</p>
+                    <span class="duration-pill">📅 7 days</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 400 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Weekly Spotlight', 400)">BUY</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PURCHASE MODAL -->
+    <div id="shop-modal" class="shop-modal" style="display:none;">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-meow">😼</div>
+            <h3 id="modal-title">Confirm Purchase</h3>
+            <p id="modal-body">Are you sure?</p>
+            <div class="modal-actions">
+                <button class="modal-confirm" id="modal-confirm-btn">SPEND MICE</button>
+                <button class="modal-cancel" onclick="closeModal()">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<style>
+:root {
+    --primary-red: #941C04;
+    --dark-red: #5E0B00;
+    --action-blue: #2F89C2;
+}
+
+.shop-page {
+    max-width: 1100px;
+}
+
+.shop-header {
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    box-shadow: 0 15px 10px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.shop-title-label {
+    background: var(--primary-red);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.shop-title {
+    margin: 0 0 8px 0;
+    color: var(--dark-red);
+    font-size: 36px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.shop-subtitle {
+    margin: 0;
+    color: #666;
+    font-size: 15px;
+}
+
+.mice-wallet {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 18px 25px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    border: 2px solid rgba(148, 28, 4, 0.15);
+    flex-shrink: 0;
+}
+
+.wallet-meow {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.wallet-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.wallet-label {
+    font-size: 10px;
+    font-weight: bold;
+    color: #999;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.wallet-amount {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary-red);
+    margin: 2px 0;
+}
+
+.wallet-sub {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.shop-tabs {
+    display: flex;
+    gap: 0;
+    margin-top: 25px;
+    border-bottom: 2px solid #ddd;
+    overflow-x: auto;
+}
+
+.shop-tab {
+    background: none;
+    border: none;
+    padding: 13px 22px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+}
+
+.shop-tab:hover {
+    color: var(--primary-red);
+}
+
+.shop-tab.active {
+    color: var(--primary-red);
+    border-bottom-color: var(--primary-red);
+}
+
+.tab-content {
+    display: none;
+    margin-top: 25px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.section-label {
+    font-size: 13px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.boosts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.shop-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.shop-card.locked {
+    opacity: 0.7;
+}
+
+.shop-card.owned {
+    border: 2px solid var(--primary-red);
+}
+
+.card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.owned-badge { background: var(--primary-red); color: white; }
+.new-badge { background: #2F89C2; color: white; }
+.locked-badge { background: #999; color: white; font-size: 10px; }
+
+.skin-preview {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    background: #f8f8f8;
+}
+
+.default-skin { background: linear-gradient(135deg, #fff0ee, #f8e8e6); }
+.wizard-skin { background: linear-gradient(135deg, #e8e0ff, #d0c4f5); }
+.pirate-skin { background: linear-gradient(135deg, #e8f0ff, #c4d4f5); }
+.vampire-skin { background: linear-gradient(135deg, #1a0a1a, #2d0a2d); }
+.astro-skin { background: linear-gradient(135deg, #0a1a2d, #0a2d4a); }
+.golden-skin { background: linear-gradient(135deg, #fff8e0, #ffd700); }
+
+.boost-card {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 15px;
+}
+
+.boost-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.quest-card {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 15px;
+}
+
+.spotlight-card {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 15px;
+}
+
+.card-info {
+    padding: 16px 16px 0;
+    flex: 1;
+}
+
+.boost-card .card-info,
+.quest-card .card-info,
+.spotlight-card .card-info {
+    padding: 0;
+}
+
+.card-info h3 {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    color: #222;
+    font-weight: 700;
+}
+
+.card-info p {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: #777;
+    line-height: 1.5;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    margin-top: auto;
+    border-top: 1px solid #f1f1f1;
+}
+
+.boost-card .card-footer,
+.quest-card .card-footer,
+.spotlight-card .card-footer {
+    border-top: none;
+    padding: 12px 0 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.price {
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--primary-red);
+}
+
+.price.free {
+    color: #2a9d2a;
+}
+
+.buy-btn {
+    background: var(--primary-red);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+}
+
+.buy-btn:hover {
+    background: var(--dark-red);
+    transform: scale(1.05);
+}
+
+.equip-btn {
+    background: white;
+    color: var(--primary-red);
+    border: 2px solid var(--primary-red);
+    padding: 7px 16px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: default;
+    letter-spacing: 0.5px;
+}
+
+.active-btn { cursor: default; }
+
+.locked-btn {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.locked-btn:hover {
+    background: #ccc;
+    transform: none;
+}
+
+.duration-pill {
+    display: inline-block;
+    background: #f0f8ff;
+    color: var(--action-blue);
+    border: 1px solid rgba(47, 137, 194, 0.3);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.cosmetic-card .card-info {
+    padding: 14px 16px 0;
+}
+
+.cosmetic-preview {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+}
+
+.cosmetic-type-pill {
+    display: inline-block;
+    background: rgba(148, 28, 4, 0.1);
+    color: var(--primary-red);
+    border: 1px solid rgba(148, 28, 4, 0.3);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.quest-rewards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.reward-pill {
+    background: #e8f5e9;
+    color: #2a7d2a;
+    border: 1px solid rgba(42, 125, 42, 0.3);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.spotlight-info-box {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: #fff8e0;
+    border: 1px solid #f0d060;
+    border-left: 4px solid #c8a000;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+}
+
+.spotlight-info-box strong {
+    display: block;
+    color: #7a5800;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.spotlight-info-box p {
+    margin: 0;
+    color: #8a6800;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* MODAL */
+.shop-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-box {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 380px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.modal-close:hover { color: var(--dark-red); }
+
+.modal-meow {
+    font-size: 52px;
+    margin-bottom: 12px;
+}
+
+.modal-box h3 {
+    color: var(--dark-red);
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.modal-box p {
+    color: #666;
+    font-size: 14px;
+    margin: 0 0 25px 0;
+    line-height: 1.6;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modal-confirm {
+    background: var(--primary-red);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.modal-confirm:hover {
+    background: var(--dark-red);
+    transform: scale(1.05);
+}
+
+.modal-cancel {
+    background: #f1f1f1;
+    color: #666;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.modal-cancel:hover { background: #e0e0e0; }
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-box {
+    animation: popIn 0.25s ease;
+}
+
+@media (max-width: 600px) {
+    .shop-header { flex-direction: column; }
+    .shop-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+(function() {
+    // Tab switching
+    document.querySelectorAll('.shop-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.shop-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            tab.classList.add('active');
+            const tabId = 'tab-' + tab.dataset.tab;
+            const content = document.getElementById(tabId);
+            if (content) content.classList.add('active');
+        });
+    });
+
+    // Buy modal
+    let pendingItem = null;
+    let pendingCost = 0;
+
+    window.tryBuy = function(itemName, cost) {
+        pendingItem = itemName;
+        pendingCost = cost;
+        const balance = getCurrentBalance();
+        const modal = document.getElementById('shop-modal');
+        document.getElementById('modal-title').innerText = itemName;
+        if (balance < cost) {
+            document.getElementById('modal-body').innerText = `You need 🐭 ${cost} Mice but only have 🐭 ${balance}. Keep reading and reviewing to earn more!`;
+            document.getElementById('modal-confirm-btn').style.display = 'none';
+        } else {
+            document.getElementById('modal-body').innerText = `Spend 🐭 ${cost} Mice on "${itemName}"? You'll have 🐭 ${balance - cost} Mice remaining.`;
+            document.getElementById('modal-confirm-btn').style.display = 'inline-block';
+        }
+        modal.style.display = 'flex';
+    };
+
+    window.closeModal = function() {
+        document.getElementById('shop-modal').style.display = 'none';
+        pendingItem = null;
+        pendingCost = 0;
+    };
+
+    document.getElementById('modal-confirm-btn').addEventListener('click', () => {
+        if (!pendingItem) return;
+        const balance = getCurrentBalance();
+        const newBalance = balance - pendingCost;
+        setBalance(newBalance);
+        document.getElementById('mice-balance').innerText = `🐭 ${newBalance} Mice`;
+        closeModal();
+        showToast(`✅ "${pendingItem}" purchased!`);
+    });
+
+    // Close modal on backdrop click
+    document.getElementById('shop-modal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+
+    function getCurrentBalance() {
+        const el = document.getElementById('mice-balance');
+        const match = el.innerText.match(/\d+/);
+        return match ? parseInt(match[0]) : 50;
+    }
+
+    function setBalance(n) {
+        document.getElementById('mice-balance').innerText = `🐭 ${n} Mice`;
+    }
+
+    function showToast(msg) {
+        const t = document.createElement('div');
+        t.style.cssText = 'position:fixed;bottom:30px;right:30px;background:#2a7d2a;color:white;padding:14px 24px;border-radius:50px;font-weight:bold;font-size:14px;z-index:999999;box-shadow:0 5px 20px rgba(0,0,0,0.3);animation:popIn 0.2s ease;';
+        t.innerText = msg;
+        document.body.appendChild(t);
+        setTimeout(() => t.remove(), 3000);
+    }
+})();
+</script>

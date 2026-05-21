@@ -1,21 +1,124 @@
 <div class="site-info">
-<div class="page profile-page">
-    <h1>My Profile</h1>
+<div class="profile-page">
 
-    <div class="profile-card">
-        <img id="profile-pic" src="pictures/default-user.png">
-        <h2 id="profile-name">Guest</h2>
-        <p id="profile-email">Not signed in</p>
-    </div>
+    <div class="profile-layout">
 
-    <div class="profile-stats">
-        <div class="stat">
-            <span id="books-read">0</span>
-            <p>Books Read</p>
+        <div class="profile-left-col">
+
+            <div class="profile-avatar-card">
+                <div class="avatar-ring">
+                    <img id="profile-pic" src="pictures/default-user.png" class="avatar-img" alt="Profile Photo">
+                    <button class="avatar-edit-btn" onclick="document.getElementById('photo-upload').click()" title="Change photo">✏️</button>
+                </div>
+                <input type="file" id="photo-upload" accept="image/*" style="display:none;">
+
+                <h2 id="profile-name" class="profile-username">Guest Reader</h2>
+                <p id="profile-email" class="profile-email-text">Not signed in</p>
+
+                <div class="profile-title-badge">📚 Bookworm</div>
+
+                <div class="streak-row">
+                    <div class="streak-box">
+                        <span class="streak-fire"><img src="pictures/Streak.png" width="50px"></span>
+                        <span class="streak-num" id="day-streak">12</span>
+                        <span class="streak-label">Day Streak</span>
+                    </div>
+                    <div class="streak-box">
+                        <span class="streak-fire">⭐</span>
+                        <span class="streak-num" id="best-streak">31</span>
+                        <span class="streak-label">Best Streak</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="xp-card">
+                <div class="xp-header">
+                    <div class="xp-level-badge">LVL <span id="user-level">7</span></div>
+                    <div class="xp-title-text">
+                        <strong>Dedicated Reader</strong>
+                        <span>Next rank: <em>Scholar</em></span>
+                    </div>
+                </div>
+                <div class="xp-bar-wrap">
+                    <div class="xp-bar-fill" id="xp-bar" style="width: 64%;"></div>
+                </div>
+                <div class="xp-numbers">
+                    <span id="xp-current">1,280 XP</span>
+                    <span id="xp-next">2,000 XP to next level</span>
+                </div>
+            </div>
+
+            <div class="skin-card">
+                <div class="skin-card-header">
+                    <span class="skin-label">ACTIVE DR. MEOW SKIN</span>
+                    <button class="skin-shop-btn" onclick="navigateTo('shop')">Shop →</button>
+                </div>
+                <div class="active-skin-display">
+                    <div class="active-skin-emoji">😼</div>
+                    <div>
+                        <strong>Classic Dr. Meow</strong>
+                        <p style="margin:4px 0 0; font-size:13px; color:#888;">The original chaos agent</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="stat">
-            <span id="favorites-count">0</span>
-            <p>Favorites</p>
+
+        <div class="profile-right-col">
+
+            <div class="edit-section-card">
+                <h3 class="edit-section-title">✏️ Edit Profile</h3>
+
+                <div class="edit-field-group">
+                    <label class="edit-label">Username</label>
+                    <div class="edit-input-row">
+                        <input type="text" class="edit-input" id="edit-username" placeholder="Your username">
+                        <button class="save-field-btn">Save</button>
+                    </div>
+                </div>
+
+                <div class="edit-field-group">
+                    <label class="edit-label">Display Name</label>
+                    <div class="edit-input-row">
+                        <input type="text" class="edit-input" id="edit-displayname" placeholder="Your display name">
+                        <button class="save-field-btn">Save</button>
+                    </div>
+                </div>
+
+                <div class="edit-field-group">
+                    <label class="edit-label">Bio</label>
+                    <textarea class="edit-textarea" id="edit-bio" placeholder="Tell the community about yourself..."></textarea>
+                    <button class="save-field-btn" style="margin-top:8px; width:100%;">Save Bio</button>
+                </div>
+
+                <div class="edit-divider"><span>Account &amp; Security</span></div>
+
+                <div class="edit-field-group">
+                    <label class="edit-label">Email</label>
+                    <div class="edit-input-row">
+                        <input type="email" class="edit-input" id="edit-email" placeholder="your@email.com">
+                        <button class="save-field-btn">Update</button>
+                    </div>
+                </div>
+
+                <div class="edit-field-group">
+                    <label class="edit-label">New Password</label>
+                    <input type="password" class="edit-input" id="edit-password" placeholder="New password (min 6 chars)" style="width:100%; box-sizing:border-box;">
+                </div>
+                <div class="edit-field-group">
+                    <label class="edit-label">Confirm Password</label>
+                    <div class="edit-input-row">
+                        <input type="password" class="edit-input" id="edit-confirm-password" placeholder="Confirm new password">
+                        <button class="save-field-btn">Change</button>
+                    </div>
+                </div>
+
+                <div id="profile-msg" class="profile-msg" style="display:none;"></div>
+
+                <div class="edit-divider"><span>Danger Zone</span></div>
+                <button class="danger-btn" onclick="if(confirm('Sign out?')) firebase.auth().signOut()">Sign Out</button>
+            </div>
+
         </div>
     </div>
 </div>
