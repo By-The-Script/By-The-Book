@@ -2,19 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="pictures/favicon.jpeg">
+    <link rel="icon" type="image/png" href="assets/images/favicon.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="index-style.css">
-    <link rel="stylesheet" href="home-style.css">
-    <link rel="stylesheet" href="book-style.css">
-    <link rel="stylesheet" href="book-list.css">
-    <link rel="stylesheet" href="news-style.css">
-    <link rel="stylesheet" href="profile-style.css">
-    <link rel="stylesheet" href="bookshelf-style.css">
-    <link rel="stylesheet" href="register-style.css">
-	<link rel="stylesheet" href="shared-pages.css">
-	<link rel="stylesheet" href="profile-style.css">
-	<link rel="stylesheet" href="settings-style.css">
+    <link rel="stylesheet" href="styles/index-style.css">
+    <link rel="stylesheet" href="styles/home-style.css">
+    <link rel="stylesheet" href="styles/book-style.css">
+    <link rel="stylesheet" href="styles/book-list.css">
+    <link rel="stylesheet" href="styles/news-style.css">
+    <link rel="stylesheet" href="styles/profile-style.css">
+    <link rel="stylesheet" href="styles/bookshelf-style.css">
+    <link rel="stylesheet" href="styles/register-style.css">
+    <link rel="stylesheet" href="styles/shop-style.css">
+	<link rel="stylesheet" href="styles/shared-pages.css">
+	<link rel="stylesheet" href="styles/settings-style.css">
     <title>By The Book</title>
     <meta name="description" content="Discover your next favorite story with Dr. Meow! Join By The Book for daily recommendations, a gamified reading experience, and the chance to earn 'Mice' for free books.">
     <meta name="keywords" content="books, book recommendations, Dr. Meow, Percy Jackson, reading community, earn books, book tracker">
@@ -30,7 +30,7 @@
     <div class="header">
       <table border="0" width="100%" cellspacing="0">
         <tr bgcolor="#941C04" height="150">
-          <td colspan="6" width="70%"><img src="pictures/logo.png" height="150px"></td>
+          <td colspan="6" width="70%"><img src="assets/images/logo.png" height="150px"></td>
           <td colspan="1" width="30%" class="header-right-cell">
 
 				<div class="header-right-panel">
@@ -38,14 +38,14 @@
 					<div class="civ-stats-bar" id="civ-stats-bar">
 
 						<div class="civ-stat mice">
-							<span class="civ-stat-icon"><img src="pictures/Mouse.png" width="50px"></span>
+							<span class="civ-stat-icon"><img src="assets/images/Mouse.png" width="50px"></span>
 							<div class="civ-stat-text">
 								<span class="civ-stat-value" id="stat-mice">0</span>
 							</div>
 						</div>
 
 						<div class="civ-stat xp">
-							<span class="civ-stat-icon"><img src="pictures/XP.png" width="50px"></span>
+							<span class="civ-stat-icon"><img src="assets/images/XP.png" width="50px"></span>
 							<div class="civ-stat-text">
 								<span class="civ-stat-value" id="stat-xp">0</span>
 							</div>
@@ -56,7 +56,7 @@
 					<div class="auth-wrapper">
 
 						<button type="button" class="account-btn">
-							<img id="profile-pic" src="pictures/default-user.png">
+							<img id="profile-pic" src="assets/images/default-user.png">
 							<span id="account-name">GUEST MODE</span>
 						</button>
 
@@ -105,9 +105,9 @@
                         <input type="checkbox" id="termsCheckbox">
                         <span class="checkmark"></span>
                         I agree to the
-                        <button id="terms-btn" onclick="NavigateTo('terms')">Terms of Service</button>
+                        <button id="terms-btn" onclick="navigateTo('terms')">Terms of Service</button>
                         and
-                        <button id="privacy-btn" onclick="NavigateTo('privacy')">Privacy Policy</button>
+                        <button id="privacy-btn" onclick="navigateTo('privacy')">Privacy Policy</button>
                       </label>
                     </div>
                   </div>
@@ -161,7 +161,7 @@
         </div>
         <div class="side-item" data-page="settings">
           <i class="fa-solid fa-gear"></i>
-          <a onclick="NavigateTo('settings')"><span>Settings</span></a>
+          <a onclick="navigateTo('settings')"><span>Settings</span></a>
         </div>
       </aside>
 
@@ -171,9 +171,9 @@
     <div class="footer">
       <div class="col-f" style="flex: 1 1 250px;">
         <strong>Quick Links</strong><br><br>
-        <a href="contact.html">Contact Us</a><br>
-        <a href="about.html">About Us</a><br>
-        <a href="#">Support the Site</a>
+        <a href="#terms" onclick="navigateTo('terms')">Terms of Service</a><br>
+        <a href="#privacy" onclick="navigateTo('privacy')">Privacy Policy</a><br>
+        <a href="#register" onclick="navigateTo('register')">Create an Account</a>
       </div>
       <div class="col-f" style="flex: 1 1 250px;">
         <strong>Follow Dr. Meow</strong><br><br>
@@ -182,8 +182,8 @@
       </div>
       <div class="col-f" style="flex: 1 1 250px;">
         <strong>Our Network</strong><br><br>
-        <a href="moovie.html">By The Moovie</a><br>
-        <a href="game.html">By The Game</a>
+        <a href="#news" onclick="navigateTo('news')">News & Updates</a><br>
+        <a href="#community" onclick="navigateTo('community')">Community</a>
       </div>
       <div style="text-align: center; width: 100%; margin-top: 10px; border-top: 1px solid #333; padding-top: 20px;">
         <hr color="#2c2c2c" width="90%">
@@ -195,7 +195,7 @@
     <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-    <script defer type="module" src="main.js"></script>
-	  <script defer src="index.js"></script>
+    <script defer type="module" src="js/main.js"></script>
   </body>
 </html>
+

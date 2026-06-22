@@ -1,0 +1,369 @@
+<div class="site-info">
+<div class="shop-page">
+
+    <div class="shop-header">
+        <div class="shop-header-left">
+            <span class="shop-title-label">DR. MEOW'S EMPORIUM</span>
+            <h1 class="shop-title">The Mice Market</h1>
+            <p class="shop-subtitle">Spend your hard-earned Mice on skins, boosts, and secrets 😼</p>
+        </div>
+        <div class="mice-wallet">
+            <img src="assets/images/Dr.meow/Dr.Meow.base.png" class="wallet-meow" alt="Dr. Meow">
+            <div class="wallet-info">
+                <span class="wallet-label">YOUR BALANCE</span>
+                <span class="wallet-amount" id="mice-balance">🐭 50 Mice</span>
+                <span class="wallet-sub">earn more by reading & reviewing</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="shop-tabs">
+        <button class="shop-tab active" data-tab="skins">🎨 Dr. Meow Skins</button>
+        <button class="shop-tab" data-tab="boosts">⚡ Boosts</button>
+        <button class="shop-tab" data-tab="cosmetics">✨ Cosmetics</button>
+        <button class="shop-tab" data-tab="quests">📜 Quest Packs</button>
+        <button class="shop-tab" data-tab="spotlight">🔦 Spotlight</button>
+    </div>
+
+    <!-- DR. MEOW SKINS -->
+    <div class="tab-content active" id="tab-skins">
+        <div class="section-label">Choose your Dr. Meow</div>
+        <div class="shop-grid">
+
+            <div class="shop-card owned">
+                <div class="card-badge owned-badge">OWNED</div>
+                <div class="skin-preview default-skin">😼</div>
+                <div class="card-info">
+                    <h3>Classic Dr. Meow</h3>
+                    <p>The original chaos agent. Whiskers included.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price free">FREE</span>
+                    <button class="equip-btn active-btn">EQUIPPED</button>
+                </div>
+            </div>
+
+            <div class="shop-card">
+                <div class="card-badge new-badge">NEW</div>
+                <div class="skin-preview wizard-skin">🧙‍♂️</div>
+                <div class="card-info">
+                    <h3>Wizard Meow</h3>
+                    <p>Summons book recommendations from another dimension.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 120 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Wizard Meow', 120)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card">
+                <div class="skin-preview pirate-skin">🏴‍☠️</div>
+                <div class="card-info">
+                    <h3>Pirate Meow</h3>
+                    <p>Pillages your reading list. Leaves reviews for loot.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 150 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Pirate Meow', 150)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card locked">
+                <div class="card-badge locked-badge">🔒 LVL 10</div>
+                <div class="skin-preview vampire-skin">🧛</div>
+                <div class="card-info">
+                    <h3>Vampire Meow</h3>
+                    <p>Only reads books published before 1900. Dramatic.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 200 Mice</span>
+                    <button class="buy-btn locked-btn" disabled>LOCKED</button>
+                </div>
+            </div>
+
+            <div class="shop-card">
+                <div class="skin-preview astro-skin">🚀</div>
+                <div class="card-info">
+                    <h3>Astro Meow</h3>
+                    <p>Recommends sci-fi from galaxies you haven't visited.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 180 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Astro Meow', 180)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card locked">
+                <div class="card-badge locked-badge">🔒 LVL 25</div>
+                <div class="skin-preview golden-skin">👑</div>
+                <div class="card-info">
+                    <h3>Golden Meow</h3>
+                    <p>Reserved for legends. The rarest skin in the Emporium.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 500 Mice</span>
+                    <button class="buy-btn locked-btn" disabled>LOCKED</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BOOSTS -->
+    <div class="tab-content" id="tab-boosts">
+        <div class="section-label">Power up your reading grind</div>
+        <div class="shop-grid boosts-grid">
+
+            <div class="shop-card boost-card">
+                <div class="boost-icon">⚡</div>
+                <div class="card-info">
+                    <h3>XP Boost x2</h3>
+                    <p>Double XP on all activities for 24 hours. Stack with streaks for maximum chaos.</p>
+                    <span class="duration-pill">⏱ 24 hours</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 40 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('XP Boost x2', 40)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card boost-card">
+                <div class="boost-icon">🐭</div>
+                <div class="card-info">
+                    <h3>Mice Magnet</h3>
+                    <p>+50% Mice on all earned activities for 48 hours.</p>
+                    <span class="duration-pill">⏱ 48 hours</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 60 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Mice Magnet', 60)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card boost-card">
+                <div class="boost-icon">🔥</div>
+                <div class="card-info">
+                    <h3>Streak Shield</h3>
+                    <p>Protects your streak for 1 missed day. Use it before you forget to log in.</p>
+                    <span class="duration-pill">🛡 1 use</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 75 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Streak Shield', 75)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card boost-card">
+                <div class="boost-icon">📖</div>
+                <div class="card-info">
+                    <h3>Review Amplifier</h3>
+                    <p>Your next 3 reviews earn 3x the normal Mice. Quality counts more.</p>
+                    <span class="duration-pill">📝 3 reviews</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 50 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Review Amplifier', 50)">BUY</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- COSMETICS -->
+    <div class="tab-content" id="tab-cosmetics">
+        <div class="section-label">Dress up your profile</div>
+        <div class="shop-grid">
+
+            <div class="shop-card cosmetic-card">
+                <div class="cosmetic-preview" style="background: linear-gradient(135deg, #941C04, #5E0B00);">
+                    <span style="color:white; font-size:28px;">📚</span>
+                </div>
+                <div class="card-info">
+                    <h3>Crimson Library</h3>
+                    <p>Profile background. Moody. Academic. Suspiciously dark.</p>
+                    <span class="cosmetic-type-pill">Profile BG</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 80 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Crimson Library', 80)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card cosmetic-card">
+                <div class="cosmetic-preview" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);">
+                    <span style="font-size:28px;">⭐</span>
+                </div>
+                <div class="card-info">
+                    <h3>Midnight Reader</h3>
+                    <p>For the ones who read under blankets at 2am. You know who you are.</p>
+                    <span class="cosmetic-type-pill">Profile BG</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 80 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Midnight Reader', 80)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card cosmetic-card">
+                <div class="cosmetic-preview" style="background: #f5f0e8; border: 2px solid #d4a97a;">
+                    <span style="font-size:28px; color:#8B5E3C;">🏆</span>
+                </div>
+                <div class="card-info">
+                    <h3>Gold Paw Frame</h3>
+                    <p>Profile picture frame. Tells people you're kind of a big deal.</p>
+                    <span class="cosmetic-type-pill">PFP Frame</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 100 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Gold Paw Frame', 100)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card cosmetic-card">
+                <div class="cosmetic-preview" style="background: #e8f5e9;">
+                    <span style="font-size:28px;">🌿</span>
+                </div>
+                <div class="card-info">
+                    <h3>"Bookworm" Title</h3>
+                    <p>Displayed badge under your username. Simple. Earned. Respected.</p>
+                    <span class="cosmetic-type-pill">Title Badge</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 30 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Bookworm Title', 30)">BUY</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- QUEST PACKS -->
+    <div class="tab-content" id="tab-quests">
+        <div class="section-label">Extra challenges. Extra rewards.</div>
+        <div class="shop-grid boosts-grid">
+
+            <div class="shop-card quest-card">
+                <div class="boost-icon">🏔️</div>
+                <div class="card-info">
+                    <h3>Genre Explorer Pack</h3>
+                    <p>5 quests that push you outside your comfort zone. Read a horror, a biography, a poetry collection, and more.</p>
+                    <div class="quest-rewards">
+                        <span class="reward-pill">+300 XP</span>
+                        <span class="reward-pill">+150 Mice</span>
+                        <span class="reward-pill">Explorer Badge</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 90 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Genre Explorer Pack', 90)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card quest-card">
+                <div class="boost-icon">⚡</div>
+                <div class="card-info">
+                    <h3>Speed Reader Pack</h3>
+                    <p>3 timed quests. Finish books within a set window. Dr. Meow will be watching.</p>
+                    <div class="quest-rewards">
+                        <span class="reward-pill">+200 XP</span>
+                        <span class="reward-pill">+100 Mice</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 60 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Speed Reader Pack', 60)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card quest-card">
+                <div class="boost-icon">🌍</div>
+                <div class="card-info">
+                    <h3>World Traveler Pack</h3>
+                    <p>Read books set in 5 different countries. Geography teacher would be proud.</p>
+                    <div class="quest-rewards">
+                        <span class="reward-pill">+400 XP</span>
+                        <span class="reward-pill">+200 Mice</span>
+                        <span class="reward-pill">Globe Badge</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 110 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('World Traveler Pack', 110)">BUY</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SPOTLIGHT -->
+    <div class="tab-content" id="tab-spotlight">
+        <div class="section-label">Put yourself on the map</div>
+        <div class="spotlight-info-box">
+            <span style="font-size: 32px;">🔦</span>
+            <div>
+                <strong>What is Spotlight?</strong>
+                <p>Pay Mice to feature your review, blog post, or recommendation on the home page for all readers to see. Your voice, amplified.</p>
+            </div>
+        </div>
+        <div class="shop-grid boosts-grid">
+
+            <div class="shop-card spotlight-card">
+                <div class="boost-icon">📌</div>
+                <div class="card-info">
+                    <h3>Review Spotlight</h3>
+                    <p>Feature one of your reviews on the home page for 24 hours.</p>
+                    <span class="duration-pill">📅 24 hours</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 80 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Review Spotlight', 80)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card spotlight-card">
+                <div class="boost-icon">🗞️</div>
+                <div class="card-info">
+                    <h3>Blog Feature</h3>
+                    <p>Your blog post gets pinned to the News page for 48 hours.</p>
+                    <span class="duration-pill">📅 48 hours</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 120 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Blog Feature', 120)">BUY</button>
+                </div>
+            </div>
+
+            <div class="shop-card spotlight-card">
+                <div class="boost-icon">👑</div>
+                <div class="card-info">
+                    <h3>Weekly Spotlight</h3>
+                    <p>Full week homepage feature. The most visible slot in the Emporium.</p>
+                    <span class="duration-pill">📅 7 days</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">🐭 400 Mice</span>
+                    <button class="buy-btn" onclick="tryBuy('Weekly Spotlight', 400)">BUY</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PURCHASE MODAL -->
+    <div id="shop-modal" class="shop-modal" style="display:none;">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-meow">😼</div>
+            <h3 id="modal-title">Confirm Purchase</h3>
+            <p id="modal-body">Are you sure?</p>
+            <div class="modal-actions">
+                <button class="modal-confirm" id="modal-confirm-btn">SPEND MICE</button>
+                <button class="modal-cancel" onclick="closeModal()">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+

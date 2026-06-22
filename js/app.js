@@ -1,0 +1,111 @@
+import { db } from './firebase.js';
+import { initAuthState } from './auth-state.js';
+import { initAuthUI } from './auth-ui.js';
+import { configureRouter, initHashListener, navigateTo } from './router.js';
+import { updateTopNav, initRegisterPage } from './core.js';
+import { loadBookDetails } from './book.js';
+import { showRandomBook, displayBooksByCategory } from './home.js';
+import { loadBookshelf } from './bookshelf.js';
+import { initProfilePage } from './profile.js';
+import { initAchievementsPage } from './pages/achievements.js';
+import { initFriendsPage } from './pages/friends.js';
+import { initMyPostsPage } from './pages/my-posts.js';
+import { initSettingsPage } from './pages/settings.js';
+import { initShopPage } from './pages/shop.js';
+
+let cachedBooks = null;
+
+async function loadBooks() {
+    if (cachedBooks) return cachedBooks;
+
+    console.log('Dr. Meow is fetching data for the first time...');
+
+    const snapshot = await db.collection('books').get();
+    cachedBooks = [];
+    snapshot.forEach((doc) => cachedBooks.push({ id: doc.id, ...doc.data() }));
+    return cachedBooks;
+}
+
+function bindShellNavigation() {
+    document.querySelectorAll('.side-item').forEach((element) => {
+        if (element.dataset.navBound === 'true') return;
+
+        element.dataset.navBound = 'true';
+        element.addEventListener('click', () => {
+            const page = element.dataset.page;
+            if (page) navigateTo(page);
+        });
+    });
+}
+
+export async function loadSiteData(pageName) {
+    try {
+        switch (pageName) {
+            case 'home': {
+                const books = await loadBooks();
+                showRandomBook(books);
+                displayBooksByCategory(books);
+                break;
+            }
+            case 'book':
+                await loadBookDetails();
+                break;
+            case 'profile':
+                initProfilePage();
+                break;
+            case 'friends':
+                initFriendsPage();
+                break;
+            case 'achievements':
+                initAchievementsPage();
+                break;
+            case 'my-posts':
+                initMyPostsPage();
+                break;
+            case 'bookshelf':
+                loadBookshelf();
+                break;
+            case 'shop':
+                initShopPage();
+                break;
+            case 'settings':
+                initSettingsPage();
+                break;
+            case 'register':
+                initRegisterPage();
+                break;
+            case 'news':
+            case 'my-stats':
+            case 'community':
+            case 'search':
+            case 'reviews':
+            case 'forums':
+            case 'quizzes':
+            case 'terms':
+            case 'privacy':
+            case 'upload':
+            case 'read':
+            case 'book-list':
+                break;
+            default:
+                break;
+        }
+    } catch (error) {
+        console.error('Cloud Error:', error);
+    }
+}
+
+export function startApp() {
+    initAuthUI();
+    initAuthState();
+    bindShellNavigation();
+
+    configureRouter({
+        loadPage: loadSiteData,
+        updateTopNav,
+        pageBasePath: 'pages/',
+    });
+
+    initHashListener();
+    navigateTo(window.location.hash.replace('#', '') || 'home');
+}

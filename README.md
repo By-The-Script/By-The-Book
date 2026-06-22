@@ -19,18 +19,20 @@ This project features:
 - Clean, HTML structure: Clear files, organized folders, and readable code.
 _______________________________________________________________________________________________________________________________________________________________
 Project Structure:
-- |- HTML Files
-- |- Pictures
-- |- Book List
-- |- Statistics
-- |- README.md
+- `index.html` - the main app shell
+- `pages/` - routed page fragments loaded into the app
+- `styles/` - shared and page-specific styles
+- `js/` - app logic, Firebase wiring, router, and page scripts
+- `assets/images/` - book covers, icons, and Dr. Meow artwork
+- `README.md`
 
 How to Run the Website:
-1. Download or clone the repository
-2. Open the 'main.html' from your file explorer in your favorite browser
-3. Browse the entire website locally
-OR
-Wait until I upload the website online (the URL will be added here when ready).
+1. Download or clone the repository.
+2. Start a local static server from the project root. For example:
+   `npx serve .`
+3. Open the local URL in your browser and browse the site there.
+
+This project uses `fetch()` to load pages, so it should be run through a local server instead of opening the files directly with `file://`.
 ______________________________________________________________________________________________________________________________________________________________
 Future Plans:
 - Add user accounts, and more statistics
