@@ -1,3 +1,4 @@
+const firebase = window.firebase;
 const firebaseConfig = {
     apiKey: "AIzaSyCVC-CQK_umSHnPT5FOvvclut_WN2Ll0to",
     authDomain: "by-the-book-3120c.firebaseapp.com",
