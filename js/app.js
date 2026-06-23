@@ -12,6 +12,7 @@ import { initFriendsPage } from './pages/friends.js';
 import { initMyPostsPage } from './pages/my-posts.js';
 import { initSettingsPage } from './pages/settings.js';
 import { initShopPage } from './pages/shop.js';
+import { normalizeImagePath } from './image-paths.js';
 
 let cachedBooks = null;
 
@@ -22,7 +23,10 @@ async function loadBooks() {
 
     const snapshot = await db.collection('books').get();
     cachedBooks = [];
-    snapshot.forEach((doc) => cachedBooks.push({ id: doc.id, ...doc.data() }));
+    snapshot.forEach((doc) => {
+        const book = doc.data();
+        cachedBooks.push({ id: doc.id, ...book, image: normalizeImagePath(book.image) });
+    });
     return cachedBooks;
 }
 

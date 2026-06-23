@@ -1,5 +1,6 @@
 import { db } from './firebase.js';
 import { bindBookNavigation, renderCompactBookCard } from './ui/book-card.js';
+import { normalizeImagePath } from './image-paths.js';
 
 function getBookIdFromURL() {
     const hash = window.location.hash;
@@ -17,6 +18,7 @@ export async function loadBookDetails() {
         if (!doc.exists) return;
 
         const book = doc.data();
+        book.image = normalizeImagePath(book.image);
         document.getElementById('rec-book-name').innerText = book.title;
         document.getElementById('rec-author').innerHTML = `By: ${book.author}`;
         document.getElementById('rec-summary').innerText = book.summary || book.description;
@@ -78,7 +80,7 @@ async function loadRelatedByTags(tags, currentId, currentSeries) {
     snapshot.forEach((doc) => {
         const book = doc.data();
         if (doc.id !== currentId && (!currentSeries || book.series !== currentSeries)) {
-            html += renderCompactBookCard(doc.id, book);
+            html += renderCompactBookCard(doc.id, { ...book, image: normalizeImagePath(book.image) });
         }
     });
 
@@ -92,7 +94,8 @@ function renderSmallCards(container, snapshot, currentId, title) {
 
     snapshot.forEach((doc) => {
         if (doc.id !== currentId) {
-            html += renderCompactBookCard(doc.id, doc.data());
+            const book = doc.data();
+            html += renderCompactBookCard(doc.id, { ...book, image: normalizeImagePath(book.image) });
         }
     });
 
