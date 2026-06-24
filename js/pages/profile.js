@@ -1,6 +1,6 @@
-import { auth, db } from './firebase.js';
-import { subscribeToAuthState } from './auth-state.js';
-import { showInlineMessage } from './ui/feedback.js';
+import { auth, db } from '../firebase.js';
+import { subscribeToAuthState } from '../auth-state.js';
+import { showInlineMessage } from '../ui/feedback.js';
 
 let authSubscriptionInitialized = false;
 

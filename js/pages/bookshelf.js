@@ -1,4 +1,4 @@
-import { navigateTo } from './router.js';
+import { navigateTo } from '../router.js';
 
 export function loadBookshelf() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];

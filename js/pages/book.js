@@ -1,6 +1,6 @@
-import { db } from './firebase.js';
-import { bindBookNavigation, renderCompactBookCard } from './ui/book-card.js';
-import { normalizeImagePath } from './image-paths.js';
+import { db } from '../firebase.js';
+import { bindBookNavigation, renderCompactBookCard } from '../ui/book-card.js';
+import { normalizeImagePath } from '../image-paths.js';
 
 function getBookIdFromURL() {
     const hash = window.location.hash;
