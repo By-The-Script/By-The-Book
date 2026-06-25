@@ -1,0 +1,33 @@
+<div class="site-info">
+<div class="reader-page">
+    <div class="reader-progress">
+        <h3>Progress</h3>
+        <p>Page <span id="reader-current">1</span> / <span id="reader-total">0</span></p>
+        <p id="reader-percent">0%</p>
+        <button type="button" id="reader-prev">Previous</button>
+        <button type="button" id="reader-next">Next</button>
+        <button type="button" id="reader-back" onclick="navigateTo('upload')">Back to Library</button>
+    </div>
+
+    <div class="reader-center">
+        <p id="reader-loading">Loading PDF...</p>
+        <p id="reader-error" style="display:none;color:#941C04;"></p>
+        <canvas id="reader-canvas"></canvas>
+    </div>
+
+    <div class="reader-meow">
+        <img src="assets/images/Dr.meow/Dr.meow.read.png" alt="Dr. Meow">
+        <p id="reader-meow-text">Keep reading!</p>
+    </div>
+</div>
+</div>
+
+<style>
+.reader-page { display:flex; gap:16px; min-height:70vh; }
+.reader-progress { width:180px; background:#f1f1f1; padding:16px; border-radius:12px; }
+.reader-center { flex:1; text-align:center; overflow:auto; }
+.reader-meow { width:180px; text-align:center; }
+.reader-meow img { max-width:140px; }
+#reader-canvas { max-width:100%; border:1px solid #ccc; }
+.reader-progress button { display:block; width:100%; margin:6px 0; padding:8px; }
+</style>

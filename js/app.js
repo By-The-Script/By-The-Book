@@ -12,6 +12,8 @@ import { initFriendsPage } from './pages/friends.js';
 import { initMyPostsPage } from './pages/my-posts.js';
 import { initSettingsPage } from './pages/settings.js';
 import { initShopPage } from './pages/shop.js';
+import { initUploadPage } from './pages/upload.js';
+import { initReaderPage } from './pages/reader.js';
 import { normalizeImagePath } from './image-paths.js';
 
 let cachedBooks = null;
@@ -88,6 +90,11 @@ export async function loadSiteData(pageName) {
             case 'terms':
             case 'privacy':
             case 'upload':
+                initUploadPage();
+                break;
+            case 'reader':
+                await initReaderPage();
+                break;
             case 'read':
             case 'book-list':
                 break;

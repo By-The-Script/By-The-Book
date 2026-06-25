@@ -24,6 +24,7 @@ export const pageToTab = {
     community: 'community',
     read: 'upload',
     upload: 'upload',
+    reader: 'upload',
 };
 
 export const navbars = {

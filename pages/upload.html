@@ -1,14 +1,41 @@
-
 <div class="site-info">
-<div class="page-shell">
-<h1 class="section-title">Upload a Book</h1>
+<div class="page-shell library-page">
+    <h1 class="section-title">My Library</h1>
 
-<div class="feature-card">
-<input placeholder="Book Title" style="width:100%;padding:12px;margin-bottom:10px;">
-<input placeholder="Author" style="width:100%;padding:12px;margin-bottom:10px;">
-<textarea placeholder="Summary" style="width:100%;padding:12px;height:150px;"></textarea>
-<br><br>
-<button class="fake-btn">UPLOAD</button>
+    <div class="library-layout">
+        <div class="library-main">
+            <div class="library-upload-box">
+                <h3>Upload PDF</h3>
+                <input type="text" id="upload-title" placeholder="Book title (optional)">
+                <input type="file" id="upload-file" accept=".pdf,application/pdf">
+                <button type="button" id="upload-btn" class="fake-btn">UPLOAD PDF</button>
+                <p id="upload-error" class="library-error" style="display:none;"></p>
+                <p id="upload-status" class="library-status" style="display:none;"></p>
+            </div>
+
+            <p id="library-loading" style="display:none;">Loading your library...</p>
+            <p id="library-empty" style="display:none;">No books yet. Upload a PDF to get started.</p>
+            <div id="library-grid" class="library-grid"></div>
+        </div>
+
+        <div class="library-meow">
+            <img src="assets/images/Dr.meow/Dr.Meow.base.png" alt="Dr. Meow">
+            <p>Upload a PDF and Dr. Meow will keep your place.</p>
+        </div>
+    </div>
 </div>
 </div>
-</div>
+
+<style>
+.library-layout { display:flex; gap:24px; }
+.library-main { flex:2; }
+.library-meow { flex:1; text-align:center; }
+.library-meow img { max-width:180px; }
+.library-upload-box { background:#fff; padding:20px; border-radius:12px; margin-bottom:20px; }
+.library-upload-box input[type="text"], .library-upload-box input[type="file"] { display:block; width:100%; margin:8px 0; padding:8px; box-sizing:border-box; }
+.library-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; }
+.library-card { background:#fff; padding:16px; border-radius:12px; cursor:pointer; }
+.library-card h4 { margin:0 0 8px; color:#941C04; }
+.library-error { color:#941C04; }
+.library-status { color:#207245; }
+</style>
