@@ -1,4 +1,5 @@
-import { auth, db, firebase, storage } from '../firebase.js';
+import { auth, db, firebase } from '../firebase.js';
+import { uploadBook } from './storage-service.js';
 
 const COLLECTION = 'userBooks';
 const MAX_BYTES = 50 * 1024 * 1024;
@@ -17,10 +18,7 @@ export async function uploadPdf(file, title) {
 
     const bookId = db.collection(COLLECTION).doc().id;
     const storagePath = `users/${user.uid}/books/${bookId}.pdf`;
-    const ref = storage.ref(storagePath);
-
-    await ref.put(file);
-    const downloadURL = await ref.getDownloadURL();
+   const downloadURL = await uploadBook(file, storagePath);
 
     const doc = {
         id: bookId,
