@@ -1,0 +1,41 @@
+<div class="site-info">
+<div class="page-shell">
+    <h1 class="section-title">Create Community</h1>
+
+    <div class="feature-card community-form">
+        <label>Name *</label>
+        <input type="text" id="cc-name" placeholder="Community name" style="width:100%;padding:10px;margin:8px 0;box-sizing:border-box;">
+
+        <label>Description</label>
+        <textarea id="cc-description" placeholder="What is this community about?" style="width:100%;padding:10px;height:100px;margin:8px 0;box-sizing:border-box;"></textarea>
+
+        <label>Category</label>
+        <select id="cc-category" style="width:100%;padding:10px;margin:8px 0;box-sizing:border-box;">
+            <option value="General">General</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Romance">Romance</option>
+            <option value="Non-Fiction">Non-Fiction</option>
+            <option value="Young Adult">Young Adult</option>
+        </select>
+
+        <label>Cover Image (optional)</label>
+        <input type="file" id="cc-cover" accept="image/*" style="margin:8px 0;">
+
+        <p id="cc-msg" style="display:none;"></p>
+
+        <div style="margin-top:16px;display:flex;gap:10px;">
+            <button type="button" class="fake-btn" id="cc-submit">Create Community</button>
+            <button type="button" class="fake-btn" id="cc-cancel" style="background:#666;">Cancel</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<style>
+.community-form label { font-weight:bold; color:#555; display:block; margin-top:12px; }
+#cc-msg.error { color:#941C04; }
+#cc-msg.success { color:#207245; }
+</style>

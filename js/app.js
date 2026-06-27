@@ -14,6 +14,9 @@ import { initSettingsPage } from './pages/settings.js';
 import { initShopPage } from './pages/shop.js';
 import { initUploadPage } from './pages/upload.js';
 import { initReaderPage } from './pages/reader.js';
+import { initCommunityPage } from './pages/community.js';
+import { initCommunityCreatePage } from './pages/community-create.js';
+import { initCommunityDetailsPage } from './pages/community-details.js';
 import { normalizeImagePath } from './image-paths.js';
 
 let cachedBooks = null;
@@ -83,6 +86,14 @@ export async function loadSiteData(pageName) {
             case 'news':
             case 'my-stats':
             case 'community':
+                initCommunityPage();
+                break;
+            case 'community-create':
+                initCommunityCreatePage();
+                break;
+            case 'community-details':
+                await initCommunityDetailsPage();
+                break;
             case 'search':
             case 'reviews':
             case 'forums':

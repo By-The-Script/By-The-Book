@@ -22,6 +22,8 @@ export const pageToTab = {
     settings: 'settings',
     'book-list': 'book-list',
     community: 'community',
+    'community-create': 'community',
+    'community-details': 'community',
     read: 'upload',
     upload: 'upload',
     reader: 'upload',

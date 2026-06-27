@@ -1,27 +1,22 @@
-
 <div class="site-info">
-<div class="page-shell">
-<h1 class="section-title">Community</h1>
+<div class="page-shell community-page">
+    <div class="community-header-row">
+        <h1 class="section-title">Communities</h1>
+        <button type="button" class="fake-btn" id="community-create-btn">Create Community</button>
+    </div>
 
-<div class="drmeow-box">
-<p>"The global chat has become suspiciously obsessed with Percy Jackson again."</p>
+    <p id="community-list-msg" style="display:none;"></p>
+    <p id="community-list-loading">Loading communities...</p>
+    <p id="community-list-empty" style="display:none;">No communities yet. Be the first to create one!</p>
+    <div id="community-list-grid" class="card-grid"></div>
 </div>
-
-<div class="card-grid">
-<div class="feature-card">
-<h3>Global Chat</h3>
-<p>123 readers online</p>
-</div>
-
-<div class="feature-card">
-<h3>Featured Blog</h3>
-<p>Top fantasy worlds this week.</p>
 </div>
 
-<div class="feature-card">
-<h3>Upcoming Event</h3>
-<p>Book quiz starts in 2 hours.</p>
-</div>
-</div>
-</div>
-</div>
+<style>
+.community-header-row { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+.community-card { cursor:pointer; }
+.community-card img { width:100%; height:120px; object-fit:cover; border-radius:12px; margin-bottom:10px; background:#ddd; }
+.community-card .cover-placeholder { width:100%; height:120px; background:#ddd; border-radius:12px; margin-bottom:10px; display:flex; align-items:center; justify-content:center; color:#888; }
+#community-list-msg.error { color:#941C04; }
+#community-list-msg.success { color:#207245; }
+</style>

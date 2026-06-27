@@ -23,3 +23,20 @@ export async function uploadBook(file, storagePath) {
 
     return data.publicUrl;
 }
+
+export async function uploadCommunityCover(file, storagePath) {
+    const { error } = await supabase.storage
+        .from(BUCKET)
+        .upload(storagePath, file, {
+            upsert: true,
+            contentType: file.type || 'image/jpeg',
+        });
+
+    if (error) throw error;
+
+    const { data } = supabase.storage
+        .from(BUCKET)
+        .getPublicUrl(storagePath);
+
+    return data.publicUrl;
+}

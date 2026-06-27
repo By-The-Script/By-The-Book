@@ -1,0 +1,37 @@
+<div class="site-info">
+<div class="page-shell community-details-page">
+    <p id="cd-loading">Loading community...</p>
+    <p id="cd-error" style="display:none;color:#941C04;"></p>
+    <p id="cd-msg" style="display:none;"></p>
+
+    <div id="cd-content" style="display:none;">
+        <div id="cd-cover-wrap"></div>
+        <h1 class="section-title" id="cd-name"></h1>
+        <p><strong>Category:</strong> <span id="cd-category"></span></p>
+        <p><strong>Owner:</strong> <span id="cd-owner"></span></p>
+        <p><strong>Members:</strong> <span id="cd-members-count"></span></p>
+        <p><strong>Created:</strong> <span id="cd-created"></span></p>
+        <p id="cd-description" style="margin:16px 0;line-height:1.6;"></p>
+
+        <button type="button" class="fake-btn" id="cd-join-btn" style="display:none;">Join Community</button>
+        <button type="button" class="fake-btn" id="cd-leave-btn" style="display:none;background:#666;">Leave Community</button>
+        <button type="button" class="fake-btn" id="cd-back-btn" style="background:#888;margin-left:8px;">Back to Communities</button>
+
+        <div class="cd-placeholders">
+            <div class="feature-card"><h3>Feed</h3><p>Coming Soon</p></div>
+            <div class="feature-card"><h3>Chat</h3><p>Coming Soon</p></div>
+            <div class="feature-card"><h3>Book Club</h3><p>Coming Soon</p></div>
+            <div class="feature-card"><h3>Events</h3><p>Coming Soon</p></div>
+            <div class="feature-card"><h3>Members</h3><p>Coming Soon</p></div>
+        </div>
+    </div>
+</div>
+</div>
+
+<style>
+#cd-cover-wrap img { width:100%; max-height:220px; object-fit:cover; border-radius:12px; margin-bottom:16px; }
+#cd-cover-wrap .cover-placeholder { width:100%; height:180px; background:#ddd; border-radius:12px; margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:#888; }
+.cd-placeholders { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin-top:30px; }
+#cd-msg.error { color:#941C04; }
+#cd-msg.success { color:#207245; }
+</style>
