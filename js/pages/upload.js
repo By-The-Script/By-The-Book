@@ -1,6 +1,8 @@
 import { navigateTo } from '../router.js';
 import { auth } from '../firebase.js';
-import { getUserBooks, uploadPdf } from '../services/user-books.js';
+import { addBookToLibrary, getRecentlyAdded } from '../services/library.js';
+
+let lastUploadedId = null;
 
 function showError(msg) {
     const el = document.getElementById('upload-error');
@@ -16,10 +18,14 @@ function showStatus(msg) {
     el.style.display = msg ? 'block' : 'none';
 }
 
-function renderLibrary(books) {
-    const grid = document.getElementById('library-grid');
-    const empty = document.getElementById('library-empty');
-    const loading = document.getElementById('library-loading');
+function coverLetter(title) {
+    return (title || '?').charAt(0).toUpperCase();
+}
+
+function renderRecentUploads(books) {
+    const grid = document.getElementById('recent-uploads-grid');
+    const empty = document.getElementById('recent-uploads-empty');
+    const loading = document.getElementById('recent-uploads-loading');
     if (!grid) return;
 
     if (loading) loading.style.display = 'none';
@@ -35,21 +41,23 @@ function renderLibrary(books) {
     books.forEach((book) => {
         const card = document.createElement('div');
         card.className = 'library-card';
-        const page = book.currentPage || 1;
-        const total = book.totalPages || '?';
-        card.innerHTML = `<h4>${book.title}</h4><p>Page ${page} / ${total}</p><p>PDF</p>`;
+        card.innerHTML = `
+            <div class="lib-book-cover">${coverLetter(book.title)}</div>
+            <h4>${book.title}</h4>
+            <p>PDF</p>
+        `;
         card.onclick = () => navigateTo(`reader?id=${book.id}`);
         grid.appendChild(card);
     });
 }
 
-async function loadLibrary() {
-    const loading = document.getElementById('library-loading');
-    const empty = document.getElementById('library-empty');
+async function loadRecentUploads() {
+    const loading = document.getElementById('recent-uploads-loading');
+    const empty = document.getElementById('recent-uploads-empty');
+
     if (!auth.currentUser) {
-        if (loading) loading.style.display = 'none';
         if (empty) {
-            empty.textContent = 'Please sign in to view your library.';
+            empty.textContent = 'Please sign in to upload books.';
             empty.style.display = 'block';
         }
         return;
@@ -59,11 +67,16 @@ async function loadLibrary() {
     if (empty) empty.style.display = 'none';
 
     try {
-        const books = await getUserBooks();
-        renderLibrary(books);
+        const books = await getRecentlyAdded(5);
+        renderRecentUploads(books);
     } catch (e) {
         showError(e.message);
     }
+}
+
+function showSuccessActions() {
+    const actions = document.getElementById('upload-success-actions');
+    if (actions) actions.style.display = 'block';
 }
 
 async function handleUpload() {
@@ -78,11 +91,13 @@ async function handleUpload() {
     try {
         if (btn) btn.disabled = true;
         showStatus('Uploading...');
-        await uploadPdf(file, titleInput?.value?.trim());
+        const book = await addBookToLibrary(file, titleInput?.value?.trim());
+        lastUploadedId = book.id;
         showStatus('Upload complete!');
+        showSuccessActions();
         if (fileInput) fileInput.value = '';
         if (titleInput) titleInput.value = '';
-        await loadLibrary();
+        await loadRecentUploads();
     } catch (e) {
         showStatus('');
         showError(e.message);
@@ -97,5 +112,20 @@ export function initUploadPage() {
         btn.dataset.bound = 'true';
         btn.addEventListener('click', handleUpload);
     }
-    loadLibrary();
+
+    const readNow = document.getElementById('upload-read-now');
+    if (readNow && readNow.dataset.bound !== 'true') {
+        readNow.dataset.bound = 'true';
+        readNow.addEventListener('click', () => {
+            if (lastUploadedId) navigateTo(`reader?id=${lastUploadedId}`);
+        });
+    }
+
+    const goBookshelf = document.getElementById('upload-go-bookshelf');
+    if (goBookshelf && goBookshelf.dataset.bound !== 'true') {
+        goBookshelf.dataset.bound = 'true';
+        goBookshelf.addEventListener('click', () => navigateTo('bookshelf'));
+    }
+
+    loadRecentUploads();
 }

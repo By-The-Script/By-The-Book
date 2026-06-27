@@ -1,6 +1,6 @@
 <div class="site-info">
 <div class="page-shell library-page">
-    <h1 class="section-title">My Library</h1>
+    <h1 class="section-title">Upload a Book</h1>
 
     <div class="library-layout">
         <div class="library-main">
@@ -11,11 +11,16 @@
                 <button type="button" id="upload-btn" class="fake-btn">UPLOAD PDF</button>
                 <p id="upload-error" class="library-error" style="display:none;"></p>
                 <p id="upload-status" class="library-status" style="display:none;"></p>
+                <div id="upload-success-actions" style="display:none;margin-top:12px;">
+                    <button type="button" class="fake-btn" id="upload-read-now">Read Now</button>
+                    <button type="button" class="fake-btn" id="upload-go-bookshelf" style="background:#666;margin-left:8px;">Go to My Bookshelf</button>
+                </div>
             </div>
 
-            <p id="library-loading" style="display:none;">Loading your library...</p>
-            <p id="library-empty" style="display:none;">No books yet. Upload a PDF to get started.</p>
-            <div id="library-grid" class="library-grid"></div>
+            <h3>Recent Uploads</h3>
+            <p id="recent-uploads-loading" style="display:none;">Loading...</p>
+            <p id="recent-uploads-empty" style="display:none;">You haven't uploaded any books yet.</p>
+            <div id="recent-uploads-grid" class="library-grid"></div>
         </div>
 
         <div class="library-meow">
@@ -38,4 +43,5 @@
 .library-card h4 { margin:0 0 8px; color:#941C04; }
 .library-error { color:#941C04; }
 .library-status { color:#207245; }
+.lib-book-cover { width:100%; height:100px; background:linear-gradient(135deg,#941C04,#5E0B00); border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:24px; font-weight:bold; margin-bottom:8px; }
 </style>

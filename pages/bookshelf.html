@@ -1,33 +1,43 @@
 <div class="site-info">
-<div class="bookshelf-page">
+<div class="page-shell bookshelf-hub">
+    <div class="bookshelf-header">
+        <h1 class="section-title">My Bookshelf</h1>
+        <button type="button" class="fake-btn" id="bookshelf-upload-btn">Upload New Book</button>
+    </div>
 
-    <h2>📖 Currently Reading</h2>
-    <div id="current-book" class="shelf-row"></div>
+    <p id="bookshelf-loading">Loading your bookshelf...</p>
+    <p id="bookshelf-guest" style="display:none;">Please sign in to view your bookshelf.</p>
 
-    <h2>⭐ Favorites</h2>
-    <div id="favorites" class="shelf-row"></div>
+    <div id="bookshelf-content" style="display:none;">
+        <div class="bookshelf-stats">
+            <div class="feature-card"><h3 id="stat-total">0</h3><p>Total Books</p></div>
+            <div class="feature-card"><h3 id="stat-reading">0</h3><p>Currently Reading</p></div>
+            <div class="feature-card"><h3 id="stat-finished">0</h3><p>Finished</p></div>
+        </div>
 
-    <h2>📝 Wishlist</h2>
-    <div id="wishlist" class="shelf-row"></div>
-</div>
-</div>
-<div class="page-shell" style="margin-top:25px;">
-<h1 class="section-title">My Bookshelf</h1>
+        <h2 class="bookshelf-section-title">Continue Reading</h2>
+        <div id="continue-reading" class="bookshelf-continue"></div>
+        <p id="continue-empty" class="bookshelf-empty" style="display:none;">No books in progress yet. Upload a PDF to start reading!</p>
 
-<div class="card-grid">
-<div class="feature-card">
-<h3>Percy Jackson</h3>
-<p>Progress: 65%</p>
-</div>
+        <h2 class="bookshelf-section-title">Recently Added</h2>
+        <div id="recently-added" class="card-grid"></div>
 
-<div class="feature-card">
-<h3>Harry Potter</h3>
-<p>Completed ✅</p>
+        <h2 class="bookshelf-section-title">My Books</h2>
+        <p id="my-books-empty" class="bookshelf-empty" style="display:none;">Your library is empty. Upload your first book!</p>
+        <div id="my-books" class="card-grid"></div>
+    </div>
+</div>
 </div>
 
-<div class="feature-card">
-<h3>Dune</h3>
-<p>Wishlist ⭐</p>
-</div>
-</div>
-</div>
+<style>
+.bookshelf-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px; }
+.bookshelf-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:16px; margin-bottom:24px; }
+.bookshelf-stats h3 { margin:0; color:#941C04; font-size:28px; }
+.bookshelf-section-title { color:#941C04; margin:24px 0 12px; }
+.bookshelf-empty { color:#666; font-style:italic; }
+.lib-book-card { cursor:pointer; }
+.lib-book-cover { width:100%; height:140px; background:linear-gradient(135deg,#941C04,#5E0B00); border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:32px; font-weight:bold; margin-bottom:10px; }
+.lib-book-card h4 { margin:0 0 6px; color:#333; }
+.lib-book-card p { margin:0; font-size:13px; color:#666; }
+.bookshelf-continue .lib-book-card { max-width:320px; }
+</style>

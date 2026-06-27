@@ -5,7 +5,7 @@ import { configureRouter, initHashListener, navigateTo } from './router.js';
 import { updateTopNav, initRegisterPage } from './core.js';
 import { loadBookDetails } from './pages/book.js';
 import { showRandomBook, displayBooksByCategory } from './home.js';
-import { loadBookshelf } from './pages/bookshelf.js';
+import { loadBookshelfPage } from './pages/bookshelf.js';
 import { initProfilePage } from './pages/profile.js';
 import { initAchievementsPage } from './pages/achievements.js';
 import { initFriendsPage } from './pages/friends.js';
@@ -72,7 +72,7 @@ export async function loadSiteData(pageName) {
                 initMyPostsPage();
                 break;
             case 'bookshelf':
-                loadBookshelf();
+                loadBookshelfPage();
                 break;
             case 'shop':
                 initShopPage();
