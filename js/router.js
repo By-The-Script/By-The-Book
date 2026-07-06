@@ -24,9 +24,9 @@ export const pageToTab = {
     community: 'community',
     'community-create': 'community',
     'community-details': 'community',
-    read: 'upload',
-    upload: 'upload',
-    reader: 'upload',
+    read: 'bookshelf',
+    upload: 'bookshelf',
+    reader: 'bookshelf',
 };
 
 export const navbars = {
