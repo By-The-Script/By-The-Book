@@ -30,7 +30,7 @@ export const pageToTab = {
     Ideas: 'Dr. Meows Lab',
     Waitlist: 'Dr. Meow`s Lab',
     Visions: 'Dr. Meow`s Lab',
-    Version: 'Dr. Meow`s Lab'
+    Versions: 'Dr. Meow`s Lab'
 };
 
 export const navbars = {
