@@ -14,7 +14,7 @@
   box-sizing: border-box;
   background-color: #f4f4f4;
   border-radius: 0 px;
-  box-shadow: 0 5 10 px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10 15 px rgb(0, 0, 0);
 }
 
 /* --- REUSABLE CARD COMPONENT (Gray Background) --- */
