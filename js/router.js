@@ -69,7 +69,7 @@ export const navbars = {
             <a href="#" data-page="dr-meow">Dr. Meow</a>
         </div>
     `,
-    "Dr. Meow's Lab": `
+    'Dr. Meow`s Lab': `
         <div class="top-nav">
             <a href="#" data-page="Ideas">Ideas</a>
             <a href="#" data-page="Waitlist">Waitlist</a>
