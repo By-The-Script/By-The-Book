@@ -1,0 +1,76 @@
+<div class="site-info">
+  <div class="lab-page waitlist-page">
+
+    <!-- HEADER / HERO -->
+    <div class="lab-hero">
+      <div class="lab-badge-container">
+        <span class="lab-badge badge-hero">BETA ACCESS</span>
+        <span class="lab-version-tag">Target Launch: <strong>Pre-Alpha / Beta</strong></span>
+      </div>
+
+      <h1 class="lab-title">🐭 Join Dr. Meow's Beta Waitlist</h1>
+      <p class="lab-subtitle">
+        Be among the first to test new features in By The Book. <br>
+        Leave your email below to receive an early lab invite.
+      </p>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="lab-section waitlist-section">
+      <div class="lab-card waitlist-card">
+        
+        <form id="waitlist-form" class="waitlist-form">
+          <!-- Email Field (Required) -->
+          <div class="form-group">
+            <label for="user-email" class="form-label">
+              Email Address <span class="required-star">*</span>
+            </label>
+            <input 
+              type="email" 
+              id="user-email" 
+              class="form-input" 
+              placeholder="dr.meow@example.com" 
+              required 
+            />
+          </div>
+
+          <!-- Name Field (Optional) -->
+          <div class="form-group">
+            <label for="user-name" class="form-label">
+              Full Name <span class="optional-tag">(Optional)</span>
+            </label>
+            <input 
+              type="text" 
+              id="user-name" 
+              class="form-input" 
+              placeholder="Dr. Meow" 
+            />
+          </div>
+
+          <!-- Phone Field (Optional) -->
+          <div class="form-group">
+            <label for="user-phone" class="form-label">
+              Phone Number <span class="optional-tag">(Optional)</span>
+            </label>
+            <input 
+              type="tel" 
+              id="user-phone" 
+              class="form-input" 
+              placeholder="+972 50-000-0000" 
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submit-btn" class="lab-btn btn-primary btn-submit">
+            <span class="btn-icon">🚀</span> Join the Waitlist
+          </button>
+        </form>
+
+        <!-- Feedback Messages -->
+        <div id="waitlist-feedback" class="waitlist-feedback hidden"></div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

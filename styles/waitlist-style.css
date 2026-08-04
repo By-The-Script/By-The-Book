@@ -1,0 +1,110 @@
+/* ==========================================================================
+   BY THE BOOK: BETA WAITLIST STYLES
+   ========================================================================== */
+
+.site-info .waitlist-page {
+  width: 100%;
+  padding: 20px 24px 60px 24px;
+  box-sizing: border-box;
+}
+
+.waitlist-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.waitlist-card {
+  max-width: 550px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #262f3d; /* רקע אפרפר כהה בולט */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.required-star {
+  color: #ff8a7a;
+}
+
+.optional-tag {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #334155;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input::placeholder {
+  color: #64748b;
+}
+
+.form-input:focus {
+  border-color: #941c04;
+  box-shadow: 0 0 0 3px rgba(148, 28, 4, 0.3);
+}
+
+.btn-submit {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  font-size: 1rem;
+}
+
+/* FEEDBACK MESSAGES */
+.waitlist-feedback {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.waitlist-feedback.hidden {
+  display: none;
+}
+
+.waitlist-feedback.success {
+  background-color: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #4ade80;
+}
+
+.waitlist-feedback.error {
+  background-color: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
