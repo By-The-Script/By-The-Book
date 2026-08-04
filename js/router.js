@@ -27,10 +27,10 @@ export const pageToTab = {
     read: 'bookshelf',
     upload: 'bookshelf',
     reader: 'bookshelf',
-    Ideas: 'Dr. Meows Lab',
-    Waitlist: 'Dr. Meow`s Lab',
-    Visions: 'Dr. Meow`s Lab',
-    Versions: 'Dr. Meow`s Lab'
+    Ideas: 'Versions',
+    Waitlist: 'Versions',
+    Visions: 'Versions',
+    Versions: 'Versions'
 };
 
 export const navbars = {
@@ -69,7 +69,7 @@ export const navbars = {
             <a href="#" data-page="dr-meow">Dr. Meow</a>
         </div>
     `,
-    'Dr. Meow`s Lab': `
+    Versions: `
         <div class="top-nav">
             <a href="#" data-page="Ideas">Ideas</a>
             <a href="#" data-page="Waitlist">Waitlist</a>
