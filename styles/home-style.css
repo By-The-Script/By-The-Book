@@ -1,7 +1,7 @@
 .site-info {
-    min-width: 0;
     padding: 25px 40px;
-    width: auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .daily-box {
