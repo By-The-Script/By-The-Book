@@ -12,9 +12,9 @@
   color: #5E0B00;
   line-height: 1.6;
   box-sizing: border-box;
-  background-color: hsl(240, 1%, 70%);
-  border-radius: 50px;
-  box-shadow: 0 5 10 px rgba(0, 0, 0, 0.2);
+  background-color: #f4f4f4;
+  border-radius: 0 px;
+  box-shadow: 0 5 10 px rgba(0, 0, 0, 0.8);
 }
 
 /* --- REUSABLE CARD COMPONENT (Gray Background) --- */
@@ -101,7 +101,7 @@
 }
 
 .lab-page .lab-version-tag strong {
-  color: hwb(0 60% 40%);
+  color: #cbd5e1;
 }
 
 .lab-page .lab-title {
@@ -109,7 +109,7 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
-  color: #ffffff;
+  color: #cbd5e1;
 }
 
 .lab-page .lab-subtitle {
