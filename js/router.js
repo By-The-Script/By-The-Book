@@ -27,10 +27,10 @@ export const pageToTab = {
     read: 'bookshelf',
     upload: 'bookshelf',
     reader: 'bookshelf',
-    Ideas: "Dr. Meow's Lab",
-    Waitlist: "Dr. Meow's Lab",
-    Visions: "Dr. Meow's Lab",
-    Version: "Dr. Meow's Lab"
+    Ideas: 'Dr. Meows Lab',
+    Waitlist: 'Dr. Meow`s Lab',
+    Visions: 'Dr. Meow`s Lab',
+    Version: 'Dr. Meow`s Lab'
 };
 
 export const navbars = {

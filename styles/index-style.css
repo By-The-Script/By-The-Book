@@ -519,6 +519,7 @@
 		min-width: 0;
 		padding: 25px 40px;
 		align-items: center;
+        flex: 1;
 	}
 
 .close-tooltip {
