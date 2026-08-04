@@ -8,14 +8,14 @@
   width: 100%;
   padding: 20px 24px 60px 24px;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color: #f8fafc;
+  color: #5E0B00;
   line-height: 1.6;
   box-sizing: border-box;
 }
 
 /* --- REUSABLE CARD COMPONENT (Gray Background) --- */
 .lab-page .lab-card {
-  background-color: #262f3d; /* רקע אפרפר כהה בולט לקריאות מקסימלית של טקסט לבן */
+  background-color: #262f3d; 
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   padding: 28px;

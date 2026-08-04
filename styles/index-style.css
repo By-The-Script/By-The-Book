@@ -516,8 +516,6 @@
 }
 
 .site-info{
-		flex-grow: 1;
-		flex: 1;
 		min-width: 0;
 		padding: 25px 40px;
 		align-items: center;
