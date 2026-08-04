@@ -27,44 +27,56 @@ export const pageToTab = {
     read: 'bookshelf',
     upload: 'bookshelf',
     reader: 'bookshelf',
+    Ideas: "Dr. Meow's Lab",
+    Waitlist: "Dr. Meow's Lab",
+    Visions: "Dr. Meow's Lab",
+    Version: "Dr. Meow's Lab"
 };
 
 export const navbars = {
     home: `
         <div class="top-nav">
-            <a href="#">Reviews</a>
-            <a href="#">Blogs</a>
-            <a href="#">Forums</a>
-            <a href="#">Quizzes</a>
-            <a href="#">First Chapter</a>
-            <a href="#">Search 🔍</a>
+            <a href="#" data-page="reviews">Reviews</a>
+            <a href="#" data-page="blogs">Blogs</a>
+            <a href="#" data-page="forums">Forums</a>
+            <a href="#" data-page="quizzes">Quizzes</a>
+            <a href="#" data-page="first-chapter">First Chapter</a>
+            <a href="#" data-page="search">Search 🔍</a>
         </div>
     `,
     profile: `
         <div class="top-nav">
-            <a href="#" onclick="navigateTo('profile')">My profile</a>
-            <a href="#" onclick="navigateTo('my-posts')">My Posts</a>
-            <a href="#" onclick="navigateTo('friends')">Friends</a>
-            <a href="#" onclick="navigateTo('achievements')">Achievements</a>
-            <a href="#" onclick="navigateTo('my-stats')">Statistics</a>
+            <a href="#" data-page="profile">My profile</a>
+            <a href="#" data-page="my-posts">My Posts</a>
+            <a href="#" data-page="friends">Friends</a>
+            <a href="#" data-page="achievements">Achievements</a>
+            <a href="#" data-page="my-stats">Statistics</a>
         </div>
     `,
     shop: `
         <div class="top-nav">
-            <a href="#">Daily Deals</a>
-            <a href="#">Skins</a>
-            <a href="#">Quests</a>
-            <a href="#">Premium</a>
+            <a href="#" data-page="daily-deals">Daily Deals</a>
+            <a href="#" data-page="skins">Skins</a>
+            <a href="#" data-page="quests">Quests</a>
+            <a href="#" data-page="premium">Premium</a>
         </div>
     `,
     news: `
         <div class="top-nav">
-            <a href="#">Events</a>
-            <a href="#">Updates</a>
-            <a href="#">Community</a>
-            <a href="#">Dr. Meow</a>
+            <a href="#" data-page="events">Events</a>
+            <a href="#" data-page="updates">Updates</a>
+            <a href="#" data-page="community">Community</a>
+            <a href="#" data-page="dr-meow">Dr. Meow</a>
         </div>
     `,
+    "Dr. Meow's Lab": `
+        <div class="top-nav">
+            <a href="#" data-page="Ideas">Ideas</a>
+            <a href="#" data-page="Waitlist">Waitlist</a>
+            <a href="#" data-page="Visions">Vision</a>
+            <a href="#" data-page="Versions">Versions</a>
+        </div>
+    `
 };
 
 function setActiveSidebar(page) {

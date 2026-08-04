@@ -35,14 +35,14 @@ async function loadBooks() {
     return cachedBooks;
 }
 
-function bindShellNavigation() {
-    document.querySelectorAll('.side-item').forEach((element) => {
+function bindShellNavigation(container = document) {
+    container.querySelectorAll('[data-page]').forEach((element) => {
         if (element.dataset.navBound === 'true') return;
 
         element.dataset.navBound = 'true';
+
         element.addEventListener('click', () => {
-            const page = element.dataset.page;
-            if (page) navigateTo(page);
+            navigateTo(element.dataset.page);
         });
     });
 }
