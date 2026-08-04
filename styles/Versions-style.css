@@ -99,7 +99,7 @@
 }
 
 .lab-page .lab-version-tag strong {
-  color: #ffffff;
+  color: hwb(0 60% 40%);
 }
 
 .lab-page .lab-title {
