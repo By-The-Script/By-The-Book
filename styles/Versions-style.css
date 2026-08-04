@@ -4,8 +4,9 @@
    ========================================================================== */
 
 /* Scope container - Takes full width of parent container */
-.site-info .lab-page {
-  width: 100%;
+ .lab-page {
+   display: block;
+    width: 100%;
   padding: 20px 24px 60px 24px;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #5E0B00;
