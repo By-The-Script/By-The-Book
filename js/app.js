@@ -18,7 +18,7 @@ import { initCommunityPage } from './pages/community.js';
 import { initCommunityCreatePage } from './pages/community-create.js';
 import { initCommunityDetailsPage } from './pages/community-details.js';
 import { normalizeImagePath } from './image-paths.js';
-import { initWaitlistPage } from './Waitlist.js';
+import { initWaitlistPage } from './pages/Waitlist.js';
 
 let cachedBooks = null;
 
