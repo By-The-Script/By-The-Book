@@ -1,0 +1,18 @@
+/* Ideas Page-Specific Styles */
+
+.ideas-header {
+    margin-bottom: var(--spacing-large, 2rem);
+    text-align: center;
+}
+
+.ideas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-medium, 1.5rem);
+}
+
+.idea-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
