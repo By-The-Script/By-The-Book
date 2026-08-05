@@ -102,6 +102,7 @@ export function initHashListener() {
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.replace('#', '');
         if (hash !== currentPage) navigateTo(hash || 'home');
+        bindShellNavigation(nav);
     });
 }
 
