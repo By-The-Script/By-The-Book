@@ -35,7 +35,7 @@ async function loadBooks() {
     return cachedBooks;
 }
 
-function bindShellNavigation(container = document) {
+export function bindShellNavigation(container = document, nav) {
     container.querySelectorAll('[data-page]').forEach((element) => {
         if (element.dataset.navBound === 'true') return;
 

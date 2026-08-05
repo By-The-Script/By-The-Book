@@ -1,5 +1,6 @@
 import { auth, db, firebase } from './firebase.js';
 import { navigateTo, navbars, pageToTab } from './router.js';
+import { bindShellNavigation } from './app.js';
 
 export function updateTopNav(pageName) {
     const nav = document.getElementById('top-nav');
@@ -7,6 +8,7 @@ export function updateTopNav(pageName) {
 
     const tab = pageToTab[pageName] || 'home';
     nav.innerHTML = navbars[tab] || navbars.home;
+    bindShellNavigation(nav);
 }
 
 export function logout() {
