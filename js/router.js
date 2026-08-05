@@ -106,6 +106,8 @@ export function initHashListener() {
 }
 
 export async function navigateTo(path) {
+    console.trace("navigateTo:", path);
+
     try {
         const targetPath = path || 'home';
         const fileName = targetPath.split('?')[0];
