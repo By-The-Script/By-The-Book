@@ -42,8 +42,6 @@ export function bindShellNavigation(container = document, nav) {
         element.dataset.navBound = 'true';
 
         element.addEventListener('click', () => {
-            e.preventDefault();
-            e.stopPropagation();
             navigateTo(element.dataset.page);
         });
     });
