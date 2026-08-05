@@ -19,6 +19,7 @@ import { initCommunityCreatePage } from './pages/community-create.js';
 import { initCommunityDetailsPage } from './pages/community-details.js';
 import { normalizeImagePath } from './image-paths.js';
 import { initWaitlistPage } from './pages/Waitlist.js';
+import { initIdeasPage } from './pages/Ideas.js';
 
 let cachedBooks = null;
 
@@ -111,6 +112,9 @@ export async function loadSiteData(pageName) {
                 break;
             case "Waitlist":
                 initWaitlistPage();
+                break;
+            case "Ideas":
+                initIdeasPage();
                 break;
             case 'read':
             case 'book-list':
