@@ -108,6 +108,9 @@ export async function loadSiteData(pageName) {
             case 'reader':
                 await initReaderPage();
                 break;
+            case "Waitlist":
+                initWaitlistPage();
+                break;
             case 'read':
             case 'book-list':
                 break;
