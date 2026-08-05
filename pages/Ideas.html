@@ -1,24 +1,110 @@
-<div class="site-info">
-    <header class="ideas-header">
-        <h1>Project Ideas</h1>
-        <p>Explore, organize, and refine feature proposals and concepts.</p>
+<div class="site-info ideas-page">
+
+    <!-- HERO SECTION -->
+    <header class="ideas-hero">
+        <h1 class="hero-title">💡 Ideas & Suggestions</h1>
+        <p class="hero-subtitle">Every great invention started with a simple idea.</p>
+        <blockquote class="meow-quote">
+            <p>"You don't have to be a programmer to help... but you definitely can."</p>
+            <cite>— Dr. Meow</cite>
+        </blockquote>
+        <div class="hero-actions">
+            <a href="#submit-idea" class="btn btn-primary">🚀 Submit an Idea</a>
+            <a href="#versions" class="btn btn-secondary">📜 Back to Versions</a>
+        </div>
     </header>
 
-    <main class="ideas-grid">
-        <section class="card idea-card">
-            <h2 class="card-title">Feature Concept A</h2>
-            <p class="card-description">Brief overview of the proposed feature and its objectives.</p>
-            <div class="card-actions">
-                <button class="btn btn-primary">Details</button>
-            </div>
-        </section>
+    <!-- INTRO CARD -->
+    <section class="card intro-card">
+        <h2 class="card-title">Why Ideas Matter</h2>
+        <p class="card-text">
+            By The Book isn't being built behind closed doors. It's growing together with its future community. Whether you have a tiny improvement, a crazy feature, a design suggestion, or simply noticed something confusing... We'd love to hear it.
+        </p>
+    </section>
 
-        <section class="card idea-card">
-            <h2 class="card-title">Feature Concept B</h2>
-            <p class="card-description">Brief overview of another idea under evaluation.</p>
-            <div class="card-actions">
-                <button class="btn btn-secondary">Details</button>
+    <!-- IDEA SUBMISSION CARD -->
+    <section class="card submission-card" id="submit-idea">
+        <h2 class="card-title">Submit Your Idea</h2>
+        <form id="idea-submission-form" class="idea-form" onsubmit="return false;">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="idea-author-name">Name <span class="optional-tag">(optional)</span></label>
+                    <input type="text" id="idea-author-name" class="form-control" placeholder="Your name or alias">
+                </div>
+                <div class="form-group">
+                    <label for="idea-author-email">Email <span class="optional-tag">(optional)</span></label>
+                    <input type="email" id="idea-author-email" class="form-control" placeholder="your@email.com">
+                </div>
             </div>
-        </section>
-    </main>
+
+            <div class="form-group">
+                <label for="idea-category">Category</label>
+                <select id="idea-category" class="form-control" required>
+                    <option value="" disabled selected>Select a category...</option>
+                    <option value="Feature">Feature</option>
+                    <option value="Bug">Bug</option>
+                    <option value="UI / UX">UI / UX</option>
+                    <option value="AI">AI</option>
+                    <option value="Community">Community</option>
+                    <option value="Reader">Reader</option>
+                    <option value="Bookshelf">Bookshelf</option>
+                    <option value="Store">Store</option>
+                    <option value="Dr. Meow">Dr. Meow</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="idea-title">Idea Title</label>
+                <input type="text" id="idea-title" class="form-control" placeholder="Short headline for your idea" required>
+            </div>
+
+            <div class="form-group">
+                <label for="idea-description">Idea Details</label>
+                <textarea id="idea-description" class="form-control form-textarea" rows="5" placeholder="Tell Dr. Meow what you're thinking..." required></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" id="btn-submit-idea" class="btn btn-primary btn-submit">🚀 Send Idea</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- HOW YOU CAN HELP -->
+    <section class="help-section">
+        <h2 class="section-title">How You Can Help</h2>
+        <div class="help-grid">
+            <div class="card help-card">
+                <div class="help-icon">🧠</div>
+                <h3>Ideas</h3>
+                <p>Have a feature in mind?</p>
+                <p class="help-cta">Tell us.</p>
+            </div>
+            <div class="card help-card">
+                <div class="help-icon">🎨</div>
+                <h3>Design</h3>
+                <p>Suggest UI improvements, icons, illustrations, animations or branding ideas.</p>
+            </div>
+            <div class="card help-card">
+                <div class="help-icon">💻</div>
+                <h3>Development</h3>
+                <p>Found a bug? Want to contribute code? Love building cool things?</p>
+                <p class="help-cta">You're welcome.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DR. MEOW NOTE -->
+    <section class="meow-note-section">
+        <div class="speech-bubble-card">
+            <div class="bubble-avatar">🐱</div>
+            <p class="bubble-message">"The smallest ideas sometimes become the biggest features."</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="ideas-footer">
+        <p>Every suggestion is read by a real human... and usually by Dr. Meow first.</p>
+    </footer>
+
 </div>

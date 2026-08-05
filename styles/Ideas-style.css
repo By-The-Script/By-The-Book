@@ -1,18 +1,352 @@
-/* Ideas Page-Specific Styles */
+/* ==========================================================================
+   Dr. Meow's Lab - Ideas Page Specific Styles
+   Color Palette: Dark Gray (#18181b, #27272a, #09090b) + Red (#ef4444, #dc2626)
+   ========================================================================== */
 
-.ideas-header {
-    margin-bottom: var(--spacing-large, 2rem);
+.ideas-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* --- Hero Section --- */
+.ideas-hero {
+    text-align: center;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.ideas-hero .hero-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: #f4f4f5;
+}
+
+.ideas-hero .hero-subtitle {
+    font-size: 1.25rem;
+    color: #a1a1aa;
+    margin: 0;
+}
+
+.meow-quote {
+    margin: 0.75rem 0;
+    padding: 1rem 1.5rem;
+    background-color: rgba(39, 39, 42, 0.6);
+    border-left: 4px solid #ef4444;
+    border-radius: 0 8px 8px 0;
+    max-width: 600px;
+}
+
+.meow-quote p {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #e4e4e7;
+    margin: 0 0 0.5rem 0;
+}
+
+.meow-quote cite {
+    font-style: normal;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ef4444;
+    display: block;
+    text-align: right;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+/* --- Button Styles --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #ef4444;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.35);
+}
+
+.btn-secondary {
+    background-color: #27272a;
+    color: #e4e4e7;
+    border: 1px solid #3f3f46;
+}
+
+.btn-secondary:hover {
+    background-color: #3f3f46;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* --- Card Base Styles --- */
+.card {
+    background-color: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f4f4f5;
+    margin: 0 0 1rem 0;
+}
+
+.card-text {
+    color: #a1a1aa;
+    line-height: 1.65;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* --- Submission Form --- */
+.submission-card {
+    border-top: 3px solid #ef4444;
+}
+
+.idea-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #d4d4d8;
+}
+
+.optional-tag {
+    font-weight: 400;
+    color: #71717a;
+    font-size: 0.8rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 8px;
+    color: #f4f4f5;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.form-control::placeholder {
+    color: #52525b;
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%27a1a1aa%27' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.875rem;
+    font-size: 1rem;
+}
+
+/* --- How You Can Help Section --- */
+.help-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f4f4f5;
+    margin: 0;
     text-align: center;
 }
 
-.ideas-grid {
+.help-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-medium, 1.5rem);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
 }
 
-.idea-card {
+.help-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 1.75rem 1.25rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.help-card:hover {
+    transform: translateY(-4px);
+    border-color: #3f3f46;
+}
+
+.help-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.help-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f4f4f5;
+    margin: 0 0 0.5rem 0;
+}
+
+.help-card p {
+    font-size: 0.9rem;
+    color: #a1a1aa;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.help-cta {
+    margin-top: 0.5rem !important;
+    font-weight: 600;
+    color: #ef4444 !important;
+}
+
+/* --- Dr. Meow Speech Bubble --- */
+.meow-note-section {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+}
+
+.speech-bubble-card {
+    position: relative;
+    background: linear-gradient(135deg, #27272a 0%, #18181b 100%);
+    border: 1px solid #3f3f46;
+    border-radius: 16px;
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    max-width: 650px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.bubble-avatar {
+    font-size: 2.25rem;
+    background-color: #09090b;
+    border: 1px solid #3f3f46;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.bubble-message {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #f4f4f5;
+    margin: 0;
+    font-style: italic;
+}
+
+/* --- Footer --- */
+.ideas-footer {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #27272a;
+}
+
+.ideas-footer p {
+    font-size: 0.875rem;
+    color: #71717a;
+    margin: 0;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+    .ideas-hero .hero-title {
+        font-size: 2rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .help-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .speech-bubble-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
 }
