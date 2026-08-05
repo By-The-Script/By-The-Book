@@ -46,6 +46,7 @@ export function bindShellNavigation(container = document, nav) {
         element.addEventListener('click', (e) => {
              e.preventDefault();
             e.stopPropagation();
+            console.log("Clicked:", element.dataset.page);
             navigateTo(element.dataset.page);
         });
     });
