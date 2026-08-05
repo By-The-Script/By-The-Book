@@ -32,32 +32,25 @@ export function initWaitlistPage() {
         submitBtn.innerHTML = "Submitting...";
 
         try {
-            // Check if this email is already on the waitlist
-            const waitlistRef = collection(db, "waitlist");
-            const emailQuery = query(
-                waitlistRef,
-                where("email", "==", email)
-            );
-            const existingUser = await getDocs(emailQuery);
-            if (!existingUser.empty) {
+            const snapshot = await db
+            .collection("waitlist")
+            .where("email", "==", email)
+            .get();
+
+            if (!snapshot.empty) {
                 showFeedback(
                     "😺 Dr. Meow already has your email! You're already on the waitlist.",
                     "success"
-                 );
-
-                submitBtn.disabled = false;
-                submitBtn.innerHTML =
-                    '<span class="btn-icon">🚀</span> Join the Waitlist';
-
+                );
                 return;
             }
-            await addDoc(collection(db, "waitlist"), {
+            await db.collection("waitlist").add({
                 email,
                 name: name || "",
                 phone: phone || "",
                 source: "Dr. Meow's Lab",
                 status: "waiting",
-                createdAt: serverTimestamp()
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
             });
 
             waitlistForm.reset();
