@@ -122,15 +122,16 @@ export async function navigateTo(path) {
 
         const content = await response.text();
         const container = document.getElementById('load-page');
-        if (container) container.innerHTML = content;
-        bindShellNavigation(container);
+        if (container) {
+            container.innerHTML = content;
+        }
 
         if (window.location.hash !== `#${targetPath}`) {
             window.location.hash = `#${targetPath}`;
         }
-
         topNavUpdater(fileName);
         await pageLoader(fileName);
+        bindShellNavigation(document);
     } catch (error) {
         console.error('Meow! Routing error:', error);
     }
