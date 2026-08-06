@@ -1,3 +1,5 @@
+import { bindShellNavigation } from './app.js';
+
 let currentPage = '';
 let pageLoader = async () => {};
 let topNavUpdater = () => {};
@@ -121,6 +123,7 @@ export async function navigateTo(path) {
         const content = await response.text();
         const container = document.getElementById('load-page');
         if (container) container.innerHTML = content;
+        bindShellNavigation(container);
 
         if (window.location.hash !== `#${targetPath}`) {
             window.location.hash = `#${targetPath}`;
