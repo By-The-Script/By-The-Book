@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="styles/Versions-style.css">
     <link rel="stylesheet" href="styles/waitlist-style.css">
     <link rel="stylesheet" href="styles/Ideas-style.css">
+    <link rel="stylesheet" href="styles/Vision-style.css">
     <title>By The Book</title>
     <meta name="description" content="Discover your next favorite story with Dr. Meow! Join By The Book for daily recommendations, a gamified reading experience, and the chance to earn 'Mice' for free books.">
     <meta name="keywords" content="books, book recommendations, Dr. Meow, Percy Jackson, reading community, earn books, book tracker">
@@ -164,7 +165,7 @@
         </div>
         <div class="side-item" data-page="settings">
           <i class="fa-solid fa-gear"></i>
-          <a onclick="navigateTo('settings')"><span>Settings</span></a>
+          <a><span>Settings</span></a>
         </div>
       </aside>
 
@@ -174,9 +175,9 @@
     <div class="footer">
       <div class="col-f" style="flex: 1 1 250px;">
         <strong>Quick Links</strong><br><br>
-        <a href="#terms" onclick="navigateTo('terms')">Terms of Service</a><br>
-        <a href="#privacy" onclick="navigateTo('privacy')">Privacy Policy</a><br>
-        <a href="#register" onclick="navigateTo('register')">Create an Account</a>
+        <a href="#terms" data-page="terms">Terms of Service</a><br>
+        <a href="#privacy" data-page="privacy">Privacy Policy</a><br>
+        <a href="#register" data-page="register">Create an Account</a>
       </div>
       <div class="col-f" style="flex: 1 1 250px;">
         <strong>Follow Dr. Meow</strong><br><br>
@@ -185,8 +186,8 @@
       </div>
       <div class="col-f" style="flex: 1 1 250px;">
         <strong>Our Network</strong><br><br>
-        <a href="#news" onclick="navigateTo('news')">News & Updates</a><br>
-        <a href="#community" onclick="navigateTo('community')">Community</a>
+        <a href="#news" data-page="news">News & Updates</a><br>
+        <a href="#community" data-page="community">Community</a>
       </div>
       <div style="text-align: center; width: 100%; margin-top: 10px; border-top: 1px solid #333; padding-top: 20px;">
         <hr color="#2c2c2c" width="90%">

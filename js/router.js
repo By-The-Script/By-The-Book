@@ -75,7 +75,7 @@ export const navbars = {
         <div class="top-nav">
             <a href="#" data-page="Ideas">Ideas</a>
             <a href="#" data-page="Waitlist">Waitlist</a>
-            <a href="#" data-page="Visions">Vision</a>
+            <a href="#" data-page="Vision">Vision</a>
             <a href="#" data-page="Versions">Versions</a>
         </div>
     `
