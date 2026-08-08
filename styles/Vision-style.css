@@ -1,618 +1,469 @@
 /* ==========================================================================
-   By The Book - Vision Page Styling
-   Visual Style: Dr. Meow Lab Aesthetic (Dark Cards, Rounded, Startup Vibe)
+   Vision Page - By The Book
    ========================================================================== */
 
-/* Main Wrapper Scope */
+/* Main Container Scope */
 .site-info.vision-page {
-    color: #e2e8f0;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 2rem 1.5rem 5rem 1.5rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 2.5rem 1.5rem;
+    color: #2d3748;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
+    box-sizing: border-box;
 }
 
-/* --------------------------------------------------------------------------
-   Common Components & UI Elements
-   -------------------------------------------------------------------------- */
-.vision-page .section-badge {
+/* Universal box-sizing reset within vision page */
+.site-info.vision-page * {
+    box-sizing: border-box;
+}
+
+/* Status Badges */
+.vision-badge {
     display: inline-block;
-    padding: 0.35rem 0.85rem;
-    background-color: rgba(99, 102, 241, 0.15);
-    color: #818cf8;
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: 9999px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-}
-
-.vision-page .section-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 3rem auto;
-}
-
-.vision-page .section-title {
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-}
-
-.vision-page .section-subtitle {
-    font-size: 1.125rem;
-    color: #94a3b8;
-}
-
-.vision-page .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.85rem 1.75rem;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    cursor: pointer;
-}
-
-.vision-page .btn-primary {
-    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
-}
-
-.vision-page .btn-primary:hover {
-    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
-}
-
-.vision-page .btn-secondary {
-    background-color: #1e293b;
-    color: #f1f5f9;
-    border: 1px solid #334155;
-}
-
-.vision-page .btn-secondary:hover {
-    background-color: #334155;
-    border-color: #475569;
-    transform: translateY(-2px);
-}
-
-.vision-page .btn-large {
-    padding: 1rem 2.25rem;
-    font-size: 1.1rem;
-}
-
-/* --------------------------------------------------------------------------
-   Hero Section
-   -------------------------------------------------------------------------- */
-.vision-page .vision-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    padding: 3rem;
-    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.12), transparent 50%),
-                #0f172a;
-    border: 1px solid #1e293b;
-    border-radius: 24px;
-    margin-bottom: 5rem;
-}
-
-.vision-page .hero-title {
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 1.15;
-    color: #ffffff;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.25rem;
-}
-
-.vision-page .hero-subtitle {
-    font-size: 1.2rem;
-    color: #94a3b8;
-    margin-bottom: 2rem;
-}
-
-.vision-page .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.vision-page .hero-image {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-    border: 1px solid #334155;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    object-fit: cover;
-}
-
-/* --------------------------------------------------------------------------
-   General Section Layouts
-   -------------------------------------------------------------------------- */
-.vision-page .vision-section {
-    margin-bottom: 6rem;
-}
-
-.vision-page .section-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3.5rem;
-    align-items: center;
-}
-
-.vision-page .section-container.media-left .section-media {
-    order: 1;
-}
-
-.vision-page .section-container.media-left .section-text {
-    order: 2;
-}
-
-.vision-page .section-container.media-right .section-text {
-    order: 1;
-}
-
-.vision-page .section-container.media-right .section-media {
-    order: 2;
-}
-
-.vision-page .section-description {
-    font-size: 1.1rem;
-    color: #94a3b8;
-    margin-bottom: 1.25rem;
-}
-
-.vision-page .vision-card-image,
-.vision-page .meow-illustration {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    border: 1px solid #1e293b;
-    background-color: #0f172a;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* --------------------------------------------------------------------------
-   Section 2 — The Future Bookshelf
-   -------------------------------------------------------------------------- */
-.vision-page .bookshelf-concept-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-}
-
-.vision-page .concept-image-wrapper {
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid #1e293b;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-}
-
-.vision-page .concept-main-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.vision-page .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-}
-
-.vision-page .feature-card {
-    background-color: #0f172a;
-    border: 1px solid #1e293b;
-    border-radius: 16px;
-    padding: 1.75rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.vision-page .feature-card:hover {
-    transform: translateY(-4px);
-    border-color: #334155;
-}
-
-.vision-page .feature-icon-box {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.vision-page .feature-card h3 {
-    font-size: 1.25rem;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-}
-
-.vision-page .feature-card p {
-    font-size: 0.95rem;
-    color: #94a3b8;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-}
-
-.vision-page .status-pill {
-    align-self: flex-start;
-    padding: 0.25rem 0.65rem;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.vision-page .status-live {
-    background-color: rgba(16, 185, 129, 0.15);
-    color: #34d399;
-    border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-.vision-page .status-planned {
-    background-color: rgba(148, 163, 184, 0.15);
-    color: #cbd5e1;
-    border: 1px solid rgba(148, 163, 184, 0.3);
-}
-
-/* --------------------------------------------------------------------------
-   Section 3 — Dr. Meow
-   -------------------------------------------------------------------------- */
-.vision-page .meow-abilities-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0 0 0;
-}
-
-.vision-page .ability-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1.25rem;
-    background-color: #0f172a;
-    border: 1px solid #1e293b;
-    padding: 1rem 1.25rem;
-    border-radius: 12px;
-}
-
-.vision-page .bullet-icon {
-    font-size: 1.25rem;
-    line-height: 1;
-}
-
-.vision-page .ability-item strong {
-    color: #ffffff;
-}
-
-/* --------------------------------------------------------------------------
-   Section 4 — Reading Together
-   -------------------------------------------------------------------------- */
-.vision-page .community-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-    margin-bottom: 2.5rem;
-}
-
-.vision-page .community-card {
-    background-color: #0f172a;
-    border: 1px solid #1e293b;
-    border-radius: 16px;
-    padding: 1.5rem;
-}
-
-.vision-page .community-card h3 {
-    font-size: 1.1rem;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-}
-
-.vision-page .community-card p {
-    font-size: 0.9rem;
-    color: #94a3b8;
-}
-
-.vision-page .community-banner {
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid #1e293b;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.vision-page .community-banner-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* --------------------------------------------------------------------------
-   Section 5 — Development Roadmap
-   -------------------------------------------------------------------------- */
-.vision-page .roadmap-track {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-    position: relative;
-    margin-bottom: 3rem;
-}
-
-.vision-page .roadmap-step {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
-.vision-page .roadmap-marker {
-    height: 4px;
-    width: 100%;
-    background-color: #1e293b;
-    margin-bottom: 1.5rem;
-    border-radius: 2px;
-    position: relative;
-}
-
-.vision-page .roadmap-step.step-completed .roadmap-marker {
-    background-color: #10b981;
-}
-
-.vision-page .roadmap-step.step-in-progress .roadmap-marker {
-    background-color: #6366f1;
-}
-
-.vision-page .roadmap-card {
-    background-color: #0f172a;
-    border: 1px solid #1e293b;
-    border-radius: 14px;
-    padding: 1.25rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.vision-page .roadmap-badge {
-    align-self: flex-start;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    margin-bottom: 0.75rem;
-}
-
-.vision-page .badge-completed {
-    background-color: rgba(16, 185, 129, 0.2);
-    color: #34d399;
-}
-
-.vision-page .badge-in-progress {
-    background-color: rgba(99, 102, 241, 0.2);
-    color: #818cf8;
-}
-
-.vision-page .badge-planned {
-    background-color: rgba(148, 163, 184, 0.2);
-    color: #94a3b8;
-}
-
-.vision-page .roadmap-stage {
-    font-size: 1.1rem;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-}
-
-.vision-page .roadmap-desc {
-    font-size: 0.85rem;
-    color: #94a3b8;
-}
-
-.vision-page .roadmap-image-wrapper {
-    width: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #1e293b;
-}
-
-.vision-page .roadmap-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* --------------------------------------------------------------------------
-   Section 6 — A Small Look Beyond
-   -------------------------------------------------------------------------- */
-.vision-page .beyond-section {
-    display: flex;
-    justify-content: center;
-}
-
-.vision-page .beyond-card {
-    background: linear-gradient(180deg, #0f172a 0%, #161e2e 100%);
-    border: 1px solid #1e293b;
-    border-radius: 20px;
-    padding: 2.5rem;
-    max-width: 800px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.vision-page .beyond-badge {
-    display: inline-block;
-    color: #f59e0b;
-    background-color: rgba(245, 158, 11, 0.1);
-    border: 1px solid rgba(245, 158, 11, 0.25);
     padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
 }
 
-.vision-page .beyond-title {
-    font-size: 1.75rem;
-    color: #ffffff;
-    margin-bottom: 1rem;
+.status-prealpha {
+    background-color: #fee2e2;
+    color: #991b1b;
 }
 
-.vision-page .beyond-text {
-    color: #94a3b8;
-    font-size: 1.05rem;
-    margin-bottom: 1.75rem;
+.status-available {
+    background-color: #d1fae5;
+    color: #065f46;
 }
 
-.vision-page .beyond-focus-pill {
-    display: inline-block;
-    background-color: #1e293b;
-    color: #38bdf8;
-    padding: 0.75rem 1.25rem;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    border: 1px solid #334155;
+.status-development {
+    background-color: #dbeafe;
+    color: #1e40af;
 }
 
-/* --------------------------------------------------------------------------
-   Final Section — CTA
-   -------------------------------------------------------------------------- */
-.vision-page .final-cta-section {
-    margin-bottom: 0;
+.status-planned {
+    background-color: #fef3c7;
+    color: #92400e;
 }
 
-.vision-page .cta-card {
-    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15), transparent 70%),
-                #0f172a;
-    border: 1px solid #334155;
-    border-radius: 24px;
-    padding: 4rem 2rem;
+.status-vision {
+    background-color: #f3e8ff;
+    color: #6b21a8;
+}
+
+/* Hero Section */
+.vision-hero {
     text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    padding: 3rem 1rem 4rem 1rem;
+    background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+    border-radius: 24px;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
 }
 
-.vision-page .cta-title {
-    font-size: 2.5rem;
+.vision-title {
+    font-size: clamp(2rem, 5vw, 3.25rem);
     font-weight: 800;
-    color: #ffffff;
+    color: #0f172a;
+    line-height: 1.15;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.vision-subtitle {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: #475569;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* Section Commons */
+.vision-section {
+    margin-bottom: 4rem;
+}
+
+.section-header {
+    margin-bottom: 2rem;
+}
+
+.section-header.center {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 0.5rem 0;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.section-lead {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 0.75rem;
+}
+
+.section-text {
+    font-size: 1.05rem;
+    color: #334155;
+    margin: 0 0 1rem 0;
+}
+
+.section-text.max-width-600 {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grids & Layouts */
+.section-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .grid-2-col {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-2-col.reverse {
+        direction: rtl;
+    }
+
+    .grid-2-col.reverse > * {
+        direction: ltr;
+    }
+}
+
+.vision-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+}
+
+.feature-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.bullet-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.bullet-icon {
+    font-size: 1.5rem;
+    background: #f1f5f9;
+    padding: 0.5rem;
+    border-radius: 12px;
+    line-height: 1;
+}
+
+.vision-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0 0 0;
+}
+
+.vision-list li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #334155;
+}
+
+.vision-list li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: #3b82f6;
+}
+
+/* Dr. Meow Section */
+.dr-meow-section {
+    background: linear-gradient(180deg, #fffbf0 0%, #fff7ed 100%);
+    border: 2px solid #fde68a;
+    border-radius: 24px;
+    padding: 2.5rem 1.5rem;
+    box-shadow: 0 12px 32px -8px rgba(217, 119, 6, 0.08);
+}
+
+.dr-meow-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.dr-meow-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 900px) {
+    .dr-meow-layout {
+        grid-template-columns: 320px 1fr;
+    }
+}
+
+.dr-meow-hero-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dr-meow-image {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    border-radius: 16px;
     margin-bottom: 1rem;
 }
 
-.vision-page .cta-text {
-    font-size: 1.15rem;
-    color: #94a3b8;
-    max-width: 650px;
-    margin: 0 auto 2.5rem auto;
-}
-
-.vision-page .meow-quote {
-    margin: 0 auto 2.5rem auto;
-    padding: 1.5rem 2rem;
-    background-color: rgba(15, 23, 42, 0.6);
-    border-left: 4px solid #6366f1;
-    border-radius: 0 12px 12px 0;
-    max-width: 600px;
-    text-align: left;
-}
-
-.vision-page .meow-quote p {
-    font-size: 1.2rem;
+.dr-meow-quote {
     font-style: italic;
-    color: #f1f5f9;
+    font-weight: 600;
+    color: #b45309;
+    font-size: 0.95rem;
+    background: #fef3c7;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+}
+
+.dr-meow-capabilities-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 600px) {
+    .dr-meow-capabilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.capability-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid #fed7aa;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.capability-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(245, 158, 11, 0.12);
+}
+
+.capability-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     margin-bottom: 0.5rem;
 }
 
-.vision-page .meow-quote cite {
-    display: block;
-    font-size: 0.9rem;
-    color: #818cf8;
-    font-style: normal;
-    font-weight: 600;
+.capability-icon {
+    font-size: 1.25rem;
 }
 
-.vision-page .cta-actions {
+.capability-card h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #78350f;
+    font-weight: 700;
+}
+
+.capability-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #57534e;
+    line-height: 1.45;
+}
+
+/* Roadmap Section */
+.roadmap-timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .roadmap-timeline {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .roadmap-timeline {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.timeline-item {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid #e2e8f0;
+}
+
+.timeline-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+}
+
+.timeline-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: #0f172a;
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.timeline-image-wrapper {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.roadmap-img {
+    max-height: 380px;
+    width: auto;
+    margin: 0 auto;
+}
+
+/* Video Section */
+.video-section {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 3rem 1.5rem;
+    border-radius: 24px;
+}
+
+.video-section .section-title {
+    color: #ffffff;
+}
+
+.video-section .section-subtitle {
+    color: #94a3b8;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 2rem auto 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    background: #000000;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Call To Action Section */
+.cta-section {
+    margin-bottom: 1rem;
+}
+
+.cta-card {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #ffffff;
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.25);
+}
+
+.cta-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+}
+
+.cta-text {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+}
+
+.cta-actions {
     display: flex;
+    gap: 1rem;
     justify-content: center;
-    gap: 1.25rem;
     flex-wrap: wrap;
 }
 
-/* --------------------------------------------------------------------------
-   Responsive Design (Media Queries)
-   -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-    .vision-page .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .vision-page .community-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .vision-page .roadmap-track {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    .vision-page .roadmap-marker {
-        height: 100%;
-        width: 4px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        margin-bottom: 0;
-    }
-    .vision-page .roadmap-step {
-        padding-left: 1.5rem;
-    }
+.cta-button {
+    padding: 0.85rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-@media (max-width: 768px) {
-    .vision-page .vision-hero {
-        grid-template-columns: 1fr;
-        padding: 2rem 1.5rem;
-        gap: 2rem;
-    }
+.cta-button:hover {
+    transform: translateY(-2px);
+}
 
-    .vision-page .hero-title {
-        font-size: 2.25rem;
-    }
+.cta-button.primary {
+    background-color: #3b82f6;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+}
 
-    .vision-page .section-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+.cta-button.primary:hover {
+    background-color: #2563eb;
+}
 
-    .vision-page .section-container.media-left .section-media,
-    .vision-page .section-container.media-right .section-media {
-        order: 2;
-    }
+.cta-button.secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
-    .vision-page .section-container.media-left .section-text,
-    .vision-page .section-container.media-right .section-text {
-        order: 1;
-    }
+.cta-button.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
 
-    .vision-page .feature-grid,
-    .vision-page .community-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .vision-page .cta-card {
-        padding: 2.5rem 1.5rem;
-    }
-
-    .vision-page .cta-title {
-        font-size: 1.85rem;
-    }
+/* Utility Helpers */
+.center {
+    text-align: center;
 }
