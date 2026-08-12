@@ -424,6 +424,12 @@
     overflow: hidden;
     border: 1px solid #1e293b;
 }
+.roadmap-image-wrapper video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
 
 .vision-page .roadmap-image {
     width: 100%;
